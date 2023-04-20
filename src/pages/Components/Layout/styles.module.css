@@ -1,0 +1,30 @@
+.label{
+    font-size:14px;
+    color:rgb(6, 124, 51);
+}
+.input{
+    width:200px;
+    padding:6px;
+    color:gray;
+    outline: none;
+    border:1px solid gray;
+    border-radius: 4px;
+}
+.form{
+    padding:10px;
+    display: flex;
+    align-items: flex-end;
+    gap:10px;
+    flex-wrap: wrap;
+}
+.submit{
+    border:0;
+    padding:10px;
+    border-bottom:4px;
+    margin-left:10px;
+    font-weight: 400;
+    background-color: rgb(154, 149, 255);
+    color:white;
+    border-radius: 3px;
+    cursor: pointer;
+}

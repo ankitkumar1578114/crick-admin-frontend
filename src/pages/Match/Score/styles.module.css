@@ -1,0 +1,10 @@
+.balls{
+    display: flex;
+    gap:4px;
+}
+.balls >* {
+    background-color: rgb(250, 219, 219);
+    padding:10px 12px;
+    font-size: 10px;
+    border-radius: 50%;
+}
