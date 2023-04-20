@@ -9,7 +9,6 @@ const playerControls = () => {
     {
       label: 'DOB',
       type: 'date',
-      value: '',
       key: 'dob'
     },
     {

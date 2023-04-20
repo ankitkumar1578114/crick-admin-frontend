@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-const useGetScore = (id) => {
+const useGetScore = ({ matchId, team1, team2 }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
-  const getScore = async (data) => {
-    const res = await axios.get('http://localhost:4000/match/score?id=' + id, data)
+  const getScore = async () => {
+    console.log({ matchId, team1, team2 })
+    const res = await axios.post('http://localhost:4000/match/score', { matchId, team1, team2 })
     return res
   }
 
@@ -13,8 +14,10 @@ const useGetScore = (id) => {
   }
 
   useEffect(() => {
-    getScoreData()
-  }, [])
+    if (team1 && team2 && matchId) {
+      getScoreData()
+    }
+  }, [team1, team2, matchId])
   return {
     loading,
     score: data?.data,

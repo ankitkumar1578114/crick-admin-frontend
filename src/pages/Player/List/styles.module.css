@@ -1,0 +1,15 @@
+.list{
+    width:50%;   
+}
+.item{
+    display: flex;
+    background-color: rgb(253, 231, 231);
+    margin:1px 0;
+    padding:10px;
+    cursor:pointer;
+    text-decoration: none;
+    color:rgb(86, 1, 129)
+}
+.item  >*{
+    width:300px;
+}

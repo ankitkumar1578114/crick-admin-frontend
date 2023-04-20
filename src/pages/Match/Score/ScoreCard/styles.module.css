@@ -1,0 +1,35 @@
+.score_card{
+    width:320px;
+    background-color: rgb(126, 98, 240);
+    padding:20px;
+    color:white;
+    border-radius: 4px;
+}
+.team_name{
+    font-size:20px;
+}
+.player_list{
+background-color: rgb(218, 214, 255);
+color:rgb(31, 25, 25);
+font-size:12px;
+margin-top: 10px;
+border-radius: 2px;
+}
+.player_list_row,.player_list_row_striker{
+    padding:4px;
+    display: flex;
+}
+
+.player_list_row >*,.player_list_row_striker >*{
+    width:200px;
+}
+.player_list_row >:first-child,.player_list_row_striker>:first-child{
+    width:500px;
+}
+.player_list_row_striker{
+    background-color: rgb(197, 157, 250);
+}
+.run_over{
+    display: flex;
+    justify-content: space-between;
+}

@@ -13,7 +13,8 @@ const useGetPlayers = () => {
   }, [])
   return {
     loading,
-    options: data?.data
+    options: data?.data,
+    data: data?.data
   }
 }
 export default useGetPlayers

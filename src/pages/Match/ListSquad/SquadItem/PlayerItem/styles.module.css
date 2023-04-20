@@ -1,0 +1,13 @@
+.selected,.not_selected{
+    padding:10px;
+    background-color: rgba(0, 255, 98, 0.377);
+    color:rgb(63, 22, 22);
+    cursor: pointer;
+    border-radius: 2px;
+    margin:2px 0;
+}
+.not_selected{
+    background-color: rgba(255, 0, 0, 0.468);
+    color:white;
+
+}
