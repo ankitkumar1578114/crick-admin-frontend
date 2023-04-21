@@ -5,7 +5,7 @@ const useGetScore = ({ matchId, team1, team2 }) => {
   const [data, setData] = useState([])
   const getScore = async () => {
     console.log({ matchId, team1, team2 })
-    const res = await axios.post('http://localhost:4000/match/score', { matchId, team1, team2 })
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'match/score', { matchId, team1, team2 })
     return res
   }
 

@@ -5,6 +5,7 @@
     cursor: pointer;
     border-radius: 2px;
     margin:2px 0;
+    font-size:12px;
 }
 .not_selected{
     background-color: rgba(255, 0, 0, 0.468);

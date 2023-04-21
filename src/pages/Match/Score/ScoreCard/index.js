@@ -1,12 +1,13 @@
+import Pill from '../../../Components/Pill'
 import style from './styles.module.css'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
-  index, setBattingTeam, battingTeam
+  index, battingTeam
 }) => {
   return (<>
-            <div className={style.score_card} onClick={() => setBattingTeam(index)}>
+            <div className={style.score_card} >
                 <div className={style.team_name}>
-                {team?.name}
+                {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
                 </div>
                 <div className={style.run_over}>
                     <div>
@@ -53,7 +54,43 @@ const ScoreCard = ({
                     ))
                     }
                 </div>
-                {index === battingTeam && (<>...</>)}
+
+                <div className={style.player_list}>
+                <div className={style.player_list_row}>
+                            <div>Bowler</div>
+                            <div>Over</div>
+                            <div>Wickets</div>
+                            <div>Runs</div>
+
+                </div>
+                    {
+                    (Object.keys(team?.bowling_players || {}) || []).map((player) => (
+                        <>
+                        <div className={
+                            parseInt(batsmanOnStrike) === parseInt(player)
+                              ? style.player_list_row_striker
+                              : style.player_list_row}>
+                            <div>
+                                { team?.bowling_players[player].name}
+                                {parseInt(player) === parseInt(batsmanOnStrike) && (<>*</>)}
+                            </div>
+                            <div>
+                                { parseInt(team?.bowling_players[player].balls / 6)}.
+                                { parseInt(team?.bowling_players[player].balls % 6)}
+                            </div>
+                            <div>
+                                { team?.bowling_players[player].wickets}
+                            </div>
+                            <div>
+                                { team?.bowling_players[player].runs}
+                            </div>
+
+                        </div>
+                        </>
+                    ))
+                    }
+                </div>
+                 <Pill content={`Extra : ${team?.extra}`} color="gray" textColor="black"/>
 
             </div>
 

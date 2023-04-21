@@ -1,3 +1,10 @@
 .flex{
     display: flex;
 }
+.dashboard{
+    display:flex
+} 
+.dashboard >*{
+    width:50%;
+    margin: 30px;
+}

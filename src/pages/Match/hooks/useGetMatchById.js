@@ -4,7 +4,7 @@ const useGetMatchById = (id) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getMatch = async (id) => {
-    const res = await axios.get('http://localhost:4000/match?id=' + id, data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'match?id=' + id, data)
     return res
   }
   const getMatchById = () => {
