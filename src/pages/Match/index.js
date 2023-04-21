@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import style from './styles.module.css'
 import Layout from '../Components/Layout'
 import useGetMatchById from './hooks/useGetMatchById'
 import useGetScore from './hooks/useGetScore'
@@ -11,11 +12,10 @@ import { useParams } from 'react-router-dom'
 import ListSquad from './ListSquad'
 
 const MatchPage = () => {
-  const [battingTeam, setBattingTeam] = useState(1)
-
   const { id: matchId } = useParams()
   const { loading, data, getMatchById } = useGetMatchById(matchId)
   const { loading: loadingScore, score, getScoreData } = useGetScore({ matchId, team1: data?.team1?.id, team2: data?.team2?.id })
+  const [battingTeam, setBattingTeam] = useState(data?.current_inning)
 
   const { insertBall } = useInsertBall({
     matchLoading: loading,
@@ -30,29 +30,36 @@ const MatchPage = () => {
     legalBalls: battingTeam === 1 ? score?.team1?.legalBalls : score?.team2?.legalBalls,
     battingTeam
   })
+
+  useEffect(() => {
+    setBattingTeam(data?.current_inning)
+  }, [data])
+
   const controls = control()
   const { register, handleSubmit } = useForm()
+
   return (
         <>
         {score?.ball_of_the_match}
-        <h3>Match</h3>
-        <h4>
-         {data?.name}
-        </h4>
-        <h2>Squads</h2>
-        <Score score={score}
-            loadingScore={loadingScore}
-            squad1={data?.squad1}
-            squad2={data?.squad2}
-            setBattingTeam={setBattingTeam}
-            battingTeam={battingTeam}
-            getMatchById={getMatchById}
-            matchId={matchId}/>
-        <Layout register={register} handleSubmit={handleSubmit} onSubmit={insertBall} controls={controls}/>
-
-        <ListSquad squad1={data?.squad1} squad2={data?.squad2}
-        matchId={matchId} getMatchById={getMatchById}
-        isSquadFinal={data?.is_squads_final}/>
+        <div className={style.dashboard}>
+          <div>
+          <Score score={score}
+              loadingScore={loadingScore}
+              squad1={data?.squad1}
+              squad2={data?.squad2}
+              battingTeam={battingTeam}
+              getMatchById={getMatchById}
+              matchId={matchId}
+              matchData={data}
+              />
+          <Layout register={register} handleSubmit={handleSubmit} onSubmit={insertBall} controls={controls}/>
+          </div>
+          <div>
+          <ListSquad squad1={data?.squad1} squad2={data?.squad2}
+          matchId={matchId} getMatchById={getMatchById}
+          isSquadFinal={data?.is_squads_final}/>
+          </div>
+        </div>
 
         </>
   )

@@ -9,6 +9,10 @@ const useInsertBall = ({
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const insertBall = async (result) => {
+    if (battingTeam === 0) {
+      alert('Match has not started yet')
+      return
+    }
     if (batPlayerId && batsmanOnNonStrike && ballPlayerId) {
       const payload = {
         matchId: matchData?.id,

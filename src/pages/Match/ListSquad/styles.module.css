@@ -1,13 +1,13 @@
 .squads{
     background-color: rgb(252, 229, 229);
     display: flex;
-    width:50%;
+    width:100%;
     padding:10px;
     border-radius:4px;
     gap:10px;
 }
 .squads >*{
-    width:50%;
+    width:100%;
 }
 .button{
     background-color: green;

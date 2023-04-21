@@ -1,12 +1,13 @@
+import Pill from '../../../Components/Pill'
 import style from './styles.module.css'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
-  index, setBattingTeam, battingTeam
+  index, battingTeam
 }) => {
   return (<>
-            <div className={style.score_card} onClick={() => setBattingTeam(index)}>
+            <div className={style.score_card} >
                 <div className={style.team_name}>
-                {team?.name}
+                {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
                 </div>
                 <div className={style.run_over}>
                     <div>
@@ -89,7 +90,7 @@ const ScoreCard = ({
                     ))
                     }
                 </div>
-                 {(index === battingTeam) && (<>*</>)}
+                 <Pill content={`Extra : ${team?.extra}`} color="gray" textColor="black"/>
 
             </div>
 

@@ -1,11 +1,15 @@
 import axios from 'axios'
 import { useState } from 'react'
-const useUpdateStrike = ({ squadId, getMatchById, matchId }) => {
+const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
   const updateStrike = async (values) => {
     console.log(values)
+    if ([0, 3].includes(battingTeam)) {
+      alert('Match has not started yet.')
+      return
+    }
     if (values.batsmanOnStrike && values.batsmanOnNonStrike && values.bowler && (values.batsmanOnStrike !== values.batsmanOnNonStrike)) {
       const payload =
         {
