@@ -4,7 +4,7 @@ const useMarkFinalSquads = ({ matchId, getMatchById }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const markSquads = async (data) => {
-    const res = await axios.put('http://localhost:4000/match/update/mark_final_squads', { matchId })
+    const res = await axios.put(process.env.REACT_APP_BACKEND + 'match/update/mark_final_squads', { matchId })
     return res
   }
 

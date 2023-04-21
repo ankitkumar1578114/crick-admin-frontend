@@ -40,10 +40,19 @@ const MatchPage = () => {
          {data?.name}
         </h4>
         <h2>Squads</h2>
-        <Score score={score} loadingScore={loadingScore} squad1={data?.squad1} squad2={data?.squad2} setBattingTeam={setBattingTeam} battingTeam={battingTeam}/>
+        <Score score={score}
+            loadingScore={loadingScore}
+            squad1={data?.squad1}
+            squad2={data?.squad2}
+            setBattingTeam={setBattingTeam}
+            battingTeam={battingTeam}
+            getMatchById={getMatchById}
+            matchId={matchId}/>
         <Layout register={register} handleSubmit={handleSubmit} onSubmit={insertBall} controls={controls}/>
 
-        <ListSquad squad1={data?.squad1} squad2={data?.squad2} matchId={matchId} getMatchById={getMatchById} isSquadFinal={data?.is_squads_final}/>
+        <ListSquad squad1={data?.squad1} squad2={data?.squad2}
+        matchId={matchId} getMatchById={getMatchById}
+        isSquadFinal={data?.is_squads_final}/>
 
         </>
   )

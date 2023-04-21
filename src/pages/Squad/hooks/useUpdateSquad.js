@@ -10,7 +10,7 @@ const useUpdateSquad = ({ squadId, getMatchById, matchId }) => {
       squadId,
       ...data
     }
-    const res = await axios.post('http://localhost:4000/squad/select-player', payload)
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'squad/select-player', payload)
     return res
   }
 

@@ -2,7 +2,7 @@ import axios from 'axios'
 const useCreateMatch = ({ getMatches }) => {
   let res
   const createMatch = async (data) => {
-    res = await axios.post('http://localhost:4000/match/create', data)
+    res = await axios.post(process.env.REACT_APP_BACKEND + 'match/create', data)
     getMatches()
   }
 

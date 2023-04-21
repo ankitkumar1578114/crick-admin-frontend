@@ -4,7 +4,7 @@ const useGetPlayerBySquadId = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getPlayerBySquadId = async (id) => {
-    const res = await axios.get('http://localhost:4000/squad/list-player?id=' + id, data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'list-player?id=' + id, data)
     return res
   }
   const getPlayers = (id) => {

@@ -4,7 +4,7 @@ const useGetMatches = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getMatchList = async (data) => {
-    const res = await axios.get('http://localhost:4000/match/list', data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'match/list', data)
     return res
   }
   const getMatches = () => {

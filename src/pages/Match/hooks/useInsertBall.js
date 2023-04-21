@@ -23,12 +23,14 @@ const useInsertBall = ({
         legalBalls: legalBalls + 1
       }
 
-      const res = await axios.post('http://localhost:4000/ball/create', payload)
+      const res = await axios.post(process.env.REACT_APP_BACKEND + 'ball/create', payload)
       setLoading(false)
       setData(res)
       getScoreData()
       getMatchById(matchData?.id)
       return res
+    } else {
+      alert('Insert Batsmans and Bowlers')
     }
   }
 

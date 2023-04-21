@@ -1,26 +1,28 @@
 const AddPlayerControls = ({ playerOptions1, playerOptions2, squad }) => {
-  // console.log(squad, squad?.batsman_on_strike, playerOptions1, 'squad')
   const controls = [
     {
       label: 'Strike',
       type: 'player-select',
-      value: squad?.batsman_on_strike,
+      value: null,
       key: 'batsmanOnStrike',
-      options: playerOptions1
+      options: playerOptions1,
+      disabled: squad?.batsman_on_strike
     },
     {
       label: 'Non Strike',
       type: 'player-select',
-      value: squad?.batsman_on_non_strike,
+      value: null,
       key: 'batsmanOnNonStrike',
-      options: playerOptions1
+      options: playerOptions1,
+      disabled: squad?.batsman_on_non_strike
     },
     {
       label: 'Bowler',
       type: 'player-select',
-      value: squad?.bowler,
+      value: null,
       key: 'bowler',
-      options: playerOptions2
+      options: playerOptions2,
+      disabled: squad?.bowler
     }
 
   ]
