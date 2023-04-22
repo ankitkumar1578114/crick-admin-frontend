@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../Button'
 import Input from '../Input'
 import PlayerSelect from '../PlayerSelect'
 import TeamSelect from '../TeamSelect'
@@ -28,7 +29,6 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
   )
 
   return (<>
-     <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.form}>
         {
           controls.map((control) => {
@@ -42,10 +42,9 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
           })
         }
         <div>
-          <input type="submit" value="Add" className={style.submit}/>
+          <Button type="submit" onClick={handleSubmit(onSubmit)} value="Submit"/>
         </div>
         </div>
-    </form>
     </>)
 }
 

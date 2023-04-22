@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+import IconSuccss from '../../../../Components/Icons/IconSuccess'
+import IconFailed from '../../../../Components/Icons/IconFailed'
+
 import useUpdateSquad from '../../../../Squad/hooks/useUpdateSquad'
 import style from './styles.module.css'
 
@@ -12,8 +15,12 @@ const PlayerItem = ({ player, squadId, getMatchById, matchId, index, isSquadFina
     setChecked(player?.selected)
   }, [player])
   return (<>
-    <div className={checked ? style.selected : style.not_selected} onClick={() => changeSelection()}>
-          {index}. &nbsp;
+    <div className={style.item} onClick={() => changeSelection()}>
+            {
+              checked
+                ? <IconSuccss />
+                : <IconFailed />
+            }
            {player.name} &nbsp;
            {player.is_captain === 1 && (<>(Captain)</>)}
     </div>

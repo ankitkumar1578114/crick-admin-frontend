@@ -31,7 +31,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
           battingTeam === 0 && (<div className={style.flex}>
               <Pill content="Not started yet" color="red" />
               <div>
-                <Pill content ="First Batting" color="transparent" textColor="black"/>
+                <Pill content ="First Batting" color="transparent" textColor="white"/>
                 <select className={style.select} onChange={(e) => setFirstBatting(e.target.value)}>
                   <option value={-1}>{matchData?.team1?.name}</option>
                   <option value={1}>{matchData?.team2?.name}</option>

@@ -3,12 +3,12 @@
 }
 .item{
     display: flex;
-    background-color: rgb(253, 231, 231);
+    background-color: rgb(53, 53, 53);
     margin:1px 0;
     padding:10px;
     cursor:pointer;
     text-decoration: none;
-    color:rgb(86, 1, 129)
+    color:rgb(223, 223, 223)
 }
 .item  >*{
     width:300px;

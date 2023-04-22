@@ -3,13 +3,13 @@
 }
 .item{
     display: flex;
-    background-color: rgb(253, 231, 231);
+    background-color: rgb(53, 53, 53);
     margin:1px 0;
     padding:10px;
     cursor:pointer;
     text-decoration: none;
-    color:rgb(86, 1, 129);
-    font-size:12px;
+    color:rgb(223, 223, 223);
+    font-size: 14px;
 }
 .item  >*{
     width:300px;

@@ -1,21 +1,31 @@
 import Pill from '../../../Components/Pill'
 import style from './styles.module.css'
+import { ballLabelMaping } from './ball-label-mapping'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
   index, battingTeam
 }) => {
+  console.log(team)
   return (<>
             <div className={style.score_card} >
-                <div className={style.team_name}>
-                {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
+                <div className={style.run_over}>
+                    <div className={style.team_name}>
+                        {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
+                    </div>
+                    <div>
+                            Overs &nbsp;
+                            {team?.overs}
+                    </div>
                 </div>
+
                 <div className={style.run_over}>
                     <div>
                         {team?.runs}/{team?.wickets}
                     </div>
-                    <div>
-                        Overs &nbsp;
-                        {team?.overs}
+                    <div className={style.balls}>
+                        {team?.thisOverBalls?.map((ball, index) => (
+                            <div key={index} style={{ ...ballLabelMaping[ball]?.style }}>{ballLabelMaping[ball]?.label}</div>
+                        ))}
                     </div>
                 </div>
                 <div className={style.player_list}>

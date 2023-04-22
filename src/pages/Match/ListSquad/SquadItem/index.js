@@ -9,6 +9,8 @@ const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal }) => {
   const { addPlayerInSquad } = useCreateSquad({ squadId: squad?.id, getMatchById, matchId })
 
   return (<>
+                      LSG
+
                     {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls}/>
                     }
                     {
