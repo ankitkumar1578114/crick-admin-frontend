@@ -17,6 +17,8 @@ const MatchPage = () => {
   const { loading: loadingScore, score, getScoreData } = useGetScore({ matchId, team1: data?.team1?.id, team2: data?.team2?.id })
   const [battingTeam, setBattingTeam] = useState(data?.current_inning)
 
+  const { register, handleSubmit, reset } = useForm()
+
   const { insertBall } = useInsertBall({
     matchLoading: loading,
     matchData: data,
@@ -28,7 +30,8 @@ const MatchPage = () => {
     ballPlayerId: battingTeam === 1 ? data?.squad1?.bowler : data?.squad2?.bowler,
     squadId: battingTeam === 1 ? data?.squad1?.id : data?.squad2?.id,
     legalBalls: battingTeam === 1 ? score?.team1?.legalBalls : score?.team2?.legalBalls,
-    battingTeam
+    battingTeam,
+    reset
   })
 
   useEffect(() => {
@@ -36,7 +39,6 @@ const MatchPage = () => {
   }, [data])
 
   const controls = control()
-  const { register, handleSubmit } = useForm()
 
   return (
         <>

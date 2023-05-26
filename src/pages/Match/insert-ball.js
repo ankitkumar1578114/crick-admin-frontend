@@ -1,7 +1,7 @@
 const InsertBallControls = () => {
   const controls = [
     {
-      label: 'result',
+      label: 'Result of the ball',
       type: 'text',
       value: '',
       key: 'result'

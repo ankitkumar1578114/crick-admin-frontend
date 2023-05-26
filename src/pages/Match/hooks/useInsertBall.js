@@ -4,7 +4,7 @@ const useInsertBall = ({
   matchData, ballOftheMatch,
   getScoreData, batPlayerId, ballPlayerId,
   batsmanOnNonStrike, squadId, getMatchById,
-  legalBalls, battingTeam
+  legalBalls, battingTeam, reset
 }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
@@ -32,6 +32,7 @@ const useInsertBall = ({
       setData(res)
       getScoreData()
       getMatchById(matchData?.id)
+      reset()
       return res
     } else {
       alert('Insert Batsmans and Bowlers')

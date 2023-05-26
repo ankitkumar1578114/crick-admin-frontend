@@ -1,13 +1,21 @@
 import Pill from '../../../Components/Pill'
 import style from './styles.module.css'
 import { ballLabelMaping } from './ball-label-mapping'
+import Skelton from '../../../Components/Skelton'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
-  index, battingTeam
+  index, battingTeam, loadingScore
 }) => {
   console.log(team)
   return (<>
             <div className={style.score_card} >
+                {
+                    loadingScore &&
+                    <Skelton width="100%" height="300px"/>
+                }
+                {
+                    !loadingScore && (
+                        <>
                 <div className={style.run_over}>
                     <div className={style.team_name}>
                         {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
@@ -101,9 +109,8 @@ const ScoreCard = ({
                     }
                 </div>
                  <Pill content={`Extra : ${team?.extra}`} color="gray" textColor="black"/>
-
+                </>)}
             </div>
-
     </>)
 }
 

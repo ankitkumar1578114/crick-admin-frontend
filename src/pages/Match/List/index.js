@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import Layout from '../../Components/Layout'
+import Skelton from '../../Components/Skelton'
 import useCreateMatch from '../hooks/useCreateMatch'
 import useGetMatches from '../hooks/useGetMatches'
 import MatchControls from '../match-controls'
@@ -14,7 +15,13 @@ const List = () => {
 
   return (<>
         <div className={style.list}>
-            <div className={style.item}>
+            { loading && (<>
+                    <Skelton className={style.item} width="100%" height="300px"/>
+            </>)}
+
+            { !loading && (
+                <>
+                <div className={style.item}>
                 <div>Id</div>
                 <div>Name</div>
                 <div>Team1</div>
@@ -23,7 +30,7 @@ const List = () => {
 
             </div>
             {
-                !loading && matches?.map((match) => (
+                matches?.map((match) => (
                     <>
                     <Link to={'/match/' + match?.id} className={style.item}>
                             <div className={style.div}>{match?.id}</div>
@@ -34,8 +41,7 @@ const List = () => {
                     </Link>
                     </>
                 ))
-
-            }
+            }</>)}
             </div>
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls}/>
 

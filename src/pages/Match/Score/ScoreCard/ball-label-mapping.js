@@ -7,6 +7,13 @@ const color = {
   black: 'black'
 }
 export const ballLabelMaping = {
+  0: {
+    label: '0',
+    style: {
+      backgroundColor: color.gray,
+      color: color.black
+    }
+  },
   1: {
     label: '1',
     style: {

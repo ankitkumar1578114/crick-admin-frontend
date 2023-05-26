@@ -7,20 +7,20 @@ const MatchControls = () => {
 
   const controls = [
     {
-      label: 'name',
+      label: 'Match name',
       type: 'text',
       value: '',
       key: 'name'
     },
     {
-      label: 'team1',
+      label: 'Team 1',
       type: 'team-select',
       value: '',
       key: 'team1',
       ...teamOptions
     },
     {
-      label: 'team2',
+      label: 'Team 2',
       type: 'team-select',
       value: '',
       key: 'team2',
@@ -28,7 +28,7 @@ const MatchControls = () => {
     },
 
     {
-      label: 'venue',
+      label: 'Venue',
       type: 'venue-select',
       value: '',
       key: 'venue',

@@ -4,7 +4,7 @@
 .item{
     display: flex;
     background-color: rgb(43, 43, 43);
-    /* margin:1px 0; */
+    margin:1px 0;
     padding:10px;
     cursor:pointer;
     text-decoration: none;
