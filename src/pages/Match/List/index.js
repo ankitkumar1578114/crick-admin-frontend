@@ -14,6 +14,7 @@ const List = () => {
   const { createMatch } = useCreateMatch({ getMatches })
 
   return (<>
+        <div className={style.match_list_page}>
         <div className={style.list}>
             { loading && (<>
                     <Skelton className={style.item} width="100%" height="300px"/>
@@ -44,7 +45,7 @@ const List = () => {
             }</>)}
             </div>
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls}/>
-
+        </div>
     </>)
 }
 

@@ -1,5 +1,5 @@
 import Pill from '../../../Components/Pill'
-import style from './styles.module.css'
+import styles from './styles.module.css'
 import { ballLabelMaping } from './ball-label-mapping'
 import Skelton from '../../../Components/Skelton'
 const ScoreCard = ({
@@ -8,7 +8,7 @@ const ScoreCard = ({
 }) => {
   console.log(team)
   return (<>
-            <div className={style.score_card} >
+            <div className={styles.score_card} >
                 {
                     loadingScore &&
                     <Skelton width="100%" height="300px"/>
@@ -16,28 +16,27 @@ const ScoreCard = ({
                 {
                     !loadingScore && (
                         <>
-                <div className={style.run_over}>
-                    <div className={style.team_name}>
+                <div className={styles.run_over}>
+                    <div className={styles.team_name}>
                         {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
                     </div>
-                    <div>
-                            Overs &nbsp;
-                            {team?.overs}
+                    <div className={styles.over}>
+                        {team?.overs}
                     </div>
                 </div>
 
-                <div className={style.run_over}>
+                <div className={styles.run_over}>
                     <div>
                         {team?.runs}/{team?.wickets}
                     </div>
-                    <div className={style.balls}>
+                    <div className={styles.balls}>
                         {team?.thisOverBalls?.map((ball, index) => (
                             <div key={index} style={{ ...ballLabelMaping[ball]?.style }}>{ballLabelMaping[ball]?.label}</div>
                         ))}
                     </div>
                 </div>
-                <div className={style.player_list}>
-                <div className={style.player_list_row}>
+                <div className={styles.player_list}>
+                <div className={styles.player_list_row}>
                             <div>Player</div>
                             <div>Runs</div>
                             <div>Balls</div>
@@ -49,8 +48,8 @@ const ScoreCard = ({
                         <>
                         <div className={
                             parseInt(batsmanOnStrike) === parseInt(player)
-                              ? style.player_list_row_striker
-                              : style.player_list_row}>
+                              ? styles.player_list_row_striker
+                              : styles.player_list_row}>
                             <div>
                                 { team?.batting_players[player].name}
                                 {parseInt(player) === parseInt(batsmanOnStrike) && (<>*</>)}
@@ -73,8 +72,8 @@ const ScoreCard = ({
                     }
                 </div>
 
-                <div className={style.player_list}>
-                <div className={style.player_list_row}>
+                <div className={styles.player_list}>
+                <div className={styles.player_list_row}>
                             <div>Bowler</div>
                             <div>Over</div>
                             <div>Wickets</div>
@@ -86,8 +85,8 @@ const ScoreCard = ({
                         <>
                         <div className={
                             parseInt(batsmanOnStrike) === parseInt(player)
-                              ? style.player_list_row_striker
-                              : style.player_list_row}>
+                              ? styles.player_list_row_striker
+                              : styles.player_list_row}>
                             <div>
                                 { team?.bowling_players[player].name}
                                 {parseInt(player) === parseInt(batsmanOnStrike) && (<>*</>)}

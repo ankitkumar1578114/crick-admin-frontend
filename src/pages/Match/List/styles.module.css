@@ -1,5 +1,7 @@
-.list{
-    width:50%;   
+.match_list_page{
+    width:70%;
+    margin:auto;   
+    margin-top:30px;
 }
 .item{
     display: flex;

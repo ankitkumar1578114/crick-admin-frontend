@@ -1,0 +1,10 @@
+.teamName{
+    font-size:20px;
+    padding:0 10px;
+}
+.squad{
+    background-color: rgb(31, 31, 31);
+    height:calc(100% - 24px);
+    border-radius:4px;
+    padding:20px;
+}

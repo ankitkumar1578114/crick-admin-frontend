@@ -1,23 +1,28 @@
 .score_card{
-    width:320px;
+    width:70%;
     background-color: rgb(32, 31, 31);
     padding:20px;
     color:white;
     border-radius: 4px;
-    box-shadow: 0px 0px 10px 4px rgb(0, 0, 0);
 }
 .team_name{
-    font-size:20px;
+    font-size:22px;
+    color:rgb(255, 174, 0);
 }
+
+.over{
+    color:rgba(229, 255, 0, 0.692)
+}
+
 .player_list{
-background-color: rgb(76, 76, 76);
-color:rgb(226, 226, 226);
-font-size:12px;
-margin-top: 10px;
-border-radius: 2px;
+    background-color: rgb(76, 76, 76);
+    color:rgb(226, 226, 226);
+    font-size:14px;
+    margin-top: 10px;
+    border-radius: 2px;
 }
 .player_list_row,.player_list_row_striker{
-    padding:4px;
+    padding:6px;
     display: flex;
 }
 
@@ -34,6 +39,9 @@ border-radius: 2px;
 .run_over{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 4px;
+    font-size:18px;
+    color:rgb(185, 192, 160);
 }
 .balls{
     display: flex;

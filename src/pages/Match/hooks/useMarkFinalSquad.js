@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { useState } from 'react'
-const useMarkFinalSquads = ({ matchId, getMatchById }) => {
+const useMarkFinalSquads = ({ matchId, getMatchById, squad1, squad2 }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const markSquads = async (data) => {
-    const res = await axios.put(process.env.REACT_APP_BACKEND + 'match/update/mark_final_squads', { matchId })
+    const res = await axios.put(process.env.REACT_APP_BACKEND + 'match/update/mark_final_squads', { matchId, squad1, squad2 })
     return res
   }
 

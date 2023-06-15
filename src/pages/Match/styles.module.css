@@ -8,3 +8,19 @@
     width:50%;
     margin: 30px;
 }
+.container{
+    background-color: rgb(20, 20, 20);
+    padding:10px 0;
+    height:auto;
+    width:90%;
+    margin:auto;
+    margin-top:40px;
+}
+.welcome_title{
+    font-size:20px;
+    padding:20px;
+}
+.heading_colour{
+    color:rgb(255, 187, 0);
+    font-size:22px;
+}

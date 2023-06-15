@@ -4,7 +4,7 @@ const AddPlayerControls = () => {
   const playersOptions = useGetPlayers()
   const controls = [
     {
-      label: 'Player',
+      label: '',
       type: 'player-select',
       value: '',
       key: 'playerId',

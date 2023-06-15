@@ -49,7 +49,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
         }
 
         <div className={style.scoreCardBox}>
-            <ScoreCard
+             <ScoreCard
                 team={score?.team1}
                 batsmanOnStrike={squad1?.batsman_on_strike}
                 batsmanOnNonStrike={squad1?.batsman_on_non_strike}
@@ -65,14 +65,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
                 battingTeam={battingTeam}
                 loadingScore={loadingScore}
             />
-        </div>
-        <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
-
-        <div className={style.balls}>
-
-        {
-            // !loadingScore && (score?.map((ball, index) => (<div key={index}>{ball?.result}</div>)))
-        }
+           <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
         </div>
 
     </>)
