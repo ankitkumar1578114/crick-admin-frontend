@@ -8,6 +8,14 @@
 .team_name{
     font-size:22px;
     color:rgb(255, 174, 0);
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.team_logo{
+    width:50px;
+    height:50px;
 }
 
 .over{
@@ -39,10 +47,16 @@
 .run_over{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 4px;
     font-size:18px;
     color:rgb(185, 192, 160);
 }
+
+.run{
+    font-size:22px;
+}
+
 .balls{
     display: flex;
     gap:4px;

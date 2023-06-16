@@ -7,6 +7,7 @@ const Navigations = () => {
             <Logo/>
           </div>
           <div className={style.navigation_links}>
+            <Link to="series"><button className={style.button}>Series</button></Link>
             <Link to="match"><button className={style.button}>Match</button></Link>
             <Link to="team"><button className={style.button}>Team</button></Link>
             <Link to="player"><button className={style.button}>Player</button></Link>

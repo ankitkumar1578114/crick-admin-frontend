@@ -6,7 +6,6 @@ const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
   index, battingTeam, loadingScore
 }) => {
-  console.log(team)
   return (<>
             <div className={styles.score_card} >
                 {
@@ -18,21 +17,28 @@ const ScoreCard = ({
                         <>
                 <div className={styles.run_over}>
                     <div className={styles.team_name}>
-                        {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
+                        <div className={styles.team_logo}>
+                            <img src={team?.image_url} style={{ width: '100%', height: '100%', borderRadius: '50%' }}/>
+                        </div>
+                        <div>
+                            {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
+                        </div>
                     </div>
-                    <div className={styles.over}>
-                        {team?.overs}
+                    <div className={styles.run}>
+                        {team?.runs}/{team?.wickets}
                     </div>
+
                 </div>
 
                 <div className={styles.run_over}>
-                    <div>
-                        {team?.runs}/{team?.wickets}
-                    </div>
+                    <div></div>
                     <div className={styles.balls}>
                         {team?.thisOverBalls?.map((ball, index) => (
                             <div key={index} style={{ ...ballLabelMaping[ball]?.style }}>{ballLabelMaping[ball]?.label}</div>
                         ))}
+                    </div>
+                    <div className={styles.over}>
+                        {team?.overs}
                     </div>
                 </div>
                 <div className={styles.player_list}>
