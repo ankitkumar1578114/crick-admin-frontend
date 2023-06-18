@@ -9,7 +9,6 @@ const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal }) => {
   const { register, handleSubmit } = useForm()
   const controls = control()
   const { addPlayerInSquad } = useCreateSquad({ squadId: squad?.id, getMatchById, matchId })
-  console.log(squad)
   return (<>
                 <div className={styles.squad}>
                   <div className={styles.teamName}>

@@ -5,7 +5,6 @@ const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
   const [data, setData] = useState([])
 
   const updateStrike = async (values) => {
-    console.log(values)
     if ([0, 3].includes(battingTeam)) {
       alert('Match has not started yet.')
       return
