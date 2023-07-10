@@ -4,7 +4,7 @@ const useGetTeams = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getTeamsFunc = async (data) => {
-    const res = await axios.get(process.env.REACT_APP_BACKEND + 'team/list', data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'team/list_teams', data)
     return res
   }
   const getTeams = () => {

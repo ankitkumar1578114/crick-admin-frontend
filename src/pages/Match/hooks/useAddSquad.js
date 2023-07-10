@@ -10,7 +10,7 @@ const useAddSquad = ({ matchId, getMatchById }) => {
       matchId,
       ...data
     }
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'squad/create', payload)
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'squad/create_squad', payload)
     return res
   }
 

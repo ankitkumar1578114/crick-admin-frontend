@@ -4,7 +4,7 @@ const useGetVenues = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getVenues = async (data) => {
-    const res = await axios.get(process.env.REACT_APP_BACKEND + 'venue/list', data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'venue/list_venues', data)
     return res
   }
 

@@ -15,7 +15,7 @@ const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
           squadId,
           ...values
         }
-      const res = await axios.put(process.env.REACT_APP_BACKEND + 'squad/update', payload)
+      const res = await axios.put(process.env.REACT_APP_BACKEND + 'squad/update_squad', payload)
       setLoading(false)
       getMatchById(matchId)
       setData(res)

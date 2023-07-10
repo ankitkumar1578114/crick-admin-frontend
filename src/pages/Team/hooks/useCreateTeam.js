@@ -5,7 +5,7 @@ const useCreateTeam = ({ getTeams }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const createTeam = async (data) => {
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'team/create', data)
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'team/create_team', data)
     return res
   }
 

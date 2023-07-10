@@ -4,7 +4,7 @@ const useGetPlayers = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const getPlayers = async (data) => {
-    const res = await axios.get(process.env.REACT_APP_BACKEND + 'player/list', data)
+    const res = await axios.get(process.env.REACT_APP_BACKEND + 'player/list_players', data)
     return res
   }
 

@@ -4,7 +4,7 @@ const useStartMatch = ({ matchId, getMatchById, firstBatting }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const startMatchNow = async () => {
-    const res = await axios.put(process.env.REACT_APP_BACKEND + 'match/update/start_match', { matchId, firstBatting })
+    const res = await axios.put(process.env.REACT_APP_BACKEND + 'match/update_match/start_match', { matchId, firstBatting })
     return res
   }
 
