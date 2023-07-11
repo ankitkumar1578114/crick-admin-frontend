@@ -5,6 +5,7 @@ import PlayerSelect from '../PlayerSelect'
 import TeamSelect from '../TeamSelect'
 import VenueSelect from '../VenueSelect'
 import style from './styles.module.css'
+import SeriesSelect from '../SeriesSelect'
 const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
   // eslint-disable-next-line react/display-name
 
@@ -37,6 +38,7 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
             if (control.type === 'player-select') { return (<> <PlayerSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading} disabled={control.disabled}/></>) }
             if (control.type === 'team-select') { return (<> <TeamSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
             if (control.type === 'venue-select') { return (<> <VenueSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
+            if (control.type === 'series-select') { return (<> <SeriesSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
             if (control.type === 'date') { return (<><Date label={control.label} _key={control.key} register={register} required /></>) }
             return null
           })

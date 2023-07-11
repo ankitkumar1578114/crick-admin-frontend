@@ -1,10 +1,11 @@
 import useGetTeams from '../Team/hooks/useGetTeams'
 import useGetVenues from '../Venue/hooks/useGetVenues'
+import useListSeries from '../Series/hooks/useListSeries'
 
 const MatchControls = () => {
   const teamOptions = useGetTeams()
   const venueOptions = useGetVenues()
-
+  const seriesOptions = useListSeries()
   const controls = [
     {
       label: 'Match name',
@@ -26,13 +27,29 @@ const MatchControls = () => {
       key: 'team2',
       ...teamOptions
     },
-
     {
       label: 'Venue',
       type: 'venue-select',
       value: '',
       key: 'venue',
       ...venueOptions
+    },
+    {
+      label: 'Series',
+      type: 'series-select',
+      value: '',
+      key: 'series',
+      ...seriesOptions
+    },
+    {
+      label: 'Overs',
+      type: 'series-select',
+      value: '',
+      key: 'overs',
+      options: [
+        { name: '20' },
+        { name: '50' }
+      ]
     }
 
   ]

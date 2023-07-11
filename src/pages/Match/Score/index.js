@@ -27,6 +27,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
   }, [battingTeam, squad1, squad2])
 
   return (<>
+
         {
           battingTeam === 0 && (<div className={style.flex}>
               <Pill content="Not started yet" color="red" />
@@ -41,7 +42,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
             </div>)
         }
         {
-          [1, 2, -1, -2].includes(battingTeam) &&
+          [1, 2].includes(battingTeam) &&
               <Pill content="Running" color="green"/>
         }
        {

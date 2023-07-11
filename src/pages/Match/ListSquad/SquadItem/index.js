@@ -5,9 +5,9 @@ import control from './add-player'
 import PlayerItem from './PlayerItem'
 import styles from './styles.module.css'
 
-const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal }) => {
+const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal, antiSquad }) => {
   const { register, handleSubmit } = useForm()
-  const controls = control()
+  const controls = control({ squad, antiSquad })
   const { addPlayerInSquad } = useCreateSquad({ squadId: squad?.id, getMatchById, matchId })
   return (<>
                 <div className={styles.squad}>

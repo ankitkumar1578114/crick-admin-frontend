@@ -6,10 +6,10 @@ const ListSquad = ({ squad1, squad2, getMatchById, matchId, isSquadFinal }) => {
   return (<>
         <div className={styles.squads}>
             <div>
-                <SquadItem squad={squad1} getMatchById={getMatchById} matchId={matchId} isSquadFinal={isSquadFinal}/>
+                <SquadItem squad={squad1} antiSquad={squad2} getMatchById={getMatchById} matchId={matchId} isSquadFinal={isSquadFinal}/>
             </div>
             <div>
-                <SquadItem squad={squad2} getMatchById={getMatchById} matchId={matchId} isSquadFinal={isSquadFinal}/>
+                <SquadItem squad={squad2} antiSquad={squad1} getMatchById={getMatchById} matchId={matchId} isSquadFinal={isSquadFinal}/>
             </div>
         </div>
         <div className={styles.finalSquadsBtn}>

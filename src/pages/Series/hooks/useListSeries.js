@@ -13,7 +13,8 @@ const useListSeries = () => {
   }, [])
   return {
     loading,
-    data: data?.data
+    data: data?.data,
+    options: data?.data
   }
 }
 export default useListSeries

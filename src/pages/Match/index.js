@@ -34,7 +34,11 @@ const MatchPage = () => {
   })
 
   useEffect(() => {
-    setBattingTeam(data?.current_inning)
+    console.log(data)
+    if (data?.current_inning === 0) { setBattingTeam(0) }
+    if (data?.current_inning === 2) { setBattingTeam(3) }
+    if (data?.current_inning === -1) { setBattingTeam(1) }
+    if (data?.current_inning === 1) { setBattingTeam(2) }
   }, [data])
 
   const controls = control()

@@ -27,7 +27,7 @@ const useInsertBall = ({
         legalBalls: legalBalls + 1
       }
 
-      const res = await axios.post(process.env.REACT_APP_BACKEND + 'ball/create', payload)
+      const res = await axios.post(process.env.REACT_APP_BACKEND + 'ball/insert_ball', payload)
       setLoading(false)
       setData(res)
       getScoreData()
