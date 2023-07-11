@@ -22,7 +22,7 @@ const List = () => {
 
         <div className={style.list}>
             <div className={style.flex_right}>
-                <Button value="+ Create Match" onClick={() => setShow(true)}/>
+                <Button value="+ Create Player" onClick={() => setShow(true)}/>
             </div>
             <div className={style.item}>
                 <div>Id</div>

@@ -6,6 +6,7 @@ import TeamPage from '../Team'
 import SeriesList from '../Series/List'
 import SeriesPage from '../Series'
 import MatchList from '../Match/List'
+import VenueList from '../Venue/List'
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
                 <Route path="/match/:id" element={<MatchPage/>} />
                 <Route path="/series" element={<SeriesList/>} />
                 <Route path="/series/:id" element={<SeriesPage/>} />
+                <Route path="/venue" element={<VenueList/>} />
              </Routes>
         </>
   )

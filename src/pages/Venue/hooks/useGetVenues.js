@@ -13,7 +13,9 @@ const useGetVenues = () => {
   }, [])
   return {
     loading,
-    options: data?.data
+    data: data?.data,
+    options: data?.data,
+    getVenues
   }
 }
 export default useGetVenues

@@ -1,20 +1,23 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import Layout from '../../Components/Layout'
-import control from '../team-controls'
-import useCreateTeam from '../hooks/useCreateTeam'
-import useGetTeams from '../hooks/useGetTeams'
+import control from '../venue-controls'
+import useCreateVenue from '../hooks/useCreateVenue'
+import useGetVenues from '../hooks/useGetVenues'
 import style from './styles.module.css'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
 
 const List = () => {
-  const { loading, data: teams, getTeams } = useGetTeams()
+  const {
+    loading, data: venues,
+    getVenues
+  } = useGetVenues()
   const { register, handleSubmit } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
-  const { addTeam } = useCreateTeam({ getTeams, setShow })
+  const { addTeam } = useCreateVenue({ getVenues, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls}/>
@@ -22,7 +25,7 @@ const List = () => {
 
         <div className={style.list}>
         <div className={style.flex_right}>
-                <Button value="+ Create Team" onClick={() => setShow(true)}/>
+                <Button value="+ Create Venue" onClick={() => setShow(true)}/>
             </div>
 
             <div className={style.item}>
@@ -31,14 +34,11 @@ const List = () => {
 
             </div>
             {
-                !loading && teams?.map((match) => (
+                !loading && venues?.map((venue) => (
                     <>
-                    <Link to={'/team/' + match?.id} className={style.item}>
-                            <div className={style.div}>{match?.id} </div>
-                            <div>
-                                <img className={style.img} src = {match?.image_url}/>
-                            </div>
-                            <div className={style.div}>{match?.name}</div>
+                    <Link to={'/venue/' + venue?.id} className={style.item}>
+                            <div className={style.div}>{venue?.id} </div>
+                            <div className={style.div}>{venue?.name}</div>
 
                     </Link>
                     </>

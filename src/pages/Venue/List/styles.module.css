@@ -1,0 +1,29 @@
+.list{
+    width:50%;   
+    margin: auto;
+    margin-top:30px;
+}
+.item{
+    display: flex;
+    align-items: center;
+    background-color: rgb(43, 43, 43);
+    margin:1px 0;
+    padding:16px;
+    cursor:pointer;
+    text-decoration: none;
+    color:rgb(214, 214, 214);
+    font-size:12px;
+}
+.img{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+.item  >*{
+    width:300px;
+}
+.flex_right{
+    display: flex;
+    justify-content: right;
+    padding:10px;
+}

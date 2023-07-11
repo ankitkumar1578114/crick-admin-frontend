@@ -23,7 +23,7 @@ const useInsertBall = ({
         ballPlayerId,
         batsmanOnNonStrike,
         squadId,
-        result: parseInt(result.result),
+        result,
         legalBalls: legalBalls + 1
       }
 
@@ -32,7 +32,6 @@ const useInsertBall = ({
       setData(res)
       getScoreData()
       getMatchById(matchData?.id)
-      reset()
       return res
     } else {
       alert('Insert Batsmans and Bowlers')
