@@ -1,0 +1,27 @@
+.modal_parent,.hide_modal_parent{
+    width:100%;
+    height:100vh;
+    backdrop-filter:blur(2px);
+    position:fixed;
+    top:0px;
+    z-index:1;
+    transition: top 0.2s;
+}
+.show_modal{
+    width:90%;
+    margin:auto;
+    margin-top: 80px;
+    border-radius: 10px;
+    background-color: rgb(20, 20, 20);
+    border-radius: 4px;;
+    /* box-shadow: 0px 0px 0px 0px rgba(65, 65, 65, 0.096); */
+    max-height:80vh;
+    overflow: scroll;
+}
+.show_modal::-webkit-scrollbar {
+    display: none;
+  }
+  
+.hide_modal_parent{
+    top:-100vh;
+}

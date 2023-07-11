@@ -5,14 +5,25 @@ import control from '../player-controls'
 import style from './styles.module.css'
 import useCreatePlayer from '../hooks/useCreatePlayer'
 import useGetPlayers from '../hooks/useGetPlayers'
+import Button from '../../Components/Button'
+import Modal from '../../Components/Modal'
+import { useState } from 'react'
 
 const List = () => {
   const controls = control()
   const { register, handleSubmit } = useForm()
   const { createPlayer } = useCreatePlayer()
   const { loading, data } = useGetPlayers()
+  const [show, setShow] = useState(false)
   return (<>
+        <Modal show={show} setShow={setShow} size="md">
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls}/>
+        </Modal>
+
         <div className={style.list}>
+            <div className={style.flex_right}>
+                <Button value="+ Create Match" onClick={() => setShow(true)}/>
+            </div>
             <div className={style.item}>
                 <div>Id</div>
                 <div>Name</div>
@@ -33,7 +44,6 @@ const List = () => {
                 ))
 
             }
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls}/>
 
             </div>
 

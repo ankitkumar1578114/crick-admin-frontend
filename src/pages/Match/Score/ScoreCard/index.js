@@ -6,6 +6,7 @@ const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
   index, battingTeam, loadingScore
 }) => {
+  console.log(team)
   return (<>
             <div className={styles.score_card} >
                 {

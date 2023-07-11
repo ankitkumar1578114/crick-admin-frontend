@@ -5,6 +5,12 @@ const TeamControls = () => {
       type: 'text',
       value: '',
       key: 'name'
+    },
+    {
+      label: 'Image Url',
+      type: 'text',
+      value: '',
+      key: 'imageUrl'
     }
 
   //   {

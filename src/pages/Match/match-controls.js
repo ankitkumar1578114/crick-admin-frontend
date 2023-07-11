@@ -50,6 +50,16 @@ const MatchControls = () => {
         { name: '20' },
         { name: '50' }
       ]
+    },
+    {
+      label: 'Start Time',
+      type: 'date',
+      value: '',
+      key: 'startTime',
+      options: [
+        { name: '20' },
+        { name: '50' }
+      ]
     }
 
   ]

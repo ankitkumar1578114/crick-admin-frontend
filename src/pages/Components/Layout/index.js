@@ -33,13 +33,14 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
         <div className={style.form}>
         {
           controls.map((control) => {
-            if (control.type === 'text') { return (<><Input label={control.label} _key={control.key} register={register} required /></>) }
-            if (control.type === 'select') { return (<> <Select label={control.label} {...register(control.key)} options={control.options} /></>) }
-            if (control.type === 'player-select') { return (<> <PlayerSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading} disabled={control.disabled}/></>) }
-            if (control.type === 'team-select') { return (<> <TeamSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
-            if (control.type === 'venue-select') { return (<> <VenueSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
-            if (control.type === 'series-select') { return (<> <SeriesSelect label={control.label} {...register(control.key)} options={control.options} loading={control.loading}/></>) }
-            if (control.type === 'date') { return (<><Date label={control.label} _key={control.key} register={register} required /></>) }
+            const { label, key, options, type, loading, disabled } = control
+            if (type === 'text') { return (<><Input label={label} _key={key} register={register} required /></>) }
+            if (type === 'select') { return (<> <Select label={label} {...register(key)} options={options} /></>) }
+            if (type === 'player-select') { return (<> <PlayerSelect label={label} {...register(key)} options={options} loading={loading} disabled={disabled}/></>) }
+            if (type === 'team-select') { return (<> <TeamSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
+            if (type === 'venue-select') { return (<> <VenueSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
+            if (type === 'series-select') { return (<> <SeriesSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
+            if (type === 'date') { return (<><Date label={label} _key={key} register={register} required /></>) }
             return null
           })
         }
