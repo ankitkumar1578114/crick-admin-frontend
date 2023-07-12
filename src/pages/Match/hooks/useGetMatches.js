@@ -1,20 +1,14 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 const useGetMatches = () => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const config = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  }
+  const { data, loading, trigger } = useRequest({
+    url: 'match/list_matches',
+    method: 'post',
+    isConfig: true
+  })
 
-  const getMatchList = async (data) => {
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'match/list_matches', data, config)
-    return res
-  }
   const getMatches = () => {
-    getMatchList().then((res) => { setLoading(false); setData(res) })
+    trigger()
   }
 
   useEffect(() => {

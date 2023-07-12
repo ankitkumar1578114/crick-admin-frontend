@@ -1,21 +1,17 @@
-import axios from 'axios'
-import { useState } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 
 const useAddSquad = ({ matchId, getMatchById }) => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
+  const { data, loading, trigger } = useRequest({
+    url: 'squad/create',
+    method: 'post'
+  })
 
-  const addSquadInMatch = async (data) => {
+  const addSquad = async (data) => {
     const payload = {
       matchId,
       ...data
     }
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'squad/create_squad', payload)
-    return res
-  }
-
-  const addSquad = (data) => {
-    addSquadInMatch(data).then((res) => { setLoading(false); setData(res); getMatchById() })
+    trigger(payload)
   }
 
   return {

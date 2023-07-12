@@ -1,14 +1,13 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 const useGetMatchById = (id) => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const getMatch = async (id) => {
-    const res = await axios.get(process.env.REACT_APP_BACKEND + 'match?id=' + id, data)
-    return res
-  }
+  const { data, loading, trigger } = useRequest({
+    url: 'match?id=' + id,
+    method: 'get'
+  })
+
   const getMatchById = () => {
-    getMatch(id).then((res) => { setLoading(false); setData(res) })
+    trigger()
   }
 
   useEffect(() => {
