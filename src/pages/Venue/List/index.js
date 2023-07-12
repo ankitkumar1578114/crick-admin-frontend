@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import Layout from '../../Components/Layout'
 import control from '../venue-controls'
 import useCreateVenue from '../hooks/useCreateVenue'
@@ -8,10 +7,12 @@ import style from './styles.module.css'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
+import Table from '../../Components/Table'
+import { columns } from '../utlis/venue-table'
 
 const List = () => {
   const {
-    loading, data: venues,
+    data: venues,
     getVenues
   } = useGetVenues()
   const { register, handleSubmit } = useForm()
@@ -27,25 +28,7 @@ const List = () => {
         <div className={style.flex_right}>
                 <Button value="+ Create Venue" onClick={() => setShow(true)}/>
             </div>
-
-            <div className={style.item}>
-                <div>Id</div>
-                <div>Name</div>
-
-            </div>
-            {
-                !loading && venues?.map((venue) => (
-                    <>
-                    <Link to={'/venue/' + venue?.id} className={style.item}>
-                            <div className={style.div}>{venue?.id} </div>
-                            <div className={style.div}>{venue?.name}</div>
-
-                    </Link>
-                    </>
-                ))
-
-            }
-
+            <Table columns={columns} data={venues}/>
             </div>
 
     </>)

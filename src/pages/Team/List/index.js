@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import Layout from '../../Components/Layout'
 import control from '../team-controls'
 import useCreateTeam from '../hooks/useCreateTeam'
@@ -8,9 +7,11 @@ import style from './styles.module.css'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
+import Table from '../../Components/Table'
+import { columns } from '../utlis/team-table'
 
 const List = () => {
-  const { loading, data: teams, getTeams } = useGetTeams()
+  const { data: teams, getTeams } = useGetTeams()
   const { register, handleSubmit } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
@@ -23,30 +24,12 @@ const List = () => {
         <div className={style.list}>
         <div className={style.flex_right}>
                 <Button value="+ Create Team" onClick={() => setShow(true)}/>
-            </div>
-
-            <div className={style.item}>
-                <div>Id</div>
-                <div>Name</div>
-
-            </div>
-            {
-                !loading && teams?.map((match) => (
-                    <>
-                    <Link to={'/team/' + match?.id} className={style.item}>
-                            <div className={style.div}>{match?.id} </div>
-                            <div>
-                                <img className={style.img} src = {match?.image_url}/>
-                            </div>
-                            <div className={style.div}>{match?.name}</div>
-
-                    </Link>
-                    </>
-                ))
-
-            }
-
-            </div>
+        </div>
+            <Table
+                columns={columns}
+                data={teams}
+            />
+        </div>
 
     </>)
 }
