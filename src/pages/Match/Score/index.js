@@ -66,8 +66,8 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
                 battingTeam={battingTeam}
                 loadingScore={loadingScore}
             />
-           <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
         </div>
+        <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
 
     </>)
 }

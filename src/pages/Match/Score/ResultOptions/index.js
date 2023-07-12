@@ -46,6 +46,16 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
       label: 'W',
       value: 25,
       color: 'red'
+    },
+    {
+      label: 'Wd',
+      value: 11,
+      color: 'gray'
+    },
+    {
+      label: 'Nb',
+      value: 12,
+      color: 'gray'
     }
 
   ]

@@ -22,7 +22,7 @@ const ScoreCard = ({
                             <img src={team?.image_url} style={{ width: '100%', height: '100%', borderRadius: '50%' }}/>
                         </div>
                         <div>
-                            {team?.name} {((battingTeam === -1 && index === 1) || (battingTeam === 1 && index === 2)) && <>*</>}
+                            {team?.name} {((battingTeam === 1 && index === 1) || (battingTeam === 2 && index === 2)) && <>*</>}
                         </div>
                     </div>
                     <div className={styles.run}>

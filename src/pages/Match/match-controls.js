@@ -53,13 +53,9 @@ const MatchControls = () => {
     },
     {
       label: 'Start Time',
-      type: 'date',
+      type: 'datetime',
       value: '',
-      key: 'startTime',
-      options: [
-        { name: '20' },
-        { name: '50' }
-      ]
+      key: 'startTime'
     }
 
   ]

@@ -1,16 +1,9 @@
 .flex{
     display: flex;
 }
-.dashboard{
-    display:flex
-} 
-.dashboard >*{
-    width:50%;
-    margin: 30px;
-}
 .container{
     background-color: rgb(20, 20, 20);
-    padding:10px 0;
+    padding:30px;
     height:auto;
     width:90%;
     margin:auto;

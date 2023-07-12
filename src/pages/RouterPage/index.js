@@ -7,10 +7,14 @@ import SeriesList from '../Series/List'
 import SeriesPage from '../Series'
 import MatchList from '../Match/List'
 import VenueList from '../Venue/List'
+import Navigations from '../Navigation'
+import { useState } from 'react'
 
 const Router = () => {
+  const [user, setUser] = useState(null)
   return (
         <>
+            <Navigations user={user} setUser={setUser}/>
             <Routes>
                 <Route path="/" element={<SeriesList/>} />
                 <Route path="/player" element={<PlayerPage/>} />

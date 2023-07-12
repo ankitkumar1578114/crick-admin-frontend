@@ -42,7 +42,6 @@ const MatchPage = () => {
         {
           data?.is_squads_final === 1 && (
             <div className={styles.dashboard}>
-              <div>
               <Score score={score}
                   loadingScore={loadingScore}
                   squad1={data?.squad1}
@@ -52,11 +51,8 @@ const MatchPage = () => {
                   matchId={matchId}
                   matchData={data}
               />
-                  <div>
-                    <ResultOptions score={score} data={data} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
-                  </div>
-                </div>
-            </div>
+              <ResultOptions score={score} data={data} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
+              </div>
           )
         }
         </div>

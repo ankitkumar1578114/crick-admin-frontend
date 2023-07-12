@@ -24,7 +24,15 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
     <>
     <div>
           <div><label className={style.label}>{label}</label></div>
-      <div><input type='date' className={style.input} {...register(_key, { required })} /></div>
+      <div><input type='datetime-local' className={style.input} {...register(_key, { required })} /></div>
+      </div>
+    </>
+  )
+  const DateTimeLocal = ({ label, _key, register, required }) => (
+    <>
+    <div>
+          <div><label className={style.label}>{label}</label></div>
+      <div><input type='datetime-local' className={style.input} {...register(_key, { required })} /></div>
       </div>
     </>
   )
@@ -41,6 +49,7 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
             if (type === 'venue-select') { return (<> <VenueSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
             if (type === 'series-select') { return (<> <SeriesSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
             if (type === 'date') { return (<><Date label={label} _key={key} register={register} required /></>) }
+            if (type === 'datetime') { return (<><DateTimeLocal label={label} _key={key} register={register} required /></>) }
             return null
           })
         }

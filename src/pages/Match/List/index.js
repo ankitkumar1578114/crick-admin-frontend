@@ -10,6 +10,7 @@ import Pill from '../../Components/Pill'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
+import moment from 'moment'
 
 const List = () => {
   const { loading, data: matches, getMatches } = useGetMatches()
@@ -52,11 +53,12 @@ const List = () => {
                             <div className={style.div}>{match?.team2_name}</div>
                             <div className={style.div}>{match?.venue_name}</div>
                             <div className={style.div}>{match?.overs}</div>
-                            <div className={style.div}>  {
+                            <div className={style.div}>
+                            {
                                 {
                                   '-1': <Pill content="Runnng"/>,
                                   1: <Pill content="Runnng"/>,
-                                  0: <Pill color="transparent" content={ match?.start_time?.slice(11, 16)}/>,
+                                  0: <Pill color="transparent" content={moment(match?.start_time).format('hh:mm DD MMM YYYY') }/>,
                                   2: <Pill color="red" content = 'Finished'/>
                                 }[match?.current_inning]
                             }</div>

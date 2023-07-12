@@ -25,3 +25,6 @@
     justify-content: flex-end;
     align-items: center;
 }
+.profile_image{
+    padding:10px 30px;
+}

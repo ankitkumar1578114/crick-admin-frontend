@@ -12,9 +12,9 @@ import { useState } from 'react'
 const List = () => {
   const controls = control()
   const { register, handleSubmit } = useForm()
-  const { createPlayer } = useCreatePlayer()
-  const { loading, data } = useGetPlayers()
+  const { loading, data, getPlayers } = useGetPlayers()
   const [show, setShow] = useState(false)
+  const { createPlayer } = useCreatePlayer({ getPlayers, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls}/>
