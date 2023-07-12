@@ -2,7 +2,7 @@ import useInsertBall from '../../hooks/useInsertBall'
 import styles from './styles.module.css'
 
 const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMatchById }) => {
-  const { insertBall } = useInsertBall({
+  const { insertBall, loading: loadingIns } = useInsertBall({
     matchLoading: loading,
     matchData: data,
     ballOftheMatch: battingTeam === 1 ? score?.team1?.totalBalls : score?.team2?.totalBalls,
@@ -63,6 +63,7 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
   return <>
             <div className={styles.result_options}>
                 {
+                  !loadingIns &&
                     options?.map((option) => (
                         <button key={option?.value} style={{ backgroundColor: option?.color }} onClick={() => insertBall(option?.value)}>
                             {option?.label}

@@ -1,13 +1,15 @@
-import axios from 'axios'
-import { useState } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 const useInsertBall = ({
   matchData, ballOftheMatch,
   getScoreData, batPlayerId, ballPlayerId,
   batsmanOnNonStrike, squadId, getMatchById,
   legalBalls, battingTeam, reset
 }) => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
+  const { data, loading, trigger } = useRequest({
+    url: 'ball/insert_ball',
+    method: 'post'
+  })
+
   const insertBall = async (result) => {
     if (battingTeam === 0) {
       alert('Match has not started yet')
@@ -26,13 +28,10 @@ const useInsertBall = ({
         result,
         legalBalls: legalBalls + 1
       }
-
-      const res = await axios.post(process.env.REACT_APP_BACKEND + 'ball/insert_ball', payload)
-      setLoading(false)
-      setData(res)
+      trigger(payload)
       getScoreData()
       getMatchById(matchData?.id)
-      return res
+      return data
     } else {
       alert('Insert Batsmans and Bowlers')
     }
