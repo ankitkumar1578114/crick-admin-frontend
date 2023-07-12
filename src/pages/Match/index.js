@@ -15,7 +15,6 @@ const MatchPage = () => {
   const [battingTeam, setBattingTeam] = useState(data?.current_inning)
 
   useEffect(() => {
-    console.log(data)
     if (data?.current_inning === 0) { setBattingTeam(0) }
     if (data?.current_inning === 2) { setBattingTeam(3) }
     if (data?.current_inning === -1) { setBattingTeam(1) }

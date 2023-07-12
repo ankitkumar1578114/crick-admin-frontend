@@ -1,10 +1,7 @@
 .container{
-    background-color: rgb(20, 20, 20);
-    padding:10px 0;
     height:auto;
-    width:90%;
+    width:100%;
     margin:auto;
-    margin-top:40px;
 }
 
 .seriesContainer{
@@ -34,4 +31,13 @@
 .series_card_img{
     width:90px;
     height:90px;
+}
+
+.flex_right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+    font-size: 20px;
+    color:rgb(233, 233, 233);
 }

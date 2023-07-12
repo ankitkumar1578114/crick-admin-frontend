@@ -1,0 +1,20 @@
+.parent{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(20, 20, 20);
+    border-radius: 4px;
+}
+.selected_item,.not_selected_item{
+    color: rgb(231, 231, 231);
+    padding:20px;
+    border:0;
+    font-size:14px;
+    text-decoration: none;
+    text-align: center;
+}
+.selected_item{
+    font-weight: 600;
+    color: rgb(231, 231, 231);
+    background-color:rgb(32, 32, 32);
+    border-radius: 4px;
+}

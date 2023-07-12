@@ -1,24 +1,22 @@
 import styles from './styles.module.css'
 import useListSeries from '../hooks/useListSeries'
-import { Link } from 'react-router-dom'
+import { columns } from '../utlis/series-table'
+import Table from '../../Components/Table'
+import Button from '../../Components/Button'
 
 const List = () => {
-  const { loading, data } = useListSeries()
+  const { data } = useListSeries()
 
   return (
         <>
             <div className={styles.container}>
-                <div className={styles.seriesContainer}>
-                {
-                !loading && data?.map((series, index) => (
-                    <Link to={'/series/' + series?.id} key={index} className={styles.series_card}>
-                        <div className={styles.series_card_img}>
-                            <img src={series?.image_url} style={{ width: '100%', height: '100%', borderRadius: '50%' }}/>
-                        </div>
-                        {series.name}
-                    </Link>
-                ))}
+            <div className={styles.flex_right}>
+                <div>
+                    Your Series
                 </div>
+                <Button value="+ Create Match"/>
+            </div>
+                <Table columns={columns} data={data}/>
             </div>
         </>
   )

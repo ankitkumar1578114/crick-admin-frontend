@@ -2,7 +2,7 @@
 const Logo = () => {
   return (
         <>
-            Admin Portal
+            Dashboard
             {/* <img src={logo} width="26px"/> */}
         </>
   )

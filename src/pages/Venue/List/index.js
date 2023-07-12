@@ -26,6 +26,9 @@ const List = () => {
 
         <div className={style.list}>
         <div className={style.flex_right}>
+            <div>
+                Your Venues
+            </div>
                 <Button value="+ Create Venue" onClick={() => setShow(true)}/>
             </div>
             <Table columns={columns} data={venues}/>

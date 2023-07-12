@@ -23,6 +23,9 @@ const List = () => {
         </Modal>
         <div className={style.match_list_page}>
         <div className={style.flex_right}>
+            <div>
+                Your Matches
+            </div>
             <Button value="+ Create Match" onClick={() => setShow(true)}/>
         </div>
 
