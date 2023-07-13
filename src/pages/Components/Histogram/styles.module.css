@@ -1,0 +1,92 @@
+.parent{
+    width:90%;
+    margin:auto;
+    margin-top:20px;
+    padding:40px;
+    border-radius: 4px;
+    background-color: rgb(24, 24, 24);
+
+}
+.histogram{
+    border-radius: 4px;
+    position:relative;
+    padding-left: 10px;
+}
+.poll_container{
+    display: flex;
+    gap:8px;
+    align-items: flex-end;
+    position: relative;
+}
+.poll_container >*{
+    margin-bottom: -16px;
+}   
+.label{
+    text-align: center;
+    font-size:14px;
+    color:rgb(206, 206, 206);
+}
+.poll{
+    width:50px;
+    background-color: #7a14be;
+    border-radius: 4px 4px 0 0 ;
+    color:rgb(228, 228, 228);
+    display: flex;
+    align-items: center;
+    gap:10px;
+    justify-content: center;
+    position:relative;
+    font-size:14px;
+}
+.poll:hover{
+    background-color: #9900ff;
+    color:white;
+}
+.on_hover_div{
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
+    color:black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 12px;
+    position: absolute;
+    z-index: 2;
+    bottom: calc(100% + 16px);
+    box-shadow: 0 0 10px 1px rgba(190, 190, 190, 0.178);
+}
+.poll:hover .on_hover_div::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255) transparent transparent transparent;
+  
+}
+.poll:hover .on_hover_div{
+    visibility: visible;
+}
+
+.grid{
+    position: absolute;
+    bottom:0px;
+    width:100%;
+    height:100%;
+    left:-20px;
+    font-size:12px;
+    color:rgb(192, 192, 192);
+}
+.grid_item{
+    height:calc(20% - 1px);
+    padding-left:10px;
+    border-top:1px solid rgba(255, 255, 255, 0.089);
+    border-left:1px solid black;
+}
+.grid >:last-child{
+    border-bottom:1px solid black;
+}
+.grid_item{
+    margin-right:10px;
+}

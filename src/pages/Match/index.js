@@ -7,6 +7,8 @@ import Score from './Score'
 import { useParams } from 'react-router-dom'
 import ListSquad from './ListSquad'
 import ResultOptions from './Score/ResultOptions'
+import Histogram from '../Components/Histogram'
+// import Histogram from '../Components/Histogram'
 
 const MatchPage = () => {
   const { id: matchId } = useParams()
@@ -21,6 +23,37 @@ const MatchPage = () => {
     if (data?.current_inning === 1) { setBattingTeam(2) }
   }, [data])
 
+  // const histogramData = [
+  //   {
+  //     key: 'Over 1',
+  //     run: 5
+  //   },
+  //   {
+  //     key: 'Over 2',
+  //     run: 2
+  //   },
+  //   {
+  //     key: 'Over 3',
+  //     run: 4
+  //   },
+  //   {
+  //     key: 'Over 4',
+  //     run: 2
+  //   },
+  //   {
+  //     key: 'Over 5',
+  //     run: 3
+  //   }
+
+  // ]
+  const hoverItem = (item) => (
+    <>
+        Run:{item?.runs}<br/>
+        Batsman:{item?.runs}
+    </>
+  )
+
+  console.log(score?.team2?.oversDetails)
   return (
         <>
         <div className={styles.container}>
@@ -56,6 +89,7 @@ const MatchPage = () => {
           )
         }
         </div>
+        <Histogram data={battingTeam === 1 ? score?.team1?.oversDetails : score?.team2?.oversDetails} hoverItem ={hoverItem} _key='runs' />
         </>
   )
 }

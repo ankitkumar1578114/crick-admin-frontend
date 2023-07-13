@@ -5,7 +5,7 @@ const Dashboard = ({ children }) => {
   const location = useLocation()
   return <>
     {
-        ['/player', '/team', '/match', '/series', '/venue'].includes(location?.pathname)
+        ['/player', '/team', '/match', '/series', '/venue', '/'].includes(location?.pathname)
           ? <div className={styles.parent}>
         <div className={styles.left}>
             <SideNav />
@@ -15,9 +15,8 @@ const Dashboard = ({ children }) => {
         </div>
     </div>
           : <>
-            {children}
-
-    </>
+                {children}
+            </>
 
     }
     </>

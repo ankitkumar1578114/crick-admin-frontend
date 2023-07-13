@@ -1,9 +1,11 @@
-// import logo from './logo.svg'
+import { Link } from 'react-router-dom'
+
 const Logo = () => {
   return (
         <>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
             Dashboard
-            {/* <img src={logo} width="26px"/> */}
+        </Link>
         </>
   )
 }
