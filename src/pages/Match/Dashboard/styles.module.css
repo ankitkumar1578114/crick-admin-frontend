@@ -1,0 +1,14 @@
+.on_hover{
+    width:100px;
+    overflow-wrap:nowrap;
+}
+.parent{
+    width:92%;
+    margin:auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.left{
+    width:50%;
+}

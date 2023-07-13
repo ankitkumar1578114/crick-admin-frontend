@@ -18,6 +18,11 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
 
   const options = [
     {
+      label: '0',
+      value: 0,
+      color: 'gray'
+    },
+    {
       label: '1',
       value: 1,
       color: 'gray'

@@ -1,11 +1,19 @@
 import Poll from './Poll'
 import styles from './styles.module.css'
-const Histogram = ({ data, hoverItem = () => {}, _key, height = 200 }) => {
+const Histogram = ({ data, hoverItem = () => {}, _key, height = 200, xName, title }) => {
   const maxElment = data ? Math.max(...data?.map(o => o?.[_key])) : 1
   return <>
         {
         data &&
+        <>
         <div className={styles.parent}>
+            <div className={styles.title}>
+                {title}
+            </div>
+            <div className={styles.flex}>
+                <div className={styles.yName}>
+                    Runs
+                </div>
             <div className={styles.histogram}>
             <div className={styles.grid}>
                 {
@@ -27,6 +35,12 @@ const Histogram = ({ data, hoverItem = () => {}, _key, height = 200 }) => {
             </div>
             </div>
         </div>
+        <div className={styles.xName}>
+            {xName}
+        </div>
+
+        </div>
+        </>
         }
     </>
 }

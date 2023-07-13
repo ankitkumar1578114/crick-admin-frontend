@@ -1,13 +1,23 @@
 .parent{
-    width:90%;
-    margin:auto;
-    margin-top:20px;
-    padding:40px;
+    padding:20px;
+    padding-top: 30px;
     border-radius: 4px;
     background-color: rgb(24, 24, 24);
 
 }
+.flex{
+    display: flex;
+    align-items: center;
+    gap:30px;
+}
+.yName{
+    display: inline-flexbox;
+    transform: rotate(-90deg);
+    width:20px;
+    color:rgb(202, 202, 202);
+}
 .histogram{
+    width:calc(100% + 40px);
     border-radius: 4px;
     position:relative;
     padding-left: 10px;
@@ -37,12 +47,14 @@
     justify-content: center;
     position:relative;
     font-size:14px;
+    transition: background-color 0.2s;
 }
 .poll:hover{
     background-color: #9900ff;
     color:white;
 }
 .on_hover_div{
+    width:auto;
     visibility: hidden;
     background-color: rgb(255, 255, 255);
     color:black;
@@ -53,6 +65,7 @@
     z-index: 2;
     bottom: calc(100% + 16px);
     box-shadow: 0 0 10px 1px rgba(190, 190, 190, 0.178);
+    
 }
 .poll:hover .on_hover_div::after{
     content: "";
@@ -89,4 +102,18 @@
 }
 .grid_item{
     margin-right:10px;
+}
+
+.title{
+    display: flex;
+    margin-bottom: 30px;
+    padding-left: 40px;
+    font-size:20px;
+    color:rgb(228, 228, 228);
+}
+.xName{
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    color:rgb(182, 182, 182);
 }
