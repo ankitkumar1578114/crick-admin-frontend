@@ -1,6 +1,6 @@
 .score_card{
     width:50%;
-    background-color: rgb(32, 31, 31);
+    background-color: var(--color-secondary_background);
     padding:20px;
     color:white;
     border-radius: 4px;
@@ -23,15 +23,17 @@
 }
 
 .player_list{
-    background-color: rgb(49, 49, 49);
+    background-color: var(--color-tirtary_background);
     color:rgb(226, 226, 226);
     font-size:14px;
     margin-top: 10px;
-    border-radius: 2px;
+    border-radius: 4px;
 }
+
 .player_list_row,.player_list_row_striker{
-    padding:6px;
+    padding:10px;
     display: flex;
+    text-align: center;
 }
 
 .player_list_row >*,.player_list_row_striker >*{
@@ -41,7 +43,7 @@
     width:100%;
 }
 .player_list_row_striker{
-    background-color: rgb(73, 73, 73);
+    background-color: var(--color-quaternary_background);
     color:rgb(207, 205, 205);
 }
 .run_over{

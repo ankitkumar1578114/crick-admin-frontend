@@ -3,12 +3,16 @@
     overflow-wrap:nowrap;
 }
 .parent{
-    width:92%;
+    width:calc(90% + 60px);
     margin:auto;
-    margin-top: 40px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    gap:10px;
 }
 .left{
+    width:50%;
+}
+.right{
     width:50%;
 }

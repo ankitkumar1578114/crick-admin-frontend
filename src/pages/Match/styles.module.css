@@ -2,12 +2,13 @@
     display: flex;
 }
 .container{
-    background-color: rgb(20, 20, 20);
+    background-color: var(--color-primary_background);
     padding:30px;
     height:auto;
     width:90%;
     margin:auto;
     margin-top:40px;
+    border-radius:4px;
 }
 .welcome_title{
     font-size:20px;

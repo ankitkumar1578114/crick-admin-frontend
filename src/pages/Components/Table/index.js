@@ -1,6 +1,5 @@
 import styles from './styles.module.css'
 const Table = ({ columns, data }) => {
-  console.log(data)
   return <>
             {
             data?.length >= 1

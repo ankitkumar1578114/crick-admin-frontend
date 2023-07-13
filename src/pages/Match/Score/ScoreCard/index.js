@@ -43,11 +43,11 @@ const ScoreCard = ({
                 </div>
                 <div className={styles.player_list}>
                 <div className={styles.player_list_row}>
-                            <div>Player</div>
-                            <div>Runs</div>
-                            <div>Balls</div>
-                            <div>4s</div>
-                            <div>6s</div>
+                            <div><b>Player</b></div>
+                            <div><b>Runs</b></div>
+                            <div><b>Balls</b></div>
+                            <div><b>4s</b></div>
+                            <div><b>6s</b></div>
                 </div>
                     {
                     (Object.keys(team?.batting_players || {}) || []).map((player) => (
@@ -80,11 +80,11 @@ const ScoreCard = ({
 
                 <div className={styles.player_list}>
                 <div className={styles.player_list_row}>
-                            <div>Bowler</div>
-                            <div>Over</div>
-                            <div>Wickets</div>
-                            <div>Runs</div>
-
+                            <div><b>Bowler</b></div>
+                            <div><b>Over</b></div>
+                            <div><b>Wickets</b></div>
+                            <div><b>Runs</b></div>
+                            <div><b>Ecc</b></div>
                 </div>
                     {
                     (Object.keys(team?.bowling_players || {}) || []).map((player) => (
@@ -107,7 +107,9 @@ const ScoreCard = ({
                             <div>
                                 { team?.bowling_players[player].runs}
                             </div>
-
+                            <div>
+                                { parseInt(team?.bowling_players[player].runs / (team?.bowling_players[player].balls / 6))}
+                            </div>
                         </div>
                         </>
                     ))
