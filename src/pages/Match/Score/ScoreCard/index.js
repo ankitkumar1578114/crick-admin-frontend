@@ -115,7 +115,7 @@ const ScoreCard = ({
                     ))
                     }
                 </div>
-                 <Pill content={`Extra : ${team?.extra}`} color="gray" textColor="black"/>
+                 <Pill content={`Extras : ${team?.extra}`} type="tertiary"/>
                 </>)}
             </div>
     </>)

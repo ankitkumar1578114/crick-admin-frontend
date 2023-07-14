@@ -55,8 +55,8 @@ export const columns = [
             {
               '-1': <Pill content="Runnng"/>,
               1: <Pill content="Runnng"/>,
-              0: <Pill color="transparent" content={moment(row?.start_time).format('hh:mm DD MMM YYYY') }/>,
-              2: <Pill color="red" content = 'Finished'/>
+              0: <Pill type="transparent" content={moment(row?.start_time).format('hh:mm DD MMM YYYY') }/>,
+              2: <Pill type="secondary" content = 'Finished'/>
             }[row?.current_inning]
         }
         </>
