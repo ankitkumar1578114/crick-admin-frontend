@@ -1,5 +1,6 @@
 .navigation{
     position:fixed;
+    height:66px;
     display: flex;
     width:calc(100% - 100px);
     align-items: center;
@@ -7,8 +8,6 @@
     justify-content: space-between;
     background-color: var(--color-background);
     margin:auto;
-    padding-top:10px; 
-    padding-bottom:10px;   
     box-shadow: 0 0 1px 1px rgba(218, 218, 218, 0.041);
     z-index: 1;
 }
