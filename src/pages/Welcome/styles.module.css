@@ -1,0 +1,23 @@
+.flex{
+    display: flex;
+    padding:20px;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.welcome_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height:400px;
+    /* background-color: red; */
+    font-size:28px;
+    color:rgb(226, 226, 226);
+    text-align: center;
+}
+.center{
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

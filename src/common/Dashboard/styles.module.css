@@ -1,3 +1,8 @@
+.grand_parent{
+    padding-top:80px;
+    width:96%;
+    margin:auto;
+}
 .parent{
     display: flex;
     width:calc(100% - 48px);
@@ -9,7 +14,7 @@
     width:200px;
 }
 .right{
-    background-color: rgb(19, 19, 19);
+    background-color: var(--color-primary_background);
     padding:10px 20px;
     padding-top:4px;
     width:calc(100% - 200px);

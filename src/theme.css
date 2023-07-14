@@ -1,7 +1,7 @@
 :root{
-  --color-background:#000;
-  --color-primary_background:rgb(19, 19, 19);
-  --color-secondary_background:rgb(31, 31, 31);
+  --color-background:#121212;
+  --color-primary_background:rgba(255,255,255,2%);
+  --color-secondary_background:rgb(255,255,255,5%);
   --color-tirtary_background:rgb(43, 43, 43);
   --color-quaternary_background:rgb(53, 53, 53);
   --color-primary_text:white;

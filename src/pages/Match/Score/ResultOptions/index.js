@@ -60,7 +60,7 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
     {
       label: 'Nb',
       value: 12,
-      color: 'gray'
+      color: '#0000aa'
     }
 
   ]

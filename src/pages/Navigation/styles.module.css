@@ -1,3 +1,21 @@
+.navigation{
+    position:fixed;
+    display: flex;
+    width:calc(100% - 100px);
+    align-items: center;
+    padding:0 50px;
+    justify-content: space-between;
+    /* background-color: rgb(0, 0, 0); */
+    margin:auto;
+    margin-top:20px;    
+}
+.logo{
+    margin-left:30px;
+}
+
+.profile_image{
+    padding:10px 30px;
+}
 .button{
     padding:20px;
     border-radius: 4px;
@@ -7,25 +25,4 @@
     color:white;
     font-size:14px;
     cursor: pointer;
-}
-.navigation{
-    width:100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(12, 12, 12);
-    margin:auto;
-    margin-top:10px;    
-}
-.logo{
-    margin-left:30px;
-}
-.navigation_link{
-    margin-bottom: 10px;   
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.profile_image{
-    padding:10px 30px;
 }

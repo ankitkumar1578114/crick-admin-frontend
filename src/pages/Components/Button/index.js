@@ -1,13 +1,13 @@
-import style from './styles.module.css'
+import styles from './styles.module.css'
 const Button = ({ value, onClick = () => {}, type = 'primary' }) => {
   return (<>
-    <button className={style.button} onClick={() => onClick()} style={
+    <button onClick={() => onClick()} className={
       {
-        backgroundColor: {
-          secondary: 'rgb(60,60,60)',
-          primary: 'rgb(55, 165, 0)'
-        }[type]
-      }}>
+        primary: styles.primary,
+        submit: styles.primary,
+        secondary: styles.secondary
+      }[type]
+      }>
 
         {value}
     </button>

@@ -1,7 +1,7 @@
 .parent{
     display: flex;
     flex-direction: column;
-    background-color:rgb(20, 20, 20);
+    background-color: var(--color-primary_background);
     border-radius: 4px;
 }
 .selected_item,.not_selected_item{
@@ -15,6 +15,6 @@
 .selected_item{
     font-weight: 600;
     color: rgb(231, 231, 231);
-    background-color:rgb(32, 32, 32);
+    background-color: var(--color-secondary_background);
     border-radius: 4px;
 }
