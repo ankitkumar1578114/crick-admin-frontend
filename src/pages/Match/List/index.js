@@ -3,7 +3,7 @@ import Layout from '../../Components/Layout'
 import useCreateMatch from '../hooks/useCreateMatch'
 import useGetMatches from '../hooks/useGetMatches'
 import MatchControls from '../match-controls'
-import style from './styles.module.css'
+import globalStyle from '../../Venue/List/styles.module.css'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
@@ -20,12 +20,12 @@ const List = () => {
         <Modal show={show} setShow={setShow} size="md">
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls}/>
         </Modal>
-        <div className={style.match_list_page}>
-        <div className={style.flex_right}>
+        <div className={globalStyle.container}>
+            <div className={globalStyle.flex_right}>
             <div>
                 Your Matches
             </div>
-            <Button value="+ Create Match" onClick={() => setShow(true)}/>
+            <Button value="Create Match" onClick={() => setShow(true)}/>
         </div>
 
         <Table columns={columns} data={matches} loading={loading}/>

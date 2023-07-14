@@ -1,4 +1,4 @@
-import styles from './styles.module.css'
+import globalStyle from '../../Venue/List/styles.module.css'
 import useListSeries from '../hooks/useListSeries'
 import { columns } from '../utlis/series-table'
 import Table from '../../Components/Table'
@@ -9,8 +9,8 @@ const List = () => {
 
   return (
         <>
-            <div className={styles.container}>
-            <div className={styles.flex_right}>
+            <div className={globalStyle.container}>
+            <div className={globalStyle.flex_right}>
                 <div>
                     Your Series
                 </div>

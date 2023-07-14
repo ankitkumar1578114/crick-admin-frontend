@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import Layout from '../../Components/Layout'
 import control from '../player-controls'
-import style from './styles.module.css'
+import globalStyle from '../../Venue/List/styles.module.css'
 import useCreatePlayer from '../hooks/useCreatePlayer'
 import useGetPlayers from '../hooks/useGetPlayers'
 import Button from '../../Components/Button'
@@ -21,8 +21,8 @@ const List = () => {
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls}/>
         </Modal>
 
-        <div className={style.list}>
-            <div className={style.flex_right}>
+        <div className={globalStyle.container}>
+            <div className={globalStyle.flex_right}>
                 <div>
                     Your Players
                 </div>

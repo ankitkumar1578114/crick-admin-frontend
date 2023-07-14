@@ -1,25 +1,12 @@
 .list{
     width:100%;   
     margin: auto;
-}
-.item{
-    display: flex;
-    align-items: center;
-    background-color: rgb(43, 43, 43);
-    margin:1px 0;
-    padding:10px;
-    cursor:pointer;
-    text-decoration: none;
-    color:rgb(214, 214, 214);
-    font-size:12px;
+    padding:10px 0;
 }
 .img{
     width:30px;
     height:30px;
     border-radius: 50%;
-}
-.item  >*{
-    width:300px;
 }
 .flex_right{
     display: flex;
@@ -28,4 +15,5 @@
     padding:10px;
     font-size: 20px;
     color:rgb(233, 233, 233);
+    padding-bottom: 20px;
 }

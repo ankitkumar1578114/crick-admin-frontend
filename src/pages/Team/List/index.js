@@ -3,7 +3,7 @@ import Layout from '../../Components/Layout'
 import control from '../team-controls'
 import useCreateTeam from '../hooks/useCreateTeam'
 import useGetTeams from '../hooks/useGetTeams'
-import style from './styles.module.css'
+import globalStyle from '../../Venue/List/styles.module.css'
 import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Button from '../../Components/Button'
@@ -21,13 +21,13 @@ const List = () => {
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls}/>
         </Modal>
 
-        <div className={style.list}>
-        <div className={style.flex_right}>
-                <div>
-                    Your Teams
-                </div>
-                <Button value="Create Team" onClick={() => setShow(true)}/>
-        </div>
+        <div className={globalStyle.container}>
+            <div className={globalStyle.flex_right}>
+                    <div>
+                        Your Teams
+                    </div>
+                    <Button value="Create Team" onClick={() => setShow(true)}/>
+            </div>
             <Table columns={columns} data={teams} loading={loading}/>
         </div>
 

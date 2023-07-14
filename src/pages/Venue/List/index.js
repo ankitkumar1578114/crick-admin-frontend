@@ -21,7 +21,7 @@ const List = () => {
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls}/>
         </Modal>
 
-        <div className={style.list}>
+        <div className={style.container}>
         <div className={style.flex_right}>
             <div>
                 Your Venues
