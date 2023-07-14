@@ -7,7 +7,7 @@ const useRequest = ({ url, method = 'post', isConfig = false }) => {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   }
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
   const trigger = async (data) => {
