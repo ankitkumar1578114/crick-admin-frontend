@@ -30,9 +30,6 @@ const MatchPage = () => {
         {
             data?.is_squads_final === 0 && (
               <>
-              <div className={styles.welcome_title}>
-              <span className={styles.heading_colour}>Step1</span>
-            </div>
 
           <ListSquad squad1={{ ...data?.squad1, teamName: data?.team1?.name }} squad2={{ ...data?.squad2, teamName: data?.team2?.name }}
           matchId={matchId} getMatchById={getMatchById}

@@ -13,6 +13,9 @@
     text-decoration: none;
     text-align: center;
 }
+.selected_item:hover,.not_selected_item:hover{
+    background-color: var(--color-primary_background);
+}
 .selected_item{
     font-weight: 600;
     color: rgb(231, 231, 231);

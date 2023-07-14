@@ -15,7 +15,7 @@ const PlayerItem = ({ player, squadId, getMatchById, matchId, index, isSquadFina
     setChecked(player?.selected)
   }, [player])
   return (<>
-    <div className={style.item} onClick={() => changeSelection()}>
+    <div className={checked ? style.selected_item : style.not_selected_item} onClick={() => changeSelection()}>
             {
               checked
                 ? <IconSuccss />

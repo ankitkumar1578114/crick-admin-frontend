@@ -3,8 +3,13 @@
     padding:0 10px;
 }
 .squad{
-    background-color: rgb(31, 31, 31);
+    background-color: var(--color-primary_background);
     height:calc(100% - 24px);
     border-radius:4px;
     padding:20px;
+}
+.flex{
+    display: flex;
+    gap:20px;
+    padding:10px;
 }

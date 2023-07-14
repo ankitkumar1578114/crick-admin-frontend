@@ -1,10 +1,16 @@
-.item{
+.selected_item,.not_selected_item{
     padding:10px;
     cursor: pointer;
     border-radius: 2px;
     margin:2px 0;
     font-size:12px;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap:10px;
+    border:2px solid rgb(199, 67, 67);
+    border-radius: 100px;
+}
+.selected_item{
+    border:2px solid rgb(84, 192, 138);
 }

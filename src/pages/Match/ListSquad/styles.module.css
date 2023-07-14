@@ -1,22 +1,5 @@
-.squads{
-    display: flex;
-    margin:20px ;
-    border-radius:4px;
-    gap:10px;
-}
-.squads >*{
-    width:100%;
-}
 .finalSquadsBtn{
     display: flex;
     justify-content: flex-end;
-}
-.button{
-    background-color: green;
-    border:0;
-    padding:10px;
-    margin:10px;
-    border-radius: 4px;
-    color:white;
-    cursor: pointer;
+    padding-top:20px;
 }

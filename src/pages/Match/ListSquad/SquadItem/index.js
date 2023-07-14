@@ -11,16 +11,14 @@ const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal, antiSquad }) =>
   const { addPlayerInSquad } = useCreateSquad({ squadId: squad?.id, getMatchById, matchId })
   return (<>
                 <div className={styles.squad}>
-                  <div className={styles.teamName}>
-                        {squad.teamName}
-                  </div>
-
+                      <div className={styles.flex}>
+                        {
+                            squad?.players?.map((player, index) =>
+                              <PlayerItem key={index} index={index + 1} player={player} squadId={squad?.id} matchId={matchId} getMatchById={getMatchById} isSquadFinal={isSquadFinal}/>
+                            )
+                        }
+                      </div>
                       {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls}/>
-                      }
-                      {
-                          squad?.players?.map((player, index) =>
-                            <PlayerItem key={index} index={index + 1} player={player} squadId={squad?.id} matchId={matchId} getMatchById={getMatchById} isSquadFinal={isSquadFinal}/>
-                          )
                       }
 
                 </div>

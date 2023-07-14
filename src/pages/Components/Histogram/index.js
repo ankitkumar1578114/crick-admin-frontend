@@ -4,7 +4,7 @@ const Histogram = ({ data, hoverItem = () => {}, _key, height = 200, xName, titl
   const maxElment = data ? Math.max(...data?.map(o => o?.[_key])) : 1
   return <>
         {
-        data &&
+        data && data?.length >= 1 &&
         <>
         <div className={styles.parent}>
             <div className={styles.title}>

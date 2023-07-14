@@ -1,0 +1,22 @@
+.input{
+    width: 300px;
+    padding:16px 20px;
+    font-size:18px;
+    color:rgb(218, 218, 218);
+    background-color: rgb(34, 34, 34);
+    outline: none;
+    border:1px solid rgba(255, 255, 255, 0);
+    border-radius: 4px;   
+}
+.options{
+    position: absolute;
+    background-color:var(--color-background);
+    margin-top:2px;
+    width:calc(300px + 40px);
+}
+.option{
+    padding:10px 20px;
+    margin-top: 1px;
+    font-size: 14px;
+    background-color:var(--color-secondary_background);
+}

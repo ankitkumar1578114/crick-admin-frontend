@@ -1,0 +1,18 @@
+.tabs{
+    display: flex;
+    background-color: var(--color-secondary_background);
+    border-radius: 4px;
+}
+.selected_tab,.not_selected_tab{
+    width:50%;
+    padding:14px;
+    text-align: center;
+    border-radius: 6px 6px 0 0;
+    background-color: var(--color-primary_background);
+    border-bottom: 2px solid var(--color-primary_background);  
+    box-shadow: 0 1px 1px 0px rgba(238, 238, 238, 0.082);  
+}
+.selected_tab{
+    background-color: var(--color-secondary_background);
+    border-bottom: 2px solid rgb(185, 185, 185);
+}
