@@ -52,7 +52,6 @@ const MatchPage = () => {
                   matchId={matchId}
                   matchData={data}
               />
-
               <ResultOptions score={score} data={data} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
               </div>
           )

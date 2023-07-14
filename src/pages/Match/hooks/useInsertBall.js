@@ -3,11 +3,12 @@ const useInsertBall = ({
   matchData, ballOftheMatch,
   getScoreData, batPlayerId, ballPlayerId,
   batsmanOnNonStrike, squadId, getMatchById,
-  legalBalls, battingTeam, reset
+  legalBalls, battingTeam, reset, autoLoad
 }) => {
   const { data, loading, trigger } = useRequest({
     url: 'ball/insert_ball',
-    method: 'post'
+    method: 'post',
+    autoLoad
   })
 
   const insertBall = async (result) => {

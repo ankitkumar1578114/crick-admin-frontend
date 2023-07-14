@@ -13,7 +13,8 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
     legalBalls: battingTeam === 1 ? score?.team1?.legalBalls : score?.team2?.legalBalls,
     battingTeam,
     getScoreData,
-    getMatchById
+    getMatchById,
+    autoLoad: false
   })
 
   const options = [

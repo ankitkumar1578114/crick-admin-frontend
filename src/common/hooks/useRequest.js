@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-const useRequest = ({ url, method = 'post', isConfig = false }) => {
+const useRequest = ({ url, method = 'post', isConfig = false, autoLoad = true }) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }
   }
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(autoLoad)
   const [data, setData] = useState([])
 
   const trigger = async (data) => {
