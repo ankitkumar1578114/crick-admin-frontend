@@ -15,7 +15,7 @@ import WelcomePage from '../Welcome'
 const Router = () => {
   const [user, setUser] = useState(null)
   const navigateTo = () => {
-    return <><Navigate to="/series"/> </>
+    if (user) { return <><Navigate to="/series"/> </> } else { return <><Navigate to="/"/> </> }
   }
   return (
         <>

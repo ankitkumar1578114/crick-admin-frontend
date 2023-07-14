@@ -14,7 +14,7 @@ const useRequest = ({ url, method = 'post', isConfig = false }) => {
     let res = []
     setLoading(true)
     if (method === 'post') { res = await axios.post(process.env.REACT_APP_BACKEND + url, data, isConfig ? config : {}) }
-    if (method === 'get') { res = await axios.get(process.env.REACT_APP_BACKEND + url, data, isConfig ? config : {}) }
+    if (method === 'get') { res = await axios.get(process.env.REACT_APP_BACKEND + url, isConfig ? config : {}) }
     setData(res)
     setLoading(false)
     return res

@@ -5,7 +5,7 @@ import Table from '../../Components/Table'
 import Button from '../../Components/Button'
 
 const List = () => {
-  const { data } = useListSeries()
+  const { data, loading } = useListSeries()
 
   return (
         <>
@@ -14,9 +14,9 @@ const List = () => {
                 <div>
                     Your Series
                 </div>
-                <Button value="+ Create Match"/>
+                <Button value="Create Series"/>
             </div>
-                <Table columns={columns} data={data}/>
+                <Table columns={columns} data={data} loading={loading}/>
             </div>
         </>
   )

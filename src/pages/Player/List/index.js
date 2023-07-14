@@ -13,7 +13,7 @@ import { columns } from '../utlis/player-table'
 const List = () => {
   const controls = control()
   const { register, handleSubmit } = useForm()
-  const { data, getPlayers } = useGetPlayers()
+  const { data, getPlayers, loading } = useGetPlayers()
   const [show, setShow] = useState(false)
   const { createPlayer } = useCreatePlayer({ getPlayers, setShow })
   return (<>
@@ -26,9 +26,9 @@ const List = () => {
                 <div>
                     Your Players
                 </div>
-                <Button value="+ Create Player" onClick={() => setShow(true)}/>
+                <Button value="Create Player" onClick={() => setShow(true)}/>
             </div>
-            <Table columns={columns} data={data}/>
+            <Table columns={columns} data={data} loading={loading}/>
             </div>
 
     </>)

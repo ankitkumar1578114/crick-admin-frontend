@@ -2,7 +2,6 @@
     display: flex;
     padding:20px;
     justify-content: space-between;
-    margin-top: 50px;
 }
 @keyframes example {
     from {color:rgb(110, 110, 110);}
@@ -13,9 +12,9 @@
     justify-content: center;
     align-items: center;
     width:50%;
-    height:400px;
+    height:inherit;
     font-size:28px;
-    color:rgb(226, 226, 226);
+    color:rgb(202, 202, 202);
     text-align: center;
     animation-name: example;
     animation-duration: 1s;
@@ -23,8 +22,12 @@
 
   
 .center{
+    margin-top:30px;
     width:50%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.h4{
+    color:rgb(161, 161, 161);
 }

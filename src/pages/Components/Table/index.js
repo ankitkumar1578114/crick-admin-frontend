@@ -1,6 +1,12 @@
 import styles from './styles.module.css'
-const Table = ({ columns, data }) => {
-  return <>
+import Skelton from '../Skelton'
+const Table = ({ columns, data, loading }) => {
+  if (loading) {
+    return <>
+            <Skelton width="100%" height="300px"/>
+        </>
+  } else {
+    return <>
             {
             data?.length >= 1
               ? <>
@@ -39,5 +45,6 @@ const Table = ({ columns, data }) => {
                 </div>
         }
     </>
+  }
 }
 export default Table

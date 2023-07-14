@@ -11,7 +11,7 @@ import Table from '../../Components/Table'
 import { columns } from '../utlis/team-table'
 
 const List = () => {
-  const { data: teams, getTeams } = useGetTeams()
+  const { data: teams, getTeams, loading } = useGetTeams()
   const { register, handleSubmit } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
@@ -26,12 +26,9 @@ const List = () => {
                 <div>
                     Your Teams
                 </div>
-                <Button value="+ Create Team" onClick={() => setShow(true)}/>
+                <Button value="Create Team" onClick={() => setShow(true)}/>
         </div>
-            <Table
-                columns={columns}
-                data={teams}
-            />
+            <Table columns={columns} data={teams} loading={loading}/>
         </div>
 
     </>)

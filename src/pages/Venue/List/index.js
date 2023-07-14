@@ -11,10 +11,7 @@ import Table from '../../Components/Table'
 import { columns } from '../utlis/venue-table'
 
 const List = () => {
-  const {
-    data: venues,
-    getVenues
-  } = useGetVenues()
+  const { data: venues, getVenues, loading } = useGetVenues()
   const { register, handleSubmit } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
@@ -29,9 +26,9 @@ const List = () => {
             <div>
                 Your Venues
             </div>
-                <Button value="+ Create Venue" onClick={() => setShow(true)}/>
+                <Button value="Create Venue" onClick={() => setShow(true)}/>
             </div>
-            <Table columns={columns} data={venues}/>
+            <Table columns={columns} data={venues} loading={loading}/>
             </div>
 
     </>)

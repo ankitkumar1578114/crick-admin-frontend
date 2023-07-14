@@ -1,15 +1,18 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 const useListSeries = () => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const getPlayers = async (data) => {
-    const res = await axios.get(process.env.REACT_APP_BACKEND + 'series/list_series', data)
-    return res
+  const { data, loading, trigger } = useRequest({
+    url: 'series/list_series',
+    method: 'get',
+    isConfig: true
+  })
+
+  const listSeries = async (data) => {
+    trigger(data)
   }
 
   useEffect(() => {
-    getPlayers().then((res) => { setLoading(false); setData(res) })
+    listSeries()
   }, [])
   return {
     loading,
