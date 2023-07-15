@@ -4,11 +4,11 @@ import { useEffect } from 'react'
 import useAuth from './hooks/useAuth'
 import { GoogleLogin } from '@react-oauth/google'
 
-const Navigations = ({ user, setUser }) => {
-  const { responseMessage, errorMessage } = useAuth({ setUser })
+const Navigations = ({ user, setUser, setUserLoaded }) => {
+  const { responseMessage, errorMessage } = useAuth({ setUser, setUserLoaded })
 
   useEffect(() => {
-    if (!localStorage.getItem('profileData')) { responseMessage({ credential: localStorage.getItem('token') }) } else { setUser(JSON.parse(localStorage.getItem('profileData'))) }
+    responseMessage({ credential: localStorage.getItem('token') })
   }, [])
 
   const logout = () => {

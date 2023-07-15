@@ -7,30 +7,36 @@ import SeriesList from '../Series/List'
 import SeriesPage from '../Series'
 import MatchList from '../Match/List'
 import VenueList from '../Venue/List'
-import Navigations from '../Navigation'
+// import Navigations from '../Navigation'
 import { useState } from 'react'
 import Dashboard from '../../common/Dashboard'
 import WelcomePage from '../Welcome'
+import Navigations from '../Navigation'
+// import Navigation from '../Navigation'
 
 const Router = () => {
+  const [userLoaded, setUserLoaded] = useState(false)
   const [user, setUser] = useState(null)
   const navigateTo = () => {
     if (user) { return <><Navigate to="/series"/> </> } else { return <><Navigate to="/"/> </> }
   }
   return (
         <>
-            <Navigations user={user} setUser={setUser}/>
-            <Dashboard>
+          {
+            !user && <Navigations user={user} setUser={setUser} setUserLoaded={setUserLoaded}/>
+
+          }
+            <Dashboard user={user} setUser={setUser} setUserLoaded={setUserLoaded}>
               <Routes>
-                  <Route path="/" element={user ? navigateTo() : <WelcomePage/>} />
-                  <Route path="/player" element={!user ? navigateTo() : <PlayerPage/>} />
-                  <Route path="/squad" element={!user ? navigateTo() : <SquadPage/>} />
-                  <Route path="/team" element={!user ? navigateTo() : <TeamPage/>} />
-                  <Route path="/match" element={!user ? navigateTo() : <MatchList/>} />
-                  <Route path="/match/:id" element={!user ? navigateTo() : <MatchPage/>} />
-                  <Route path="/series" element={!user ? navigateTo() : <SeriesList/>} />
-                  <Route path="/series/:id" element={!user ? navigateTo() : <SeriesPage/>} />
-                  <Route path="/venue" element={!user ? navigateTo() : <VenueList/>} />
+                  <Route path="/" element={userLoaded && !user ? <WelcomePage/> : navigateTo() } />
+                  <Route path="/player" element={userLoaded && user ? <PlayerPage/> : navigateTo() } />
+                  <Route path="/squad" element={userLoaded && user ? <SquadPage/> : navigateTo() } />
+                  <Route path="/team" element={ userLoaded && user ? <TeamPage/> : navigateTo() } />
+                  <Route path="/match" element={ userLoaded && user ? <MatchList/> : navigateTo() } />
+                  <Route path="/match/:id" element={ userLoaded && user ? <MatchPage/> : navigateTo() } />
+                  <Route path="/series" element={ userLoaded && user ? <SeriesList/> : navigateTo() } />
+                  <Route path="/series/:id" element={ userLoaded && user ? <SeriesPage/> : navigateTo() } />
+                  <Route path="/venue" element={ userLoaded && user ? <VenueList/> : navigateTo() } />
               </Routes>
               </Dashboard>
         </>

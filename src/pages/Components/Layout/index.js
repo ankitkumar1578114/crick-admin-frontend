@@ -6,7 +6,7 @@ import TeamSelect from '../TeamSelect'
 import VenueSelect from '../VenueSelect'
 import style from './styles.module.css'
 import SeriesSelect from '../SeriesSelect'
-const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
+const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'Submit' }) => {
   // eslint-disable-next-line react/display-name
 
   // eslint-disable-next-line react/display-name
@@ -54,7 +54,7 @@ const Layout = ({ handleSubmit, register, onSubmit, controls }) => {
           })
         }
         <div>
-          <Button type="submit" onClick={handleSubmit(onSubmit)} value="Submit"/>
+          <Button type="submit" onClick={handleSubmit(onSubmit)} value={submitBtnName}/>
         </div>
         </div>
     </>)

@@ -18,7 +18,7 @@ const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal, antiSquad }) =>
                             )
                         }
                       </div>
-                      {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls}/>
+                      {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls} submitBtnName="Add Player"/>
                       }
 
                 </div>

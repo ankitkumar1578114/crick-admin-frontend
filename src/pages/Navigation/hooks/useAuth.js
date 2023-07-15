@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const useAuth = ({ setUser }) => {
+const useAuth = ({ setUser, setUserLoaded }) => {
   const responseMessage = async (response) => {
     try {
       const config = {
@@ -12,8 +12,12 @@ const useAuth = ({ setUser }) => {
       localStorage.setItem('token', response.credential)
       localStorage.setItem('profileData', JSON.stringify(res?.data?.profileData))
       setUser(res?.data?.profileData)
+      setUserLoaded(true)
     } catch (err) {
-      console.log(err)
+      setUserLoaded(true)
+      console.log(err, 'err')
+      localStorage.removeItem('token')
+      localStorage.removeItem('profileData')
     }
   }
   const errorMessage = (error) => {

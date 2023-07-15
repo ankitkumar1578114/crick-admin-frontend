@@ -1,22 +1,22 @@
 .grand_parent{
-    padding-top:80px;
-    width:96%;
-    margin:auto;
+    padding-top:56px;
 }
 .parent{
     display: flex;
-    width:calc(100% - 48px);
+    width:100%;
+    height:100%;
+    justify-content: space-between;
     margin:auto;
-    margin-top:12px;
     gap:12px;
 }
 .left{
-    width:200px;
+    width:260px;
 }
 .right{
     background-color: var(--color-primary_background);
     padding:10px 30px;
-    width:calc(100% - 200px);
+    margin:36px 18px;
+    width:calc(100% - 260px);
     border-radius: 6px;
     box-shadow:0 0 1px 1px rgba(0, 0, 0, 0.2);
 }
