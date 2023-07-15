@@ -10,7 +10,7 @@ const Dashboard = ({ children, user, setUser, setUserLoaded }) => {
           !['/', ''].includes(location?.pathname)
             ? <div className={styles.parent}>
           <div className={styles.left}>
-              <SideNav user={user} setUser={setUser} setUserLoaded={setUserLoaded}/>
+              <SideNav {...{ user, setUser, setUserLoaded }}/>
           </div>
           <div className={styles.right}>
               {children}

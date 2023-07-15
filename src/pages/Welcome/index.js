@@ -6,7 +6,7 @@ const Welcome = () => {
         <div className={styles.flex}>
             <div className={styles.welcome_text}>
               <div>
-                <h1>WELCOME !</h1>
+                <h1 className={styles.h1}>WELCOME !</h1>
                 <h4 className={styles.h4}>WHY WASTING TIME ON PEN & PAPER ?<br/>
                     TIME TO BE DIGITAL
                 </h4>

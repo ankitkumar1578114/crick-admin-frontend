@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import { Link, useLocation } from 'react-router-dom'
 import useAuth from '../../Navigation/hooks/useAuth'
+import Button from '../../Components/Button'
 const SideNav = ({ user, setUser, setUserLoaded }) => {
   const options = [
     {
@@ -43,7 +44,7 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
   <div className={styles.profile_image}>
             {
               user &&
-              <img src={user?.image_url} style={{ width: '66px', height: '66px', borderRadius: '50%' }} onClick={() => logout()}/>
+              <img src={user?.image_url} style={{ width: '66px', height: '66px', borderRadius: '50%' }} />
             }
           </div>
   {
@@ -57,6 +58,9 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
 
         ))
     }
+    <div className={styles.profile_image}>
+      <Button value="Logout" type="secondary" onClick={() => logout()}/>
+    </div>
 
   </div>
     </>
