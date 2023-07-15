@@ -6,4 +6,6 @@
   --color-quaternary_background:rgb(53, 53, 53);
   --color-primary_text:white;
   --color-secondary_text:rgb(218, 218, 218);
+  --box_shadow_primary:  0 0 10px 1px rgba(12, 12, 12, 0.377);;
+
 }

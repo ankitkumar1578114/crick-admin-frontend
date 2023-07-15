@@ -4,7 +4,7 @@
     flex-direction: column;
     background-color: var(--color-primary_background);
     border-radius: 4px;
-    box-shadow:0 0 1px 1px rgba(0, 0, 0, 0.11);
+    box-shadow: var(--box_shadow_primary);
     height:90vh;
 }
 .selected_item,.not_selected_item,.profile_image{
@@ -26,4 +26,16 @@
 }
 .profile_image{
     padding:32px;
+    border-bottom: 1px solid rgba(214, 214, 214, 0.11);
+}
+.user_name{
+    margin-top:20px;
+    font-size:18px;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    border-top: 1px solid rgba(214, 214, 214, 0.11);
 }

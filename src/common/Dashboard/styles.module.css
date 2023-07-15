@@ -18,5 +18,5 @@
     margin:36px 18px;
     width:calc(100% - 260px);
     border-radius: 6px;
-    box-shadow:0 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box_shadow_primary);
 }

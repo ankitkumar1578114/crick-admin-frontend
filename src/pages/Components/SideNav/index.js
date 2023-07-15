@@ -46,6 +46,9 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
               user &&
               <img src={user?.image_url} style={{ width: '66px', height: '66px', borderRadius: '50%' }} />
             }
+            <div className={styles.user_name}>
+              {user?.name}
+            </div>
           </div>
   {
         options?.map((option) => (
@@ -58,7 +61,7 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
 
         ))
     }
-    <div className={styles.profile_image}>
+    <div className={styles.flex}>
       <Button value="Logout" type="secondary" onClick={() => logout()}/>
     </div>
 

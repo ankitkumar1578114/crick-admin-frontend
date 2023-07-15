@@ -17,7 +17,7 @@
 .more_players_option {
     display: flex;
     justify-content: space-between;   
-    background-color: var(--color-secondary_background);
+    background-color: var(--color-primary_background);
     border-radius: 10px;
     margin:40px;
 }
