@@ -7,7 +7,7 @@ const Dashboard = ({ children, user, setUser, setUserLoaded }) => {
     <div className={styles.grand_parent} style={{ paddingTop: user ? '0' : '56px' }}>
 
           {
-          ['/player', '/team', '/match', '/series', '/venue'].includes(location?.pathname)
+          !['/', ''].includes(location?.pathname)
             ? <div className={styles.parent}>
           <div className={styles.left}>
               <SideNav user={user} setUser={setUser} setUserLoaded={setUserLoaded}/>

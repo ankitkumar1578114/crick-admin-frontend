@@ -30,7 +30,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
 
         {
           battingTeam === 0 && (<div className={style.flex}>
-              <Pill content="Not started yet" color="red" />
+              <Pill content="Not started yet" type="secondary" />
               <div>
                 <Pill content ="First Batting" color="transparent" textColor="white"/>
                 <select className={style.select} onChange={(e) => setFirstBatting(e.target.value)}>
@@ -43,10 +43,10 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
         }
         {
           [1, 2].includes(battingTeam) &&
-              <Pill content="Running" color="green"/>
+              <Pill content="Running" type="primary"/>
         }
        {
-          battingTeam === 3 && <Pill content="Finished" color="red"/>
+          battingTeam === 3 && <Pill content="Finished" type="secondary"/>
         }
 
         <div className={style.scoreCardBox}>
