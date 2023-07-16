@@ -32,7 +32,7 @@ const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'S
     <>
     <div>
           <div><label className={style.label}>{label}</label></div>
-      <div><input type='datetime-local' className={style.input} {...register(_key, { required })} /></div>
+      <div><input type='datetime-local' className={style.normal_input} {...register(_key, { required })} /></div>
       </div>
     </>
   )
@@ -54,7 +54,12 @@ const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'S
           })
         }
         <div>
-          <Button type="submit" onClick={handleSubmit(onSubmit)} value={submitBtnName}/>
+          <div className={style.label}>
+              &nbsp;
+          </div>
+          <div className={style.submit}>
+            <Button type="submit" onClick={handleSubmit(onSubmit)} value={submitBtnName}/>
+          </div>
         </div>
         </div>
     </>)

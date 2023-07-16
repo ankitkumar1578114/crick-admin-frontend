@@ -26,7 +26,7 @@ const List = () => {
                 <div>
                     Your Players
                 </div>
-                <Button value="Create Player" onClick={() => setShow(true)}/>
+                <Button value="CREATE PLAYER" onClick={() => setShow(true)}/>
             </div>
             <Table columns={columns} data={data} loading={loading}/>
             </div>

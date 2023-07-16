@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import { Link, useLocation } from 'react-router-dom'
 import useAuth from '../../Navigation/hooks/useAuth'
-import Button from '../../Components/Button'
 const SideNav = ({ user, setUser, setUserLoaded }) => {
   const options = [
     {
@@ -44,13 +43,15 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
   <div className={styles.profile_image}>
             {
               user &&
-              <img src={user?.image_url} style={{ width: '66px', height: '66px', borderRadius: '50%' }} />
+              <div>
+                <img src={user?.image_url} style={{ width: '66px', height: '66px', borderRadius: '50%' }} />
+              </div>
             }
             <div className={styles.user_name}>
               {user?.name}
             </div>
           </div>
-  {
+      {
         options?.map((option) => (
             <Link to={option?.key} key={option?.key} className={activeTab === option?.key ? styles.selected_item : styles.not_selected_item}
             onClick={() => setActiveTab(option?.key)}
@@ -62,7 +63,7 @@ const SideNav = ({ user, setUser, setUserLoaded }) => {
         ))
     }
     <div className={styles.flex}>
-      <Button value="Logout" type="secondary" onClick={() => logout()}/>
+      <button className={styles.logout_btn} onClick={() => logout()}>LOGOUT</button>
     </div>
 
   </div>

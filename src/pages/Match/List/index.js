@@ -18,14 +18,14 @@ const List = () => {
   const { createMatch } = useCreateMatch({ getMatches, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls} submitBtnName='CREATE'/>
         </Modal>
         <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>
             <div>
                 Your Matches
             </div>
-            <Button value="Create Match" onClick={() => setShow(true)}/>
+            <Button value="CREATE MATCH" onClick={() => setShow(true)}/>
         </div>
 
         <Table columns={columns} data={matches} loading={loading}/>

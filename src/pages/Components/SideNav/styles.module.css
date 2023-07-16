@@ -14,12 +14,13 @@
     font-size:16px;
     text-decoration: none;
     text-align: center;
+    transition: background-color 0.2s;
 }
 .selected_item:hover,.not_selected_item:hover{
     background-color: var(--color-primary_background);
 }
 .selected_item{
-    font-weight: 600;
+    /* font-weight: 600; */
     color: rgb(231, 231, 231);
     background-color: var(--color-secondary_background);
     border-radius: 4px;
@@ -33,9 +34,23 @@
     font-size:18px;
 }
 .flex{
+    padding:30px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding:20px;
     border-top: 1px solid rgba(214, 214, 214, 0.11);
+}
+.logout_btn{
+    background-color: rgb(189, 189, 189);
+    padding:10px;
+    width:100px;
+    text-align: center;
+    border:0;
+    border-radius:4px;
+    color:rgb(32, 32, 32);
+    font-size:12px;
+    transition:background-color 0.2s;
+    font-weight:600;
+}
+.logout_btn:hover{
+    background-color: rgb(233, 230, 230);
 }

@@ -14,7 +14,7 @@ const List = () => {
                 <div>
                     Your Series
                 </div>
-                <Button value="Create Series"/>
+                <Button value="CREATE SERIES"/>
             </div>
                 <Table columns={columns} data={data} loading={loading}/>
             </div>
