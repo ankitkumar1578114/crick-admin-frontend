@@ -3,12 +3,17 @@ import useRequest from '../../../common/hooks/useRequest'
 const useListSeries = () => {
   const { data, loading, trigger } = useRequest({
     url: 'series/list_series',
-    method: 'get',
+    method: 'post',
     isConfig: true
   })
 
-  const listSeries = async (data) => {
-    trigger(data)
+  const listSeries = async () => {
+    const payload = {
+      filters: {
+        created_by: 0
+      }
+    }
+    trigger(payload)
   }
 
   useEffect(() => {
