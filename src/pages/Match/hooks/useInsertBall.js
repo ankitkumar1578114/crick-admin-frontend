@@ -27,11 +27,13 @@ const useInsertBall = ({
         batsmanOnNonStrike,
         squadId,
         result,
-        legalBalls: legalBalls + 1
+        legalBalls: legalBalls + 1,
+        team1: matchData?.team1?.id,
+        team2: matchData?.team2?.id
       }
-      trigger(payload)
-      getScoreData()
-      getMatchById(matchData?.id)
+      await trigger(payload)
+      await getScoreData()
+      await getMatchById(matchData?.id)
       return data
     } else {
       alert('Insert Batsmans and Bowlers')
