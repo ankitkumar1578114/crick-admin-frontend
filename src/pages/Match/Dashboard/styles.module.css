@@ -9,7 +9,5 @@
     display: flex;
     justify-content: space-between;
     gap:10px;
-}
-.left,.right{
-    width:50%;
+    flex-direction: column;
 }
