@@ -28,7 +28,7 @@ const MatchPage = () => {
         <div className={styles.container}>
 
         {
-            data?.is_squads_final === 0 && battingTeam === 0 && (
+            data?.is_squads_final === 0 && (
               <>
 
           <ListSquad squad1={{ ...data?.squad1, teamName: data?.team1?.name }} squad2={{ ...data?.squad2, teamName: data?.team2?.name }}
@@ -38,7 +38,7 @@ const MatchPage = () => {
             )
         }
         {
-          battingTeam !== 0 && <>
+          data?.is_squads_final !== 0 && <>
            <div className={styles.dashboard}>
               <Score score={score}
                   loadingScore={loadingScore}
@@ -51,7 +51,7 @@ const MatchPage = () => {
                   loading={loading}
               />
               {
-                !loading && data?.is_squads_final === 1 && (
+                !loading && (
 
                     <ResultOptions score={score} data={data} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
                 )}

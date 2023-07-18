@@ -9,9 +9,7 @@ const useStartMatch = ({ matchId, getMatchById, firstBatting }) => {
   }
 
   const startMatch = () => {
-    if (firstBatting !== 0) {
-      startMatchNow().then((res) => { setLoading(false); setData(res); getMatchById(matchId) })
-    }
+    startMatchNow().then((res) => { setLoading(false); setData(res); getMatchById(matchId) })
   }
 
   return {

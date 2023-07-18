@@ -22,7 +22,8 @@ const useListSeries = () => {
   return {
     loading,
     data: data?.data,
-    options: data?.data
+    options: data?.data,
+    listSeries
   }
 }
 export default useListSeries

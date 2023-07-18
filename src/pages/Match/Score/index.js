@@ -15,7 +15,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
     squad: battingTeam === 1 ? squad1 : squad2
   })
 
-  const [firstBatting, setFirstBatting] = useState(0)
+  const [firstBatting, setFirstBatting] = useState(-1)
   const { startMatch } = useStartMatch({ matchId, getMatchById, firstBatting })
 
   const { register, handleSubmit, setValue } = useForm()
@@ -27,13 +27,12 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
   }, [battingTeam, squad1, squad2])
 
   return (<>
-
         {
           battingTeam === 0 && (<div className={style.flex}>
               <Pill content="Not started yet" type="secondary" />
               <div>
-                <Pill content ="First Batting" color="transparent" textColor="white"/>
-                <select className={style.select} onChange={(e) => setFirstBatting(e.target.value)}>
+                <Pill content ="First Batting" type="transparent" textColor="white"/>
+                <select className={style.select} onChange={(e) => setFirstBatting(e.target.value)} value={firstBatting}>
                   <option value={-1}>{matchData?.team1?.name}</option>
                   <option value={1}>{matchData?.team2?.name}</option>
                 </select>

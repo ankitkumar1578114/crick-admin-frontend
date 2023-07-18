@@ -24,7 +24,7 @@ const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'S
     <>
     <div>
           <div><label className={style.label}>{label}</label></div>
-      <div><input type='datetime-local' className={style.input} {...register(_key, { required })} /></div>
+      <div><input type='date' className={style.input} {...register(_key, { required })} /></div>
       </div>
     </>
   )
