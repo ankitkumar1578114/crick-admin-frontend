@@ -1,3 +1,4 @@
+import TextArea from '../../../Components/TextArea'
 import useInsertBall from '../../hooks/useInsertBall'
 import styles from './styles.module.css'
 
@@ -67,7 +68,8 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
   ]
 
   return <>
-            <div className={styles.result_options}>
+          <div className={styles.parent}>
+          <div className={styles.result_options}>
                 {
                   !loadingIns &&
                     options?.map((option) => (
@@ -77,6 +79,8 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
                     ))
                 }
             </div>
+            <TextArea height={100}/>
+          </div>
         </>
 }
 export default ResultOptions

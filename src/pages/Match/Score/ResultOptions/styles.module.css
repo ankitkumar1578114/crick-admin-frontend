@@ -1,3 +1,8 @@
+.parent{
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+}
 .result_options{
     display: flex;
     flex-wrap: wrap;

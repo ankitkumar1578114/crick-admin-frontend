@@ -2,7 +2,7 @@
     display: flex;
     gap:10px;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 4px;
 }
 .flex{
     display: flex;
@@ -15,4 +15,15 @@
     margin:10px;
     border:0;
     outline: none;
+}
+.entry_box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:10px;
+    background-color: var(--color-primary_background);
+    padding:10px;
+}
+.entry_box >*{
+    width:50%;
 }

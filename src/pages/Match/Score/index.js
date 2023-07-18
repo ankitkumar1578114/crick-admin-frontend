@@ -8,7 +8,9 @@ import { useEffect, useState } from 'react'
 import Pill from '../../Components/Pill'
 import Button from '../../Components/Button'
 import useStartMatch from '../hooks/useStartMatch'
-const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading }) => {
+import ResultOptions from './ResultOptions'
+import Tabs from '../../Components/Tabs'
+const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading, getScoreData }) => {
   const controls = control({
     playerOptions1: battingTeam === 1 ? squad1?.players : squad2?.players,
     playerOptions2: battingTeam === 1 ? squad2?.players : squad1?.players,
@@ -25,6 +27,8 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
     setValue('batsmanOnNonStrike', battingTeam === 1 ? squad1?.batsman_on_non_strike : squad2?.batsman_on_non_strike)
     setValue('bowler', battingTeam === 1 ? squad1?.bowler : squad2?.bowler)
   }, [battingTeam, squad1, squad2])
+
+  const [active, setActive] = useState(0)
 
   return (<>
         {
@@ -47,27 +51,27 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
        {
           battingTeam === 3 && <Pill content="Finished" type="secondary"/>
         }
+        <Tabs tabs={[score?.team1?.name, score?.team2?.name]} active={active} onChange={() => setActive((active + 1) % 2)}>
+        </Tabs>
 
         <div className={style.scoreCardBox}>
+
              <ScoreCard
-                team={score?.team1}
-                batsmanOnStrike={squad1?.batsman_on_strike}
-                batsmanOnNonStrike={squad1?.batsman_on_non_strike}
-                index={1}
+                team={active === 0 ? score?.team1 : score?.team2}
+                batsmanOnStrike={active === 0 ? squad1?.batsman_on_strike : squad2?.batsman_on_strike}
+                batsmanOnNonStrike={active === 0 ? squad1?.batsman_on_non_strike : squad1?.batsman_on_non_strike}
+                index={active}
                 battingTeam={battingTeam}
                 loadingScore={loadingScore}
              />
-            <ScoreCard
-                team={score?.team2}
-                batsmanOnStrike={squad2?.batsman_on_strike}
-                batsmanOnNonStrike={squad2?.batsman_on_non_strike}
-                index={2}
-                battingTeam={battingTeam}
-                loadingScore={loadingScore}
-            />
         </div>
         {
-          !loading && <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
+        !loading && battingTeam === active + 1 &&
+        <div className={style.entry_box}>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
+            <ResultOptions score={score} data={matchData} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
+        </div>
+
         }
 
     </>)

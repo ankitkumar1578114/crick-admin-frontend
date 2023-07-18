@@ -1,5 +1,5 @@
 .score_card{
-    width:50%;
+    width:100%;
     background-color: var(--color-primary_background);
     padding:20px;
     color:white;
@@ -46,13 +46,15 @@
 .player_list_row_striker{
     color:rgb(207, 205, 205);
 }
-.run_over{
+.name_run_over{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4px;
     font-size:18px;
     color:rgb(185, 192, 160);
+    font-size:22px;
+
 }
 
 .run{
@@ -75,3 +77,29 @@
     align-items: center;
     font-weight: 700;
 }
+
+.flex{
+    display: flex;
+    gap:10px;
+}
+.flex >*{
+    width: 50%;
+}
+
+.commentary{
+    margin:10px;
+    background-color: var(--color-primary_background);
+    font-size:16px;
+    height:400px;
+    padding:10px;
+    border-radius: 2px;
+    overflow: scroll;
+}
+.commentary::-webkit-scrollbar {
+    display: none;
+  }
+  .run_over{
+    display: flex;
+    align-items: center;
+    gap:10px;
+  }

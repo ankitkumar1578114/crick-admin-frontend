@@ -6,9 +6,7 @@ import Score from './Score'
 
 import { useParams } from 'react-router-dom'
 import ListSquad from './ListSquad'
-import ResultOptions from './Score/ResultOptions'
 import Dashboard from './Dashboard'
-// import Histogram from '../Components/Histogram'
 
 const MatchPage = () => {
   const { id: matchId } = useParams()
@@ -49,12 +47,8 @@ const MatchPage = () => {
                   matchId={matchId}
                   matchData={data}
                   loading={loading}
+                  getScoreData={getScoreData}
               />
-              {
-                !loading && (
-
-                    <ResultOptions score={score} data={data} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
-                )}
             </div>
 
           </>

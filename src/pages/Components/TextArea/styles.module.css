@@ -1,0 +1,10 @@
+.text_area{
+    background-color: var(--color-primary_background);
+    outline:none;
+    border:1px solid rgb(49, 49, 49);
+    border-radius:8px;
+    color:var(--color-primary_text);
+    padding:10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+}

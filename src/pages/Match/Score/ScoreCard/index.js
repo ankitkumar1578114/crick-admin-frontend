@@ -1,7 +1,7 @@
 import Pill from '../../../Components/Pill'
 import styles from './styles.module.css'
-import { ballLabelMaping } from './ball-label-mapping'
 import Skelton from '../../../Components/Skelton'
+import Commentary from './Commentary'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
   index, battingTeam, loadingScore
@@ -15,7 +15,7 @@ const ScoreCard = ({
                 {
                     !loadingScore && (
                         <>
-                <div className={styles.run_over}>
+                <div className={styles.name_run_over}>
                     <div className={styles.team_name}>
                         <div className={styles.team_logo}>
                             <img src={team?.image_url} style={{ width: '100%', height: '100%', borderRadius: '50%' }}/>
@@ -24,24 +24,21 @@ const ScoreCard = ({
                             {team?.name} {((battingTeam === 1 && index === 1) || (battingTeam === 2 && index === 2)) && <>*</>}
                         </div>
                     </div>
-                    <div className={styles.run}>
-                        {team?.runs}/{team?.wickets}
+                    <div className={styles.run_over}>
+                        <div className={styles.run}>
+                            {team?.runs}/{team?.wickets}
+
+                        </div>
+                        <div className={styles.over}>
+                            ({team?.overs})
+                        </div>
                     </div>
 
                 </div>
 
-                <div className={styles.run_over}>
-                    <div></div>
-                    <div className={styles.balls}>
-                        {team?.thisOverBalls?.map((ball, index) => (
-                            <div key={index} style={{ ...ballLabelMaping[ball]?.style }}>{ballLabelMaping[ball]?.label}</div>
-                        ))}
-                    </div>
-                    <div className={styles.over}>
-                        {team?.overs}
-                    </div>
-                </div>
-                <div className={styles.player_list}>
+                <div className={styles.flex}>
+                    <div>
+                    <div className={styles.player_list}>
                 <div className={styles.player_list_row}>
                             <div><b>Player</b></div>
                             <div><b>Runs</b></div>
@@ -115,7 +112,15 @@ const ScoreCard = ({
                     ))
                     }
                 </div>
-                 <Pill content={`Extras : ${team?.extra}`} type="tertiary"/>
+
+                <Pill content={`Extras : ${team?.extra}`} type="transparent"/>
+
+                </div>
+                <div className={styles.commentary}>
+                    <Commentary comments={team?.thisOverBalls}/>
+                </div>
+                </div>
+
                 </>)}
             </div>
     </>)
