@@ -11,7 +11,7 @@ const Dashboard = ({ battingTeam, score }) => {
   return <>
         <div className={styles.parent}>
             <Histogram data={score?.team1?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
-            <Histogram data={score?.team1?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
+            <Histogram data={score?.team2?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
         </div>
     </>
 }

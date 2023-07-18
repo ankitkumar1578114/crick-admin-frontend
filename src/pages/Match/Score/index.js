@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import Pill from '../../Components/Pill'
 import Button from '../../Components/Button'
 import useStartMatch from '../hooks/useStartMatch'
-const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore }) => {
+const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading }) => {
   const controls = control({
     playerOptions1: battingTeam === 1 ? squad1?.players : squad2?.players,
     playerOptions2: battingTeam === 1 ? squad2?.players : squad1?.players,
@@ -67,7 +67,9 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
                 loadingScore={loadingScore}
             />
         </div>
-        <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
+        {
+          !loading && <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
+        }
 
     </>)
 }
