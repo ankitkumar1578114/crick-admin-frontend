@@ -15,10 +15,15 @@ const MatchPage = () => {
   const [battingTeam, setBattingTeam] = useState(data?.current_inning)
 
   useEffect(() => {
-    if (data?.current_inning === 0) { setBattingTeam(0) }
-    if (data?.current_inning === 2) { setBattingTeam(3) }
-    if (data?.current_inning === -1) { setBattingTeam(1) }
-    if (data?.current_inning === 1) { setBattingTeam(2) }
+    setBattingTeam({
+      0: 0,
+      '-1': 1,
+      1: 2,
+      '-2': 1,
+      2: 2,
+      3: 3
+
+    }[data?.current_inning])
   }, [data])
 
   const [active, setActive] = useState(0)
@@ -58,9 +63,7 @@ const MatchPage = () => {
           </>
         }
       </div>
-        {
-        active === battingTeam - 1 && <Dashboard score={score} battingTeam={battingTeam} />
-        }
+        <Dashboard score={score} battingTeam={battingTeam} active={active}/>
         </>
   )
 }

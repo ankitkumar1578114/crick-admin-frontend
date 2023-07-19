@@ -1,7 +1,7 @@
 import Histogram from '../../Components/Histogram'
 import styles from './styles.module.css'
 
-const Dashboard = ({ battingTeam, score }) => {
+const Dashboard = ({ active, score }) => {
   const hoverItem = (item) => (
         <>
             <div className={styles.on_hover}> <b>Runs</b> : {item?.runs}</div>
@@ -10,8 +10,13 @@ const Dashboard = ({ battingTeam, score }) => {
   )
   return <>
         <div className={styles.parent}>
-            <Histogram data={score?.team1?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
-            <Histogram data={score?.team2?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
+            {
+                active === 0 && <Histogram data={score?.team1?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team1?.name + ' Runs v/s Overs'}/>
+
+            }
+            {
+                active === 1 && <Histogram data={score?.team2?.oversDetails} hoverItem ={hoverItem} _key='runs' xName="Overs" title={score?.team2?.name + ' Runs v/s Overs'}/>
+            }
         </div>
     </>
 }
