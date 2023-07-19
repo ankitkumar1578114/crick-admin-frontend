@@ -21,6 +21,8 @@ const MatchPage = () => {
     if (data?.current_inning === 1) { setBattingTeam(2) }
   }, [data])
 
+  const [active, setActive] = useState(0)
+
   return (
         <>
         <div className={styles.container}>
@@ -48,13 +50,17 @@ const MatchPage = () => {
                   matchData={data}
                   loading={loading}
                   getScoreData={getScoreData}
+                  active={active}
+                  setActive={setActive}
               />
             </div>
 
           </>
         }
       </div>
-        <Dashboard score={score} battingTeam={battingTeam} />
+        {
+        active === battingTeam - 1 && <Dashboard score={score} battingTeam={battingTeam} />
+        }
         </>
   )
 }

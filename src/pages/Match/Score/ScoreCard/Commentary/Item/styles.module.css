@@ -12,12 +12,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size:14px;
+    font-size:12px;
 }
 .comment{
     width:calc(100% - 36px);
     padding:10px;
-    background-color:var(--color-primary_background);
     border-radius: 6px;
     color:rgb(207, 207, 207);
+    font-size:14px;
 }

@@ -117,7 +117,7 @@ const ScoreCard = ({
 
                 </div>
                 <div className={styles.commentary}>
-                    <Commentary comments={team?.thisOverBalls}/>
+                    <Commentary comments={team?.thisOverBalls} />
                 </div>
                 </div>
 

@@ -10,7 +10,7 @@ import Button from '../../Components/Button'
 import useStartMatch from '../hooks/useStartMatch'
 import ResultOptions from './ResultOptions'
 import Tabs from '../../Components/Tabs'
-const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading, getScoreData }) => {
+const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading, getScoreData, active, setActive }) => {
   const controls = control({
     playerOptions1: battingTeam === 1 ? squad1?.players : squad2?.players,
     playerOptions2: battingTeam === 1 ? squad2?.players : squad1?.players,
@@ -27,8 +27,6 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
     setValue('batsmanOnNonStrike', battingTeam === 1 ? squad1?.batsman_on_non_strike : squad2?.batsman_on_non_strike)
     setValue('bowler', battingTeam === 1 ? squad1?.bowler : squad2?.bowler)
   }, [battingTeam, squad1, squad2])
-
-  const [active, setActive] = useState(0)
 
   return (<>
         {
