@@ -24,6 +24,9 @@
     background-color: var(--color-primary_background);
     padding:10px;
 }
-.entry_box >*{
-    width:50%;
+.entry_box >:first-child{
+    width:45%;
+}
+.entry_box >:last-child{
+    width:60%;
 }

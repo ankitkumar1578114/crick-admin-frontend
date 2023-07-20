@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import useInsertBall from '../../hooks/useInsertBall'
 import styles from './styles.module.css'
+import { shotOptions } from './utils'
 
 const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMatchById }) => {
   const [playedShot, setPlayedShot] = useState(null)
   const [result, setResult] = useState(null)
+  const [outType, setOutType] = useState(null)
 
   const { insertBall, loading: loadingIns } = useInsertBall({
     matchLoading: loading,
@@ -70,26 +72,6 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
 
   ]
 
-  const shotOptions = [{
-    label: 'Cover Drive',
-    value: 'cover_drive'
-  },
-  {
-    label: 'Streight Drive',
-    value: 'straight_drive'
-  }, {
-    label: 'Pull',
-    value: 'pull'
-  }, {
-    label: 'Defence',
-    value: 'defence'
-  },
-  {
-    label: 'Helicopter',
-    value: 'helicopter'
-  }
-  ]
-
   const outOptions = [{
     label: 'Catch Out',
     value: 'catch_out'
@@ -105,14 +87,15 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
                 {
                   !loadingIns &&
                     options?.map((option) => (
-                        <button key={option?.value} style={{ backgroundColor: option?.color }} onClick={() => setResult(option?.value)}>
+                        <button key={option?.value} className={styles.result_option} style={{ backgroundColor: option?.color }} onClick={() => setResult(option?.value)}>
                             {option?.label}
                         </button>
                     ))
                 }
             </div>
+
             <div className={styles.shot_container}>
-                {[0, 1, 2, 3, 4, 6].includes(result) && shotOptions.map((shot, index) => (
+                {[0, 1, 2, 3, 4, 6].includes(result) && shotOptions?.[result]?.map((shot, index) => (
                 <div className={shot.value === playedShot
                   ? styles.selected_child
                   : styles.child
@@ -126,11 +109,14 @@ const ResultOptions = ({ score, data, loading, battingTeam, getScoreData, getMat
                     {shot?.label}
                   </div>))}
                   {[25, 11, 12].includes(result) && outOptions.map((shot, index) => (
-                <div className={shot.value === playedShot
+                <div className={shot.value === outType
                   ? styles.selected_child
                   : styles.child
-                } onClick={() =>
-                  setPlayedShot(shot?.value)}
+                } onClick={async () => {
+                  await setOutType(shot?.value)
+                  await insertBall({ result, playedShot: null, outType: shot?.value })
+                }
+                }
                   key={index}>
                     {shot?.label}
                   </div>))}

@@ -10,7 +10,7 @@
     justify-content: center;
     margin-top:20px;
 }
-.result_options >*{
+.result_option{
     width:40px;
     height:40px;
     color:rgb(216, 216, 216);
@@ -29,8 +29,8 @@
     flex-wrap: wrap;
 }
 .child,.selected_child{
-    width:60px;
-    height:60px;
+    width:100px;
+    height:20px;
     background-color: var(--color-secondary_background);
     display: flex;
     justify-content: center;
