@@ -3,7 +3,7 @@ const useInsertBall = ({
   matchData, ballOftheMatch,
   getScoreData, batPlayerId, ballPlayerId,
   batsmanOnNonStrike, squadId, getMatchById,
-  legalBalls, battingTeam, reset, autoLoad
+  legalBalls, battingTeam, reset, autoLoad, specialEvents
 }) => {
   const { data, loading, trigger } = useRequest({
     url: 'ball/insert_ball',
@@ -11,7 +11,7 @@ const useInsertBall = ({
     autoLoad
   })
 
-  const insertBall = async (result) => {
+  const insertBall = async ({ result, playedShot }) => {
     if (battingTeam === 0) {
       alert('Match has not started yet')
       return
@@ -29,7 +29,9 @@ const useInsertBall = ({
         result,
         legalBalls: legalBalls + 1,
         team1: matchData?.team1?.id,
-        team2: matchData?.team2?.id
+        team2: matchData?.team2?.id,
+        specialEvents,
+        playedShot
       }
       await trigger(payload)
       await getScoreData()

@@ -22,3 +22,26 @@
     border:0;
     font-size: 16px;
 }
+.shot_container{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+}
+.child,.selected_child{
+    width:60px;
+    height:60px;
+    background-color: var(--color-secondary_background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:var(--color-secondary_text);
+    padding:20px;
+    border-radius: 6px;
+    border:2px solid rgba(255, 255, 255, 0);
+}
+.selected_child{
+    border:2px solid rgb(72, 238, 72);
+    color:rgb(72, 238, 72);
+}
