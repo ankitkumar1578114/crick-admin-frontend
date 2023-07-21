@@ -3,7 +3,8 @@ import useRequest from '../../../common/hooks/useRequest'
 const useGetMatchById = (id) => {
   const { data, loading, trigger } = useRequest({
     url: 'match?id=' + id,
-    method: 'get'
+    method: 'get',
+    isConfig: true
   })
 
   const getMatchById = () => {
