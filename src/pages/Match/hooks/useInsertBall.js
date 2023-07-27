@@ -19,17 +19,7 @@ const useInsertBall = ({
     if (batPlayerId && batsmanOnNonStrike && ballPlayerId) {
       const payload = {
         matchId: matchData?.id,
-        battingTeamId: battingTeam === 1 ? matchData?.team1?.id : matchData?.team2?.id,
-        bowlingTeamId: battingTeam === 2 ? matchData?.team2?.id : matchData?.team1?.id,
-        ballOftheMatch: ballOftheMatch + 1,
-        batPlayerId,
-        ballPlayerId,
-        batsmanOnNonStrike,
-        squadId,
         result,
-        legalBalls: legalBalls + 1,
-        team1: matchData?.team1?.id,
-        team2: matchData?.team2?.id,
         specialEvents: outType ? [outType] : null,
         playedShot
       }
