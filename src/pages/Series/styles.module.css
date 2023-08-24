@@ -19,18 +19,19 @@
     padding:10px;
     border-radius: 4px;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     font-style: italic;
-    background-color: rgb(29, 29, 29);
+    /* background-color: rgb(29, 29, 29); */
+    background:  linear-gradient(135deg, rgb(49, 49, 54) 50%,rgb(29, 29, 29) 50%);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     gap:20px;
     color:white;
     text-decoration: none;
 }
 
 .match_card_img{
-    width:60px;
-    height:60px;
+    width:30px;
+    height:30px;
 }

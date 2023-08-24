@@ -4,8 +4,9 @@ import Skelton from '../../../Components/Skelton'
 import Commentary from './Commentary'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
-  index, battingTeam, loadingScore
+  index, battingTeam, loadingScore, target
 }) => {
+  console.log(team?.target)
   return (<>
             <div className={styles.score_card} >
                 {
@@ -24,6 +25,14 @@ const ScoreCard = ({
                             {team?.name} {((battingTeam === 1 && index === 1) || (battingTeam === 2 && index === 2)) && <>*</>}
                         </div>
                     </div>
+                    {
+                        team?.target &&
+                            <div className={styles.target}>
+                            Target :
+                            {team?.target}
+                            </div>
+                    }
+
                     <div className={styles.run_over}>
                         <div className={styles.run}>
                             {team?.runs}/{team?.wickets}

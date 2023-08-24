@@ -5,6 +5,7 @@
     color:white;
     border-radius: 4px;
     margin:4px;
+    height: fit-content;
 }
 .primary{
     background-color: rgb(22, 179, 61);;

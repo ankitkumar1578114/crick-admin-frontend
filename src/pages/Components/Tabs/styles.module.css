@@ -16,3 +16,6 @@
     background-color: var(--color-secondary_background);
     border-bottom: 2px solid rgb(185, 185, 185);
 }
+.not_selected_tab:hover{
+    background-color: var(--color-secondary_background);
+}

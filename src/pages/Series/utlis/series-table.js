@@ -27,7 +27,7 @@ export const columns = [
     header: '  ',
     accessor: (row) => (
         <>
-             <Link to={'/venue/' + row?.id} ><Button value="View" type="secondary"/></Link>
+             <Link to={'/series/' + row?.id} ><Button value="View" type="secondary"/></Link>
         </>
     )
 
