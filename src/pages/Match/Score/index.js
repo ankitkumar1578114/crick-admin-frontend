@@ -23,8 +23,8 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
   const { register, handleSubmit, setValue } = useForm()
   const { updateStrike } = useUpdateStrike({ battingTeam, squadId: (battingTeam === 1) ? (squad1?.id) : (squad2?.id), getMatchById, matchId })
   useEffect(() => {
-    setValue('batsmanOnStrike', battingTeam === 1 ? squad1?.batsman_on_strike : squad2?.batsman_on_strike)
-    setValue('batsmanOnNonStrike', battingTeam === 1 ? squad1?.batsman_on_non_strike : squad2?.batsman_on_non_strike)
+    setValue('batsman_on_strike', battingTeam === 1 ? squad1?.batsman_on_strike : squad2?.batsman_on_strike)
+    setValue('batsman_on_non_strike', battingTeam === 1 ? squad1?.batsman_on_non_strike : squad2?.batsman_on_non_strike)
     setValue('bowler', battingTeam === 1 ? squad1?.bowler : squad2?.bowler)
   }, [battingTeam, squad1, squad2])
 

@@ -9,7 +9,14 @@ const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
       alert('Match has not started yet.')
       return
     }
-    if (values.batsmanOnStrike && values.batsmanOnNonStrike && values.bowler && (values.batsmanOnStrike !== values.batsmanOnNonStrike)) {
+    console.log(values)
+    const {
+      batsman_on_strike: batsmanOnStrike,
+      batsman_on_non_strike: batsmanOnNonStrike,
+      bowler
+    } = values
+
+    if (batsmanOnStrike && batsmanOnNonStrike && bowler && (batsmanOnStrike !== batsmanOnNonStrike)) {
       const payload =
         {
           squadId,

@@ -12,7 +12,7 @@ const AddPlayerControls = ({ squad, antiSquad }) => {
       label: '',
       type: 'player-select',
       value: '',
-      key: 'playerId',
+      key: 'player_id',
       ...afterFilterPlayerOptions
     }
   ]

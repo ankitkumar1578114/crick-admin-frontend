@@ -6,6 +6,7 @@ const useMarkFinalSquads = ({ matchId, getMatchById, squad1, squad2 }) => {
   const isSquadsValidated = () => {
     const team1playing11 = squad1?.players?.filter((player) => { return player?.selected })
     const team2playing11 = squad2?.players?.filter((player) => { return player?.selected })
+    console.log(team1playing11, team2playing11)
     if (team1playing11?.length === 11 && team2playing11?.length === 11) { return true }
     return false
   }

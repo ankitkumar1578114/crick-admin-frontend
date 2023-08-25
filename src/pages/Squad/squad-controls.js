@@ -7,13 +7,13 @@ const SquadControls = () => {
       label: 'Squad Id',
       type: 'text',
       value: '',
-      key: 'squadId'
+      key: 'squad_id'
     },
     {
       label: 'Player',
       type: 'player-select',
       value: '',
-      key: 'playerId',
+      key: 'player_id',
       ...playersOptions
     }
   ]
