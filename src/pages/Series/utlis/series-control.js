@@ -10,7 +10,7 @@ const playerControls = () => {
       label: 'Image Url',
       type: 'text',
       value: '',
-      key: 'imageUrl'
+      key: 'image_url'
     }
   ]
   return controls

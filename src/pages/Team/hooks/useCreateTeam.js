@@ -1,25 +1,18 @@
-import axios from 'axios'
-import { useState } from 'react'
+import useRequest from '../../../common/hooks/useRequest'
 
 const useCreateTeam = ({ getTeams, setShow }) => {
-  const [loading, setLoading] = useState(true)
-  const [data, setData] = useState([])
-  const config = {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`
-    }
-  }
+  const { data, loading, trigger } = useRequest({
+    url: 'team/create_team',
+    method: 'post',
+    isConfig: true
+  })
 
-  const createTeam = async (data) => {
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'team/create_team', data, config)
+  const addTeam = async (data) => {
+    await trigger(data)
     setShow(false)
-    getTeams()
-    return res
+    await getTeams()
   }
 
-  const addTeam = (data) => {
-    createTeam(data).then((res) => { setLoading(false); setData(res); getTeams() })
-  }
   return { addTeam, loading, data }
 }
 export default useCreateTeam

@@ -10,21 +10,8 @@ const TeamControls = () => {
       label: 'Image Url',
       type: 'text',
       value: '',
-      key: 'imageUrl'
+      key: 'image_url'
     }
-
-  //   {
-  //     label: 'Country',
-  //     type: 'select',
-  //     value: 'India',
-  //     key: 'country',
-  //     options: [{
-  //       label: 'male', value: 'male'
-  //     }, {
-  //       label: 'female', value: 'female'
-  //     }
-  //     ]
-  //   }
   ]
   return controls
 }

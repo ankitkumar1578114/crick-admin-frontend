@@ -4,7 +4,7 @@ const AddPlayerControls = ({ playerOptions1, playerOptions2, squad }) => {
       label: 'Strike',
       type: 'player-select',
       value: null,
-      key: 'batsmanOnStrike',
+      key: 'batsman_on_strike',
       options: playerOptions1,
       disabled: squad?.batsman_on_strike
     },
@@ -12,7 +12,7 @@ const AddPlayerControls = ({ playerOptions1, playerOptions2, squad }) => {
       label: 'Non Strike',
       type: 'player-select',
       value: null,
-      key: 'batsmanOnNonStrike',
+      key: 'batsman_on_non_strike',
       options: playerOptions1,
       disabled: squad?.batsman_on_non_strike
     },
