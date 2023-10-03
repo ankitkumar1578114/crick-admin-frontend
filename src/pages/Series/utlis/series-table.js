@@ -4,11 +4,6 @@ import styles from '../../Team/List/styles.module.css'
 
 export const columns = [
   {
-    key: 'id',
-    header: 'Id',
-    accessor: 'id'
-  },
-  {
     key: 'img_url',
     header: '',
     accessor: (row) => (

@@ -26,7 +26,7 @@ const MatchPage = () => {
     }[data?.current_inning])
   }, [data])
 
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(data?.current_inning <= 0 ? 0 : 1)
 
   return (
         <>
