@@ -20,8 +20,14 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
   const [firstBatting, setFirstBatting] = useState(-1)
   const { startMatch } = useStartMatch({ matchId, getMatchById, firstBatting })
 
-  const { register, handleSubmit, setValue } = useForm()
-  const { updateStrike } = useUpdateStrike({ battingTeam, squadId: (battingTeam === 1) ? (squad1?.id) : (squad2?.id), getMatchById, matchId })
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
+  const { updateStrike } = useUpdateStrike({
+    battingTeam,
+    squadId: (battingTeam === 1) ? (squad1?.id) : (squad2?.id),
+    getMatchById,
+    matchId,
+    wickets: (battingTeam === 1) ? (score?.team1?.wickets) : (score?.team2?.wickets)
+  })
   useEffect(() => {
     setValue('batsman_on_strike', battingTeam === 1 ? squad1?.batsman_on_strike : squad2?.batsman_on_strike)
     setValue('batsman_on_non_strike', battingTeam === 1 ? squad1?.batsman_on_non_strike : squad2?.batsman_on_non_strike)
@@ -61,12 +67,13 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
                 index={active}
                 battingTeam={battingTeam}
                 loadingScore={loadingScore}
+                allBattingPlayers = {active === 0 ? squad1?.players : squad2?.players}
              />
         </div>
         {
         !loading && battingTeam === active + 1 &&
         <div className={style.entry_box}>
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={updateStrike} controls={controls} errors={errors}/>
             <ResultOptions score={score} data={matchData} loading={loading} battingTeam={battingTeam} getScoreData={getScoreData} getMatchById={getMatchById} />
         </div>
 

@@ -11,51 +11,74 @@ const MatchControls = () => {
       label: 'Match name',
       type: 'text',
       value: '',
-      key: 'name'
+      key: 'name',
+      rules: {
+        required: 'Match Name is Required'
+      }
     },
     {
       label: 'Team 1',
       type: 'team-select',
       value: '',
       key: 'team1',
-      ...teamOptions
+      ...teamOptions,
+      rules: {
+        required: 'Team1 is Required'
+      }
+
     },
     {
       label: 'Team 2',
       type: 'team-select',
       value: '',
       key: 'team2',
-      ...teamOptions
+      ...teamOptions,
+      rules: {
+        required: 'Team2 is Required'
+      }
     },
     {
       label: 'Venue',
       type: 'venue-select',
       value: '',
       key: 'venue',
-      ...venueOptions
+      ...venueOptions,
+      rules: {
+        required: 'Venue is Required'
+      }
+
     },
     {
       label: 'Series',
       type: 'series-select',
       value: '',
       key: 'series',
-      ...seriesOptions
+      ...seriesOptions,
+      rules: {
+        required: 'Series is Required'
+      }
     },
     {
       label: 'Overs',
-      type: 'series-select',
+      type: 'select',
       value: '',
       key: 'overs',
       options: [
-        { name: '20' },
-        { name: '50' }
-      ]
+        { label: '20', value: 20 },
+        { label: '50', value: 20 }
+      ],
+      rules: {
+        required: 'Overs are Required'
+      }
     },
     {
-      label: 'Start Time',
+      label: 'Time',
       type: 'datetime',
       value: '',
-      key: 'startTime'
+      key: 'startTime',
+      rules: {
+        required: 'Time are Required'
+      }
     }
 
   ]

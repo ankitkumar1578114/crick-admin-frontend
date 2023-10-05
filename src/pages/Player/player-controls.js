@@ -4,18 +4,27 @@ const playerControls = () => {
       label: 'Name',
       type: 'text',
       value: '',
-      key: 'name'
+      key: 'name',
+      rules: {
+        required: 'Name is Required'
+      }
     },
     {
       label: 'DOB',
       type: 'date',
-      key: 'dob'
+      key: 'dob',
+      rules: {
+        required: 'DOB is Required'
+      }
     },
     {
       label: 'Country',
       type: 'text',
       value: '',
-      key: 'country'
+      key: 'country',
+      rules: {
+        required: 'Country is Required'
+      }
     },
     {
       label: 'Expertise',
@@ -27,7 +36,10 @@ const playerControls = () => {
         { label: 'Bowling', value: 'bowl' },
         { label: 'Wicket Keeping', value: 'wk' },
         { label: 'Allrounder', value: 'all' }
-      ]
+      ],
+      rules: {
+        required: 'Expertise is Required'
+      }
     }
   ]
   return controls

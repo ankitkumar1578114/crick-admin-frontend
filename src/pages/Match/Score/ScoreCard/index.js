@@ -4,9 +4,9 @@ import Skelton from '../../../Components/Skelton'
 import Commentary from './Commentary'
 const ScoreCard = ({
   team, batsmanOnStrike, batsmanOnNonStrike,
-  index, battingTeam, loadingScore, target
+  index, battingTeam, loadingScore, target, allBattingPlayers
 }) => {
-  console.log(team?.target)
+  console.log(allBattingPlayers, 'all')
   return (<>
             <div className={styles.score_card} >
                 {
@@ -56,31 +56,37 @@ const ScoreCard = ({
                             <div><b>6s</b></div>
                 </div>
                     {
-                    (Object.keys(team?.batting_players || {}) || []).map((player) => (
+                    (allBattingPlayers?.filter((player) => {
+                      return player?.selected === 1 &&
+                        player?.batting_order < 12
+                    }))?.map((player) => {
+                      const playerId = player?.id
+                      return (
                         <>
                         <div className={
-                            parseInt(batsmanOnStrike) === parseInt(player)
+                            parseInt(batsmanOnStrike) === parseInt(playerId)
                               ? styles.player_list_row_striker
                               : styles.player_list_row}>
                             <div>
-                                { team?.batting_players[player].name}
+                                { team?.batting_players[playerId]?.name || player?.name}
                                 {parseInt(player) === parseInt(batsmanOnStrike) && (<>*</>)}
                             </div>
                             <div>
-                                { team?.batting_players[player].runs}
+                                { team?.batting_players[playerId]?.runs || 0}
                             </div>
                             <div>
-                                { team?.batting_players[player].balls}
+                                { team?.batting_players[playerId]?.balls || 0}
                             </div>
                             <div>
-                                { team?.batting_players[player].fours}
+                                { team?.batting_players[playerId]?.fours || 0}
                             </div>
                             <div>
-                                { team?.batting_players[player].sixes}
+                                { team?.batting_players[playerId]?.sixes || 0}
                             </div>
                         </div>
                         </>
-                    ))
+                      )
+                    })
                     }
                 </div>
 

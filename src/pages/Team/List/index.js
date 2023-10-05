@@ -12,13 +12,13 @@ import { columns } from '../utlis/team-table'
 
 const List = () => {
   const { data: teams, getTeams, loading } = useGetTeams()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
   const { addTeam } = useCreateTeam({ getTeams, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} errors={errors} controls={controls}/>
         </Modal>
 
         <div className={globalStyle.container}>

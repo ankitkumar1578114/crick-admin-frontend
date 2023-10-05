@@ -4,18 +4,28 @@ const VenueControls = () => {
       label: 'Venue Name',
       type: 'text',
       value: '',
-      key: 'name'
+      key: 'name',
+      rules: {
+        required: 'Venue Name is Required'
+      }
     },
     {
       label: 'Address',
       type: 'text',
       value: '',
-      key: 'address'
+      key: 'address',
+      rules: {
+        required: 'Address Name is Required'
+      }
+
     }, {
       label: 'Country',
       type: 'text',
       value: '',
-      key: 'country'
+      key: 'country',
+      rules: {
+        required: 'Country Name is Required'
+      }
     }
   ]
   return controls

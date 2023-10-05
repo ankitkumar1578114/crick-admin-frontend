@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 // import OpenRegistraiton from './OpenRegistration'
 
 const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal, antiSquad }) => {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = control({ squad, antiSquad })
   const { addPlayerInSquad } = useCreateSquad({ squadId: squad?.id, getMatchById, matchId })
   return (<>
@@ -38,7 +38,7 @@ const SquadItem = ({ squad, matchId, getMatchById, isSquadFinal, antiSquad }) =>
                             )
                         }
                       </div>
-                      {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls} submitBtnName="Add Player"/>
+                      {!isSquadFinal && <Layout register={register} handleSubmit={handleSubmit} onSubmit={addPlayerInSquad} controls={controls} errors={errors} submitBtnName="Add Player"/>
                       }
 
                 </div>

@@ -12,13 +12,13 @@ import { columns } from '../utlis/player-table'
 
 const List = () => {
   const controls = control()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const { data, getPlayers, loading } = useGetPlayers()
   const [show, setShow] = useState(false)
   const { createPlayer } = useCreatePlayer({ getPlayers, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createPlayer} controls={controls} errors={errors}/>
         </Modal>
 
         <div className={globalStyle.container}>

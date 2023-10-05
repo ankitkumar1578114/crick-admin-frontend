@@ -13,12 +13,12 @@ import playerControls from '../utlis/series-control'
 const List = () => {
   const { data, loading, listSeries } = useListSeries()
   const controls = playerControls()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const [show, setShow] = useState(false)
   const { createSeries } = useCreateSeries({ setShow, listSeries })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createSeries} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createSeries} controls={controls} errors={errors}/>
         </Modal>
             <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>

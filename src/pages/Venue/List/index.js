@@ -12,13 +12,13 @@ import { columns } from '../utlis/venue-table'
 
 const List = () => {
   const { data: venues, getVenues, loading } = useGetVenues()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
   const { addTeam } = useCreateVenue({ getVenues, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls}/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={addTeam} controls={controls} errors={errors}/>
         </Modal>
 
         <div className={style.container}>

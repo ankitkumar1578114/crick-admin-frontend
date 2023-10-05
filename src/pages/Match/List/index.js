@@ -12,13 +12,13 @@ import { columns } from '../utlis/match-table'
 
 const List = () => {
   const { data: matches, getMatches, loading } = useGetMatches()
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = MatchControls()
   const [show, setShow] = useState(false)
   const { createMatch } = useCreateMatch({ getMatches, setShow })
   return (<>
         <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls} submitBtnName='CREATE'/>
+            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls} errors={errors} submitBtnName='CREATE'/>
         </Modal>
         <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>

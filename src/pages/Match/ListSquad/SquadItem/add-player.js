@@ -13,7 +13,11 @@ const AddPlayerControls = ({ squad, antiSquad }) => {
       type: 'player-select',
       value: '',
       key: 'player_id',
-      ...afterFilterPlayerOptions
+      ...afterFilterPlayerOptions,
+      rules: {
+        required: 'Player is Required'
+      }
+
     }
   ]
   return controls

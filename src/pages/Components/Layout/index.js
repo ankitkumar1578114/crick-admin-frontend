@@ -6,33 +6,50 @@ import TeamSelect from '../TeamSelect'
 import VenueSelect from '../VenueSelect'
 import style from './styles.module.css'
 import SeriesSelect from '../SeriesSelect'
-const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'Submit' }) => {
+const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'Submit', errors }) => {
   // eslint-disable-next-line react/display-name
 
   // eslint-disable-next-line react/display-name
-  const Select = React.forwardRef(({ onChange, onBlur, name, label, options }, ref) => (
-          <>
-            <label className={style.label}>{label}</label>
-            <select className ={style.input} ref={ref} name={name} onChange={onChange} onBlur={onBlur}>
-                {options?.map((option, index) => (
-                      <option key={index} value={option.value}>{option.label}</option>
-                ))}
-            </select>
-          </>
+  const Select = React.forwardRef(({ onChange, onBlur, name, label, options, loading, disabled, error, rules }, ref) => (
+    <>
+    <div>
+        <div>
+        <label className={style.label}>{label}</label>
+        </div>
+        <div>
+        <select className ={style.input} name={name} onChange={onChange} onBlur={onBlur} ref={ref} disabled={disabled}>
+            {!loading && options?.map((option, index) => (
+                    <option key={index} value={option.value}>{option.label}</option>
+            ))}
+        </select>
+        </div>
+        <span className={style.error_text}>
+            { error ? (rules?.required || 'Required') : null}
+        </span>
+    </div>
+    </>
   ))
-  const Date = ({ label, _key, register, required }) => (
+
+  const Date = ({ label, _key, register, required, error, rules }) => (
     <>
     <div>
           <div><label className={style.label}>{label}</label></div>
       <div><input type='date' className={style.input} {...register(_key, { required })} /></div>
+      <span className={style.error_text}>
+            { error ? (rules?.required || 'Required') : null}
+        </span>
       </div>
     </>
   )
-  const DateTimeLocal = ({ label, _key, register, required }) => (
+  const DateTimeLocal = ({ label, _key, register, required, error, rules }) => (
     <>
     <div>
           <div><label className={style.label}>{label}</label></div>
-      <div><input type='datetime-local' className={style.normal_input} {...register(_key, { required })} /></div>
+          <div><input type='datetime-local' className={style.normal_input} {...register(_key, { required })} /></div>
+          <span className={style.error_text}>
+            { error ? (rules?.required || 'Required') : null}
+        </span>
+
       </div>
     </>
   )
@@ -41,15 +58,15 @@ const Layout = ({ handleSubmit, register, onSubmit, controls, submitBtnName = 'S
         <div className={style.form}>
         {
           controls.map((control) => {
-            const { label, key, options, type, loading, disabled } = control
-            if (type === 'text') { return (<><Input label={label} _key={key} register={register} required /></>) }
-            if (type === 'select') { return (<> <Select label={label} {...register(key)} options={options} /></>) }
-            if (type === 'player-select') { return (<> <PlayerSelect label={label} {...register(key)} options={options} loading={loading} disabled={disabled}/></>) }
-            if (type === 'team-select') { return (<> <TeamSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
-            if (type === 'venue-select') { return (<> <VenueSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
-            if (type === 'series-select') { return (<> <SeriesSelect label={label} {...register(key)} options={options} loading={loading}/></>) }
-            if (type === 'date') { return (<><Date label={label} _key={key} register={register} required /></>) }
-            if (type === 'datetime') { return (<><DateTimeLocal label={label} _key={key} register={register} required /></>) }
+            const { label, key, options, type, loading, disabled, rules } = control
+            if (type === 'text') { return (<><Input label={label} _key={key} register={register} error={errors?.[key]} rules={rules} /></>) }
+            if (type === 'select') { return (<> <Select label={label} {...register(key, { required: rules?.required })} options={options} loading={loading} disabled={disabled} error={errors?.[key]} rules={rules}/></>) }
+            if (type === 'player-select') { return (<> <PlayerSelect label={label} {...register(key, { required: rules?.required })} options={options} loading={loading} disabled={disabled} error={errors?.[key]} rules={rules}/></>) }
+            if (type === 'team-select') { return (<> <TeamSelect label={label} {...register(key, { required: rules?.required })} options={options} loading={loading} disabled={disabled} error={errors?.[key]} rules={rules}/></>) }
+            if (type === 'venue-select') { return (<> <VenueSelect label={label} {...register(key, { required: rules?.required })} options={options} loading={loading} disabled={disabled} error={errors?.[key]} rules={rules}/></>) }
+            if (type === 'series-select') { return (<> <SeriesSelect label={label} {...register(key, { required: rules?.required })} options={options} loading={loading} disabled={disabled} error={errors?.[key]} rules={rules}/></>) }
+            if (type === 'date') { return (<><Date label={label} _key={key} register={register} required={control?.rules?.required} rules={rules} error={errors?.[key]} disabled={disabled} /></>) }
+            if (type === 'datetime') { return (<><DateTimeLocal label={label} _key={key} register={register} disabled={disabled} required={control?.rules?.required} rules={rules} error={errors?.[key]} /></>) }
             return null
           })
         }

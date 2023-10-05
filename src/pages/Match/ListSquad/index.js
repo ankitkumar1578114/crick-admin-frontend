@@ -10,7 +10,10 @@ const ListSquad = ({ squad1, squad2, getMatchById, matchId, isSquadFinal }) => {
   return (<>
 
             <Tabs active={currentSquad} onChange={(index) => setCurrentSquad(index)}
-                tabs={[squad1?.teamName, squad2?.teamName]}
+                tabs={[
+                    `${squad1?.teamName} (${squad1?.players?.length})`,
+                    `${squad2?.teamName} (${squad2?.players?.length})`
+                ]}
             >
         <div className={styles.squads}>
             {

@@ -4,13 +4,19 @@ const TeamControls = () => {
       label: 'Team Name',
       type: 'text',
       value: '',
-      key: 'name'
+      key: 'name',
+      rules: {
+        required: 'Team Name is Required'
+      }
     },
     {
       label: 'Image Url',
       type: 'text',
       value: '',
-      key: 'image_url'
+      key: 'image_url',
+      rules: {
+        required: 'Image URL is Required'
+      }
     }
   ]
   return controls

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
+const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam, wickets }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
 
@@ -9,7 +9,6 @@ const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
       alert('Match has not started yet.')
       return
     }
-    console.log(values)
     const {
       batsman_on_strike: batsmanOnStrike,
       batsman_on_non_strike: batsmanOnNonStrike,
@@ -20,6 +19,7 @@ const useUpdateStrike = ({ squadId, getMatchById, matchId, battingTeam }) => {
       const payload =
         {
           squadId,
+          wickets,
           ...values
         }
       const res = await axios.put(process.env.REACT_APP_BACKEND + 'squad/update_squad', payload)
