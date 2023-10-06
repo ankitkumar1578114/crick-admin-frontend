@@ -22,10 +22,10 @@ const List = () => {
         </Modal>
             <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>
-                <div>
-                    Your Series
+                <div className={globalStyle.heading}>
+                    Series
                 </div>
-                <Button value="CREATE SERIES" onClick={() => setShow(true)}/>
+                <Button value="+" onClick={() => setShow(true)}/>
             </div>
                 <Table columns={columns} data={data} loading={loading}/>
             </div>

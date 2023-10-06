@@ -1,0 +1,15 @@
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap:20px;
+}
+.card{
+    width:calc(33% - 10px);
+    height:400px;
+    overflow: scroll;
+    border-radius: 4px;
+}
+.card::-webkit-scrollbar {
+    display: none;
+  }

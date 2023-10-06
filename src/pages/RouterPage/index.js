@@ -12,10 +12,12 @@ import Dashboard from '../../common/Dashboard'
 import WelcomePage from '../Welcome'
 import Navigations from '../Navigation'
 import { navigation } from './navigation'
+import DashboardPage from '../DashboardPage'
 
 const Comp = ({ path }) => {
   return {
     '/': <WelcomePage/>,
+    '/dashboard': <DashboardPage/>,
     '/player': <PlayerPage/>,
     '/squad': <SquadPage/>,
     '/team': <TeamPage/>,

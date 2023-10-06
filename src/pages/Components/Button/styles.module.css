@@ -6,12 +6,12 @@
     border-radius: 6px;
     box-shadow: 0 0 4px 1px rgba(93, 93, 93, 0.186);
     cursor: pointer;    
-    font-weight: 500;
+    font-weight: 600;
     opacity:0.8;
     transition:opacity 0.2s;
 }
 .primary{
-    background-color: rgb(22, 179, 61);;
+    background-color: rgb(15, 187, 107);;
     color:rgb(252, 252, 252);
 }
 .secondary{

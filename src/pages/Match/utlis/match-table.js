@@ -1,7 +1,7 @@
 import moment from 'moment'
 import Pill from '../../Components/Pill'
 import { Link } from 'react-router-dom'
-import Button from '../../Components/Button'
+import styles from '../../Team/List/styles.module.css'
 
 export const columns = [
   {
@@ -12,7 +12,12 @@ export const columns = [
   {
     key: 'name',
     header: 'Name',
-    accessor: 'name'
+    accessor: (row) => (
+      <>
+           <Link to={'/match/' + row?.id} className={styles.view_btn} >{row?.name}</Link>
+      </>
+    )
+
   },
   {
     key: 'team1',
@@ -63,16 +68,6 @@ export const columns = [
         }
         </>
     )
-  },
-  {
-    key: 'view_btn',
-    header: 'Overs',
-    accessor: (row) => (
-        <>
-             <Link to={'/match/' + row?.id} ><Button value="View" type="secondary"/></Link>
-        </>
-    )
-
   }
 
 ]

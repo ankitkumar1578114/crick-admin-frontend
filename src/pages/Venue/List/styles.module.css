@@ -1,7 +1,7 @@
 .container{
     width:100%;   
     margin: auto;
-    padding:10px 0;
+    background-color: var(--color-primary_background);
 }
 .img{
     width:30px;
@@ -12,8 +12,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:10px;
-    font-size: 22px;
+    padding:8px 12px;
     color:rgb(233, 233, 233);
-    padding-bottom:20px;
+}
+.heading{
+    font-size:16px;
 }

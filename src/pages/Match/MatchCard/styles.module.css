@@ -1,0 +1,34 @@
+.match_card{
+    width:280px;
+    height:70px;
+    margin:10px;
+    padding:20px;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--color-primary_background);
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.match_card:hover{
+    background-color: var(--color-secondary_background);
+}
+
+.match_card >*{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:20px;
+    margin:10px;
+}
+
+.match_card_team_name{
+    font-size:16px;
+    color:rgb(235, 235, 235);
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+.match_card_team_score{
+    color: var(--color-secondary_text);
+}

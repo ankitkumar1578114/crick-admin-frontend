@@ -13,10 +13,7 @@
     width:260px;
 }
 .right{
-    background-color: var(--color-primary_background);
-    padding:10px 30px;
     margin:36px 18px;
     width:calc(100% - 260px);
     border-radius: 6px;
-    box-shadow: var(--box_shadow_primary);
 }

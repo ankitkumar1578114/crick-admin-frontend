@@ -5,6 +5,10 @@ import useAuth from '../../Navigation/hooks/useAuth'
 const SideNav = ({ user, setUser, setUserLoaded }) => {
   const options = [
     {
+      key: '/dashboard',
+      label: 'Dashboard'
+    },
+    {
       key: '/series',
       label: 'Series'
     },

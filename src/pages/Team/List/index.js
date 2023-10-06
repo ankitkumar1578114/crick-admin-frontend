@@ -23,10 +23,10 @@ const List = () => {
 
         <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>
-                    <div>
-                        Your Teams
+                <div className={globalStyle.heading}>
+                        Teams
                     </div>
-                    <Button value="CREATE TEAM" onClick={() => setShow(true)}/>
+                    <Button value="+" onClick={() => setShow(true)}/>
             </div>
             <Table columns={columns} data={teams} loading={loading}/>
         </div>

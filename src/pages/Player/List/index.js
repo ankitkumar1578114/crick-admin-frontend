@@ -23,10 +23,10 @@ const List = () => {
 
         <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>
-                <div>
-                    Your Players
+                <div className={globalStyle.heading}>
+                    Players
                 </div>
-                <Button value="CREATE PLAYER" onClick={() => setShow(true)}/>
+                <Button value="+" onClick={() => setShow(true)}/>
             </div>
             <Table columns={columns} data={data} loading={loading}/>
             </div>

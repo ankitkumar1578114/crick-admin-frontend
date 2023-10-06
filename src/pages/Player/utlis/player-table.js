@@ -1,26 +1,14 @@
 import { Link } from 'react-router-dom'
-import Button from '../../Components/Button'
-
+import styles from '../../Team/List/styles.module.css'
 export const columns = [
-  {
-    key: 'id',
-    header: 'Id',
-    accessor: 'id'
-  },
   {
     key: 'name',
     header: 'Name',
-    accessor: 'name'
-  },
-  {
-    key: 'view_btn',
-    header: '  ',
     accessor: (row) => (
-        <>
-             <Link to={'/player/' + row?.id} ><Button value="View" type="secondary"/></Link>
-        </>
+      <>
+           <Link to={'/team/' + row?.id} className={styles.view_btn}>{row?.name}</Link>
+      </>
     )
-
   }
 
 ]

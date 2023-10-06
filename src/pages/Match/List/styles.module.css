@@ -26,3 +26,8 @@
     font-size: 20px;
     color:rgb(233, 233, 233);
 }
+
+.match_container{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -23,10 +23,10 @@ const List = () => {
 
         <div className={style.container}>
         <div className={style.flex_right}>
-            <div>
-                Your Venues
+            <div className={style.heading}>
+                Venues
             </div>
-                <Button value="CREATE VENUE" onClick={() => setShow(true)}/>
+                <Button value="+" onClick={() => setShow(true)}/>
             </div>
             <Table columns={columns} data={venues} loading={loading}/>
             </div>
