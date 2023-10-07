@@ -3,6 +3,22 @@ import styles from './styles.module.css'
 const Welcome = () => {
   const galaryImages = [
     {
+      text: 'Dashboard',
+      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/54130c23-c773-4bed-af9d-be43a3dc1bc5'
+    },
+    {
+      text: 'Match (Starting)',
+      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/4f3442ba-cc31-4da0-bb64-13f8b9a5fead'
+    },
+    {
+      text: 'Match (Running)',
+      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/8c671bbf-0666-4c4a-91d2-797ffd55ad94'
+    },
+    {
+      text: 'Match (Running)',
+      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/57b6e452-665e-4e22-8941-3fd328691bbd'
+    },
+    {
       text: 'Series',
       url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/46b97f83-3fff-43d4-b797-1a2ac5159eda'
     },
@@ -22,18 +38,6 @@ const Welcome = () => {
     {
       text: 'Player',
       url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/8e5bc310-1d4e-4b83-adb6-a7ba8d77892d'
-    },
-    {
-      text: 'Match (Starting)',
-      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/4f3442ba-cc31-4da0-bb64-13f8b9a5fead'
-    },
-    {
-      text: 'Match (Running)',
-      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/8c671bbf-0666-4c4a-91d2-797ffd55ad94'
-    },
-    {
-      text: 'Match (Running)',
-      url: 'https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/57b6e452-665e-4e22-8941-3fd328691bbd'
     }
   ]
   return <>

@@ -10,6 +10,8 @@
     outline: none;
     border:1px solid rgba(255, 255, 255, 0);
     font-size:16px;
+    border-bottom: 1px solid rgba(111, 141, 224, 0.404);
+    transition:border-bottom 0.1s;
 }
 
 .normal_input{

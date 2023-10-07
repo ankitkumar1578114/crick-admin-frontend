@@ -9,6 +9,8 @@
     background-color: var(--color-primary_background);
     text-decoration: none;
     cursor:pointer;
+    border:1px solid rgba(47, 138, 47, 0.185);
+    transition: background-color 0.2s;
 }
 
 .match_card:hover{

@@ -21,6 +21,7 @@
     align-items: center;
     padding:8px 12px;
     color:rgb(233, 233, 233);
+    border-bottom: 1px solid rgb(121, 120, 120);
 }
 .heading{
     font-size:16px;
