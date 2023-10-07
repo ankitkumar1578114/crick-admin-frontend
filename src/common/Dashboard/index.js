@@ -5,7 +5,7 @@ const Dashboard = ({ children, user, setUser, setUserLoaded, userLoaded }) => {
   const location = useLocation()
   if (['/', ''].includes(location.pathname)) {
     if (userLoaded && user) {
-      return <><Navigate to="/series"/></>
+      return <><Navigate to="/dashboard"/></>
     }
   } else {
     if (userLoaded && !user) {

@@ -9,9 +9,10 @@ import useCreateSeries from '../hooks/useCreateSeries'
 import Modal from '../../Components/Modal'
 import Layout from '../../Components/Layout'
 import playerControls from '../utlis/series-control'
-
+import layoutStyle from '../../Components/Layout/styles.module.css'
 const List = () => {
-  const { data, loading, listSeries } = useListSeries()
+  const [searchText, setSearchText] = useState('')
+  const { data, loading, listSeries } = useListSeries({ searchText })
   const controls = playerControls()
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [show, setShow] = useState(false)
@@ -25,9 +26,12 @@ const List = () => {
                 <div className={globalStyle.heading}>
                     Series
                 </div>
+                <input type="text" placeholder="Search series..." className={layoutStyle.input} value={searchText} onChange={(e) => { setSearchText(e.target.value) }}/>
                 <Button value="+" onClick={() => setShow(true)}/>
             </div>
-                <Table columns={columns} data={data} loading={loading}/>
+                <div className={globalStyle.table_content}>
+                    <Table columns={columns} data={data} loading={loading}/>
+                </div>
             </div>
         </>
   )

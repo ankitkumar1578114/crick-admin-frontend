@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-const useGetVenues = () => {
+const useGetVenues = ({ searchText = '' }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const config = {
@@ -9,7 +9,13 @@ const useGetVenues = () => {
     }
   }
   const getVenuesAPI = async (data) => {
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'venue/list_venues', data, config)
+    const payload = {
+      like: { name: searchText },
+      filters: {
+        created_by: 0
+      }
+    }
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'venue/list_venues', { ...payload }, config)
     return res
   }
   const getVenues = () => {
@@ -17,7 +23,7 @@ const useGetVenues = () => {
   }
   useEffect(() => {
     getVenues()
-  }, [])
+  }, [searchText])
   return {
     loading,
     data: data?.data,

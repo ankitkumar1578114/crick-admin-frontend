@@ -1,7 +1,7 @@
 import React from 'react'
 import style from '../Layout/styles.module.css'
 // eslint-disable-next-line react/display-name
-const PlayerSelect = React.forwardRef(({ onChange, onBlur, name, label, options, loading, disabled, error, rules }, ref) => (
+const PlayerSelect = React.forwardRef(({ onChange, onBlur, name, label, options, placeholder = '', loading, disabled, error, rules }, ref) => (
     <>
     <div>
         <div>
@@ -9,6 +9,7 @@ const PlayerSelect = React.forwardRef(({ onChange, onBlur, name, label, options,
         </div>
         <div>
         <select className ={style.input} name={name} onChange={onChange} onBlur={onBlur} ref={ref} disabled={disabled}>
+            <option value="" disabled selected style={{ display: 'none' }}>{placeholder || 'Select Player'} </option>
             {!loading && options?.map((option, index) => (
                     <option key={index} value={option.id}>{option.name}</option>
             ))}

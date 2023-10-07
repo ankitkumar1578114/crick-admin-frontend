@@ -8,7 +8,14 @@ const useGetMatches = () => {
   })
 
   const getMatches = () => {
-    trigger()
+    const payload = {
+      filters: {
+        created_by: 0
+      }
+    }
+    trigger({
+      ...payload
+    })
   }
 
   useEffect(() => {

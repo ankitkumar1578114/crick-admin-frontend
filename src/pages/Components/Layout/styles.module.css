@@ -4,18 +4,23 @@
 }
 .input,.normal_input{
     width:300px;
-    padding:14px;
+    padding:10px 14px;
     color:rgb(218, 218, 218);
     background-color: rgb(34, 34, 34);
     outline: none;
     border:1px solid rgba(255, 255, 255, 0);
-    border-radius: 4px;   
-    margin-top:10px;
     font-size:16px;
 }
+
 .normal_input{
     width:calc(300px - 30px)
 }
+
+
+.input:focus,.normal_input:focus{
+    border-bottom: 1px solid rgb(111, 141, 224);
+}
+
 .form{
     padding:10px;
     display: flex;

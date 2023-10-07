@@ -3,9 +3,9 @@ import useGetVenues from '../Venue/hooks/useGetVenues'
 import useListSeries from '../Series/hooks/useListSeries'
 
 const MatchControls = () => {
-  const teamOptions = useGetTeams()
-  const venueOptions = useGetVenues()
-  const seriesOptions = useListSeries()
+  const teamOptions = useGetTeams({})
+  const venueOptions = useGetVenues({})
+  const seriesOptions = useListSeries({})
   const controls = [
     {
       label: 'Match name',

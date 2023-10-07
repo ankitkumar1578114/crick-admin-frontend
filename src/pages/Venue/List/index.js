@@ -9,9 +9,11 @@ import { useState } from 'react'
 import Button from '../../Components/Button'
 import Table from '../../Components/Table'
 import { columns } from '../utlis/venue-table'
+import layoutStyle from '../../Components/Layout/styles.module.css'
 
 const List = () => {
-  const { data: venues, getVenues, loading } = useGetVenues()
+  const [searchText, setSearchText] = useState('')
+  const { data: venues, getVenues, loading } = useGetVenues({ searchText })
   const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
@@ -26,9 +28,13 @@ const List = () => {
             <div className={style.heading}>
                 Venues
             </div>
+            <input type="text" placeholder='Search venue...' className={layoutStyle.input} value={searchText} onChange={(e) => { setSearchText(e.target.value) }}/>
+
                 <Button value="+" onClick={() => setShow(true)}/>
             </div>
-            <Table columns={columns} data={venues} loading={loading}/>
+            <div className={style.table_content}>
+                    <Table columns={columns} data={venues} loading={loading}/>
+                </div>
             </div>
 
     </>)

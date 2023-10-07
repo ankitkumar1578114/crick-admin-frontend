@@ -9,11 +9,13 @@ import Modal from '../../Components/Modal'
 import { useState } from 'react'
 import Table from '../../Components/Table'
 import { columns } from '../utlis/player-table'
+import layoutStyle from '../../Components/Layout/styles.module.css'
 
 const List = () => {
+  const [searchText, setSearchText] = useState('')
+  const { data, getPlayers, loading } = useGetPlayers({ searchText })
   const controls = control()
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const { data, getPlayers, loading } = useGetPlayers()
   const [show, setShow] = useState(false)
   const { createPlayer } = useCreatePlayer({ getPlayers, setShow })
   return (<>
@@ -26,9 +28,12 @@ const List = () => {
                 <div className={globalStyle.heading}>
                     Players
                 </div>
+                <input type="text" placeholder="Search player..." className={layoutStyle.input} value={searchText} onChange={(e) => { setSearchText(e.target.value) }}/>
                 <Button value="+" onClick={() => setShow(true)}/>
             </div>
-            <Table columns={columns} data={data} loading={loading}/>
+            <div className={globalStyle.table_content}>
+                    <Table columns={columns} data={data} loading={loading}/>
+                </div>
             </div>
 
     </>)

@@ -21,6 +21,7 @@
     color: white;
 }
 .no_data_found{
+    height:100%;
     display: flex;
     justify-content: center;
     align-items: center;

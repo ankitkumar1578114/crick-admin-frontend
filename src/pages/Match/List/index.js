@@ -31,17 +31,22 @@ const List = () => {
             <a onClick={() => setView(view === 'list' ? 'block' : 'list')}>{view === 'list' ? 'Block' : 'List'}</a>
             <Button value="+" onClick={() => setShow(true)}/>
         </div>
-
-        {
+        <div className={globalStyle.table_content}>
             {
-              list: <Table columns={columns} data={matches} loading={loading}/>,
-              block: <div className={styles.match_container}>{
-              !loading && matches?.map((match, index) => (
-                <MatchCard match={match} key={index}/>
-              ))}
-              </div>
-            }[view]
-        }
+                {
+                  list: <Table columns={columns} data={matches} loading={loading}/>,
+                  block: <div className={styles.match_container}>{
+                !loading && (matches?.length > 0
+                  ? matches?.map((match, index) => (
+                    <MatchCard match={match} key={index}/>
+                  ))
+                  : <div className={globalStyle.no_data_found}>
+                    No Data Found
+                </div>)}
+                </div>
+                }[view]
+            }
+        </div>
         </div>
     </>)
 }

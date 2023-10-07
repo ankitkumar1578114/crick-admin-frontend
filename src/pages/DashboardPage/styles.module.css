@@ -6,10 +6,7 @@
 }
 .card{
     width:calc(33% - 10px);
-    height:400px;
-    overflow: scroll;
+    height:560px;
     border-radius: 4px;
+    box-shadow: var(--box_shadow_secondary);
 }
-.card::-webkit-scrollbar {
-    display: none;
-  }

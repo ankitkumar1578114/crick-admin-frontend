@@ -1,5 +1,4 @@
 const AddPlayerControls = ({ playerOptions1, playerOptions2, squad }) => {
-  console.log(squad, playerOptions1)
   const afterFilterPlayerOptions = playerOptions1?.filter(function (player) {
     return (player?.batting_order === 12 && player?.selected === 1) || [squad?.batsman_on_strike, squad?.batsman_on_non_strike].includes(player?.id)
   })

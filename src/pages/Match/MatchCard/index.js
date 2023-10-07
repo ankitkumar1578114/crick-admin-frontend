@@ -1,8 +1,22 @@
 import { Link } from 'react-router-dom'
 import styles from './styles.module.css'
 const MatchCard = ({ loading = true, match = {} }) => {
+  console.log(match)
   return <>
                         <Link to={'/match/' + match?.id} className={styles.match_card} >
+                           <div className={styles.header}>
+                                <div className={styles.series_name}>
+                                    {match?.series_name}
+                                </div>
+                                <div className={styles.match_status}>
+                                {
+                                        [1, 2, -1, -2].includes(match?.current_inning)
+                                          ? 'Live'
+                                          : null
+                                }
+                                    </div>
+                            </div>
+
                             <div>
                                 <div className={styles.match_card_team_name}>
                                     <div>

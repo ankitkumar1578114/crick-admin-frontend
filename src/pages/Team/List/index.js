@@ -9,9 +9,11 @@ import { useState } from 'react'
 import Button from '../../Components/Button'
 import Table from '../../Components/Table'
 import { columns } from '../utlis/team-table'
+import layoutStyle from '../../Components/Layout/styles.module.css'
 
 const List = () => {
-  const { data: teams, getTeams, loading } = useGetTeams()
+  const [searchText, setSearchText] = useState('')
+  const { data: teams, getTeams, loading } = useGetTeams({ searchText })
   const { register, handleSubmit, formState: { errors } } = useForm()
   const controls = control()
   const [show, setShow] = useState(false)
@@ -25,10 +27,13 @@ const List = () => {
             <div className={globalStyle.flex_right}>
                 <div className={globalStyle.heading}>
                         Teams
-                    </div>
-                    <Button value="+" onClick={() => setShow(true)}/>
+                </div>
+                <input type="text" placeholder="Search Team..." className={layoutStyle.input} value={searchText} onChange={(e) => { setSearchText(e.target.value) }}/>
+                <Button value="+" onClick={() => setShow(true)}/>
             </div>
-            <Table columns={columns} data={teams} loading={loading}/>
+                <div className={globalStyle.table_content}>
+                    <Table columns={columns} data={teams} loading={loading}/>
+                </div>
         </div>
 
     </>)

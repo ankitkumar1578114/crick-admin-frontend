@@ -5,6 +5,7 @@ const playerControls = () => {
       type: 'text',
       value: '',
       key: 'name',
+      placeholder: 'Enter Series Name',
       rules: {
         required: 'Series Name is Required'
       }
@@ -15,6 +16,7 @@ const playerControls = () => {
       type: 'text',
       value: '',
       key: 'image_url',
+      placeholder: 'Enter Series Image',
       rules: {
         required: 'Image Url Name is Required'
       }

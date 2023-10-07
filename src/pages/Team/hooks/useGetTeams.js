@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-const useGetTeams = () => {
+const useGetTeams = ({ searchText = '' }) => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const config = {
@@ -9,7 +9,14 @@ const useGetTeams = () => {
     }
   }
   const getTeamsFunc = async (data) => {
-    const res = await axios.post(process.env.REACT_APP_BACKEND + 'team/list_teams', data, config)
+    const payload = {
+      ...data,
+      like: {
+        name: searchText
+      }
+    }
+    console.log(payload, data)
+    const res = await axios.post(process.env.REACT_APP_BACKEND + 'team/list_teams', { ...payload }, config)
     return res
   }
   const getTeams = () => {
@@ -17,7 +24,7 @@ const useGetTeams = () => {
   }
   useEffect(() => {
     getTeams()
-  }, [])
+  }, [searchText])
 
   return {
     loading,

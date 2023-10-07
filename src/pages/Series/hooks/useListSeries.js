@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import useRequest from '../../../common/hooks/useRequest'
-const useListSeries = () => {
+const useListSeries = ({ searchText = '' }) => {
   const { data, loading, trigger } = useRequest({
     url: 'series/list_series',
     method: 'post',
@@ -11,6 +11,9 @@ const useListSeries = () => {
     const payload = {
       filters: {
         created_by: 0
+      },
+      like: {
+        name: searchText
       }
     }
     trigger(payload)
@@ -18,7 +21,7 @@ const useListSeries = () => {
 
   useEffect(() => {
     listSeries()
-  }, [])
+  }, [searchText])
   return {
     loading,
     data: data?.data,

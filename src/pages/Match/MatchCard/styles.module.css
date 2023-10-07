@@ -1,8 +1,9 @@
 .match_card{
     width:280px;
-    height:70px;
+    height: 100%;
+    height:fit-content;
     margin:10px;
-    padding:20px;
+    padding:10px;
     border-radius: 4px;
     font-size: 14px;
     background-color: var(--color-primary_background);
@@ -31,4 +32,13 @@
 }
 .match_card_team_score{
     color: var(--color-secondary_text);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.705);
+}
+.match_status{
+    color:rgb(65, 212, 65);
 }

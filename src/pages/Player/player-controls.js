@@ -5,6 +5,7 @@ const playerControls = () => {
       type: 'text',
       value: '',
       key: 'name',
+      placeholder: 'Enter Player Name',
       rules: {
         required: 'Name is Required'
       }
@@ -22,6 +23,7 @@ const playerControls = () => {
       type: 'text',
       value: '',
       key: 'country',
+      placeholder: 'Enter Country Name',
       rules: {
         required: 'Country is Required'
       }
