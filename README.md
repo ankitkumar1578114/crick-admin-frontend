@@ -1,4 +1,4 @@
-Live Url : https://statuesque-hotteok-0f3960.netlify.app
+Live Url : https://crick-bold.netlify.app/
 
 ![Screenshot from 2023-10-04 00-31-21](https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/d7137e8e-2e70-46f9-b86b-63b0f0ffb409)
 ![Screenshot from 2023-10-04 00-52-47](https://github.com/ankitkumar1578114/crick-admin-frontend/assets/57772916/a8bee194-4518-4852-9991-7320b8a996fc)
