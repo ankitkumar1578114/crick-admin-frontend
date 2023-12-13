@@ -1,6 +1,6 @@
-import useGetPlayers from '../../../Player/hooks/useGetPlayers'
+import useListPlayers from '../../../Player/hooks/useListPlayers'
 const AddPlayerControls = ({ squad, antiSquad }) => {
-  const playersOptions = useGetPlayers({})
+  const playersOptions = useListPlayers({})
   const afterFilterPlayerOptions = {
     options: playersOptions?.options?.filter(function (val) {
       return [...squad?.players, ...antiSquad?.players]?.map((player) => { return player?.id })?.indexOf(val?.id) === -1

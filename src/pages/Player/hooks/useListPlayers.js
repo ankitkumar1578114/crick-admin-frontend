@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import useRequest from '../../../common/hooks/useRequest'
-const useListSeries = ({ searchText = '', primaryCall = true }) => {
+const useListPlayers = ({ searchText = '', primaryCall = true }) => {
   const [count, setCount] = useState(0)
 
   const { data, loading, trigger } = useRequest({
-    url: 'series/list_series',
+    url: 'player/list_players',
     method: 'post',
     isConfig: true
   })
 
-  const listSeries = async () => {
+  const listPlayers = async () => {
     const payload = {
       filters: {
         created_by: 0
@@ -23,9 +23,9 @@ const useListSeries = ({ searchText = '', primaryCall = true }) => {
 
   useEffect(() => {
     if (primaryCall) {
-      listSeries()
+      listPlayers()
     } else {
-      if (count >= 1) { listSeries() }
+      if (count >= 1) { listPlayers() }
     }
     setCount(count + 1)
   }, [searchText])
@@ -34,7 +34,7 @@ const useListSeries = ({ searchText = '', primaryCall = true }) => {
     loading,
     data: data?.data,
     options: data?.data,
-    listSeries
+    listPlayers
   }
 }
-export default useListSeries
+export default useListPlayers

@@ -1,6 +1,6 @@
 import useRequest from '../../../common/hooks/useRequest'
 
-const useCreateTeam = ({ getTeams, setShow }) => {
+const useCreateTeam = ({ listTeams, setShow }) => {
   const { data, loading, trigger } = useRequest({
     url: 'team/create_team',
     method: 'post',
@@ -10,7 +10,7 @@ const useCreateTeam = ({ getTeams, setShow }) => {
   const addTeam = async (data) => {
     await trigger(data)
     setShow(false)
-    await getTeams()
+    await listTeams()
   }
 
   return { addTeam, loading, data }

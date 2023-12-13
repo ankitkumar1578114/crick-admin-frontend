@@ -1,5 +1,5 @@
-import useGetTeams from '../Team/hooks/useGetTeams'
-import useGetVenues from '../Venue/hooks/useGetVenues'
+import useGetTeams from '../Team/hooks/useListTeams'
+import useGetVenues from '../Venue/hooks/useListVenues'
 import useListSeries from '../Series/hooks/useListSeries'
 
 const MatchControls = () => {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const useCreatePlayer = ({ getPlayers, setShow }) => {
+const useCreatePlayer = ({ listPlayers, setShow }) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -9,7 +9,7 @@ const useCreatePlayer = ({ getPlayers, setShow }) => {
   let res
   const createPlayer = async (data) => {
     res = await axios.post(process.env.REACT_APP_BACKEND + 'player/insert_player', data, config)
-    getPlayers()
+    listPlayers()
     setShow(false)
   }
 

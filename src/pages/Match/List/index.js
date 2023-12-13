@@ -1,28 +1,40 @@
-import { useForm } from 'react-hook-form'
-import Layout from '../../Components/Layout'
-import useCreateMatch from '../hooks/useCreateMatch'
 import useGetMatches from '../hooks/useGetMatches'
-import MatchControls from '../match-controls'
 import globalStyle from '../../Venue/List/styles.module.css'
-import Modal from '../../Components/Modal'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../../Components/Button'
 import Table from '../../Components/Table'
 import { columns } from '../utlis/match-table'
 import MatchCard from '../MatchCard'
 import styles from './styles.module.css'
+import AddMatchModal from './AddMatchModal'
 
-const List = () => {
-  const { data: matches, getMatches, loading } = useGetMatches()
-  const { register, handleSubmit, formState: { errors } } = useForm()
-  const controls = MatchControls()
+const List = ({ matches: matchesFromDashboard, loading: loadingFromDashboard, isFromDashboard = false }) => {
+  const [matches, setMatches] = useState([])
+  const [loading, setLoading] = useState(false)
+  const { data: matchesFromMain, getMatches, loadingFromMain } = useGetMatches()
+
+  useEffect(() => {
+    setMatches(matchesFromDashboard)
+    setLoading(loadingFromDashboard)
+  }, [JSON.stringify(matchesFromDashboard)])
+
+  useEffect(() => {
+    setMatches(matchesFromMain)
+    setLoading(loadingFromMain)
+  }, [JSON.stringify(matchesFromMain)])
+
+  useEffect(() => {
+    if (!isFromDashboard) { getMatches() }
+  }, [])
+
   const [show, setShow] = useState(false)
-  const { createMatch } = useCreateMatch({ getMatches, setShow })
   const [view, setView] = useState('list')
   return (<>
-        <Modal show={show} setShow={setShow} size="md">
-            <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls} errors={errors} submitBtnName='CREATE'/>
-        </Modal>
+        {
+          show
+            ? <AddMatchModal getMatches={getMatches} setShow={setShow} show={show}/>
+            : null
+        }
         <div className={globalStyle.container}>
             <div className={globalStyle.flex_right}>
             <div className={globalStyle.heading}>

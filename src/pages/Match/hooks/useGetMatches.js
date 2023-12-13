@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import useRequest from '../../../common/hooks/useRequest'
 const useGetMatches = () => {
   const { data, loading, trigger } = useRequest({
@@ -18,9 +17,6 @@ const useGetMatches = () => {
     })
   }
 
-  useEffect(() => {
-    getMatches()
-  }, [])
   return {
     loading,
     data: data?.data,

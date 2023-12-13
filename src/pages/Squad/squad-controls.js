@@ -1,7 +1,7 @@
-import useGetPlayers from '../Player/hooks/useGetPlayers'
+import useListPlayers from '../Player/hooks/useListPlayers'
 
 const SquadControls = () => {
-  const playersOptions = useGetPlayers()
+  const playersOptions = useListPlayers()
   const controls = [
     {
       label: 'Squad Id',

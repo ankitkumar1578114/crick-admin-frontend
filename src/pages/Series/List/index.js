@@ -4,15 +4,28 @@ import { columns } from '../utlis/series-table'
 import Table from '../../Components/Table'
 import Button from '../../Components/Button'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import useCreateSeries from '../hooks/useCreateSeries'
 import Modal from '../../Components/Modal'
 import Layout from '../../Components/Layout'
 import playerControls from '../utlis/series-control'
 import layoutStyle from '../../Components/Layout/styles.module.css'
-const List = () => {
+const List = ({ series: seriesFromDashboard, loading: loadingFromDashboard, primaryCall = true }) => {
+  const [series, setSeries] = useState([])
+  const [loading, setLoading] = useState(false)
   const [searchText, setSearchText] = useState('')
-  const { data, loading, listSeries } = useListSeries({ searchText })
+  const { data: seriesFromMain, loadingFromMain, listSeries } = useListSeries({ searchText, primaryCall })
+
+  useEffect(() => {
+    setSeries(seriesFromDashboard)
+    setLoading(loadingFromDashboard)
+  }, [JSON.stringify(seriesFromDashboard)])
+
+  useEffect(() => {
+    setSeries(seriesFromMain)
+    setLoading(loadingFromMain)
+  }, [JSON.stringify(seriesFromMain)])
+
   const controls = playerControls()
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [show, setShow] = useState(false)
@@ -30,7 +43,7 @@ const List = () => {
                 <Button value="+" onClick={() => setShow(true)}/>
             </div>
                 <div className={globalStyle.table_content}>
-                    <Table columns={columns} data={data} loading={loading}/>
+                    <Table columns={columns} data={series} loading={loading}/>
                 </div>
             </div>
         </>
