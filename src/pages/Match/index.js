@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
 import styles from './styles.module.css'
 import useGetMatchById from './hooks/useGetMatchById'
-import useGetScore from './hooks/useGetScore'
 import Score from './Score'
 
 import { useParams } from 'react-router-dom'
 import ListSquad from './ListSquad'
-import Dashboard from './Dashboard'
 
 const MatchPage = () => {
   const { id: matchId } = useParams()
   const { loading, data, getMatchById } = useGetMatchById(matchId)
-  const { loading: loadingScore, score, getScoreData } = useGetScore({ matchId, team1: data?.team1?.id, team2: data?.team2?.id })
   const [battingTeam, setBattingTeam] = useState(data?.current_inning)
 
   useEffect(() => {
@@ -44,9 +41,7 @@ const MatchPage = () => {
         }
         {
           data?.is_squads_final !== 0 && <>
-           <div className={styles.dashboard}>
-              <Score score={score}
-                  loadingScore={loadingScore}
+              <Score
                   squad1={data?.squad1}
                   squad2={data?.squad2}
                   battingTeam={battingTeam}
@@ -54,16 +49,13 @@ const MatchPage = () => {
                   matchId={matchId}
                   matchData={data}
                   loading={loading}
-                  getScoreData={getScoreData}
                   active={active}
                   setActive={setActive}
               />
-            </div>
 
           </>
         }
       </div>
-        <Dashboard score={score} battingTeam={battingTeam} active={active}/>
         </>
   )
 }

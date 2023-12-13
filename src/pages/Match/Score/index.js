@@ -10,7 +10,12 @@ import Button from '../../Components/Button'
 import useStartMatch from '../hooks/useStartMatch'
 import ResultOptions from './ResultOptions'
 import Tabs from '../../Components/Tabs'
-const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matchData, loadingScore, loading, getScoreData, active, setActive }) => {
+import useGetScore from '../hooks/useGetScore'
+import Dashboard from '../Dashboard'
+
+const Score = ({ squad1, squad2, battingTeam, getMatchById, matchId, matchData, loading, active, setActive }) => {
+  const { loading: loadingScore, score, getScoreData } = useGetScore({ matchId, team1: matchData?.team1?.id, team2: matchData?.team2?.id })
+
   const controls = control({
     playerOptions1: battingTeam === 1 ? squad1?.players : squad2?.players,
     playerOptions2: battingTeam === 1 ? squad2?.players : squad1?.players,
@@ -35,6 +40,7 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
   }, [battingTeam, squad1, squad2])
 
   return (<>
+           <div className={style.dashboard}>
         {
           battingTeam === 0 && (<div className={style.flex}>
               <Pill content="Not started yet" type="secondary" />
@@ -79,7 +85,11 @@ const Score = ({ score, squad1, squad2, battingTeam, getMatchById, matchId, matc
 
         }
 
-    </>)
+    </div>
+            <Dashboard score={score} battingTeam={battingTeam} active={active}/>
+        </>
+
+  )
 }
 
 export default Score
