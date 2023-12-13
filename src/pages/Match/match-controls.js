@@ -69,7 +69,7 @@ const MatchControls = ({ teamOptions = [], venueOptions = [], seriesOptions = []
       label: 'Time',
       type: 'datetime',
       value: '',
-      key: 'startTime',
+      key: 'start_time',
       rules: {
         required: 'Time are Required'
       }
