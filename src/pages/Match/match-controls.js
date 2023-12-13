@@ -52,7 +52,7 @@ const MatchControls = () => {
       label: 'Series',
       type: 'series-select',
       value: '',
-      key: 'series',
+      key: 'series_id',
       ...seriesOptions,
       rules: {
         required: 'Series is Required'

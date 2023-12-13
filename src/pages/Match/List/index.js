@@ -18,7 +18,7 @@ const List = () => {
   const controls = MatchControls()
   const [show, setShow] = useState(false)
   const { createMatch } = useCreateMatch({ getMatches, setShow })
-  const [view, setView] = useState('block')
+  const [view, setView] = useState('list')
   return (<>
         <Modal show={show} setShow={setShow} size="md">
             <Layout register={register} handleSubmit={handleSubmit} onSubmit={createMatch} controls={controls} errors={errors} submitBtnName='CREATE'/>

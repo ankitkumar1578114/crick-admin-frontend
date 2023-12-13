@@ -7,6 +7,21 @@
     margin-top:40px;
 }
 
+.series_heading{
+    background-color: rgb(34, 34, 34);
+    padding:20px;
+    font-size:26px;
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+
+.series_image{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+}
+
 .matchContainer{
     display: flex;
     flex-wrap: wrap;
@@ -34,4 +49,16 @@
 .match_card_img{
     width:30px;
     height:30px;
+}
+
+
+.topPerformerContainer{
+    display: flex;
+    padding-top:10px;
+    gap:10px;
+    border-top: 1px solid rgb(109, 109, 109);
+}
+
+.topPerformerContainer >*{
+    width:50%;
 }
