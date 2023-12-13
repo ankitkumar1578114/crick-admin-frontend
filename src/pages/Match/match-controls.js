@@ -1,11 +1,5 @@
-import useGetTeams from '../Team/hooks/useListTeams'
-import useGetVenues from '../Venue/hooks/useListVenues'
-import useListSeries from '../Series/hooks/useListSeries'
-
-const MatchControls = () => {
-  const teamOptions = useGetTeams({})
-  const venueOptions = useGetVenues({})
-  const seriesOptions = useListSeries({})
+const MatchControls = ({ teamOptions = [], venueOptions = [], seriesOptions = [] }) => {
+  console.log(teamOptions, 'ttww')
   const controls = [
     {
       label: 'Match name',
@@ -21,7 +15,7 @@ const MatchControls = () => {
       type: 'team-select',
       value: '',
       key: 'team1',
-      ...teamOptions,
+      options: teamOptions,
       rules: {
         required: 'Team1 is Required'
       }
@@ -32,7 +26,7 @@ const MatchControls = () => {
       type: 'team-select',
       value: '',
       key: 'team2',
-      ...teamOptions,
+      options: teamOptions,
       rules: {
         required: 'Team2 is Required'
       }
@@ -42,7 +36,7 @@ const MatchControls = () => {
       type: 'venue-select',
       value: '',
       key: 'venue',
-      ...venueOptions,
+      options: venueOptions,
       rules: {
         required: 'Venue is Required'
       }
@@ -53,7 +47,7 @@ const MatchControls = () => {
       type: 'series-select',
       value: '',
       key: 'series_id',
-      ...seriesOptions,
+      options: seriesOptions,
       rules: {
         required: 'Series is Required'
       }

@@ -7,7 +7,6 @@ import styles from './styles.module.css'
 import useGetDashboard from './hooks/useGetDashboard'
 const DashboardPage = () => {
   const { data, loading } = useGetDashboard()
-  console.log(data, 'ddd')
 
   const {
     matches = [],
